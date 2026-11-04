@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#05060F">
-<title>Hybrid Group Discussion · Bandung Digital Policy Days 2026</title>
+<title>Virtual Group Discussion · Bandung Digital Policy Days 2026</title>
 <meta name="description" content="Virtual Group Discussion Bandung Digital Policy Days 2026 — Pusat Kebijakan Strategis, Kementerian Komunikasi dan Digital. 10–11 November 2026, daring.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,10 +18,14 @@
    atau koma. Biarkan kosong ('') bila belum ada.
    ===================================================================== */
 const CONFIG = {
-  // Tautan Zoom tiap ruang (dibuka di tab baru)
+  // Tautan Zoom TIAP SESI (nomor sesi 1–5 sesuai nota dinas), dibuka di tab baru.
+  // id dan kode boleh dikosongkan bila sudah termasuk di dalam tautan.
   zoom: {
-    1: { link: '', id: '', kode: '' },   // Room 1 / CH-01
-    2: { link: '', id: '', kode: '' }    // Room 2 / CH-02
+    1: { link: 'https://s.komdigi.go.id/InternetPolicyGlobalLandscape', id: '', kode: '' },             // Internet Policy Global Landscape
+    2: { link: 'https://s.komdigi.go.id/TransformatorPolicy2045', id: '', kode: '' },                   // Digital Direction and Policy 2045
+    3: { link: 'https://s.komdigi.go.id/ASEAN-RSDPGuideline', id: '', kode: '' },                       // Rapid Scam Disruption Protocol
+    4: { link: 'https://s.komdigi.go.id/KesiapanOrganisasidalamImplementasiPPTUNAS', id: '', kode: '' }, // PP Tunas
+    5: { link: 'https://s.komdigi.go.id/ForumDiskusiKebijakan', id: '', kode: '' }                      // Pemanfaatan AI
   },
 
   // OPSIONAL: video yang BISA disematkan (Jitsi https://meet.jit.si/NamaRuang
@@ -48,18 +52,7 @@ const CONFIG = {
   materi: { 1: '', 2: '', 3: '', 4: '', 5: '' },
 
   // Ruang ngobrol saat ISHOMA (Zoom/Meet terpisah)
-  rehat: '',
-
-  // Tautan khusus tiap sesi (nomor sesi 1–5 sesuai nota dinas)
-  sesiLink: {
-    1: 'https://s.komdigi.go.id/InternetPolicyGlobalLandscape',            // Internet Policy Global Landscape
-    2: 'https://s.komdigi.go.id/TransformatorPolicy2045',                  // Digital Direction and Policy 2045
-    3: 'https://s.komdigi.go.id/ASEAN-RSDPGuideline',                      // Rapid Scam Disruption Protocol
-    4: 'https://s.komdigi.go.id/KesiapanOrganisasidalamImplementasiPPTUNAS', // PP Tunas
-    5: 'https://s.komdigi.go.id/ForumDiskusiKebijakan'                     // Pemanfaatan AI
-  },
-  // Tulisan pada tombol tautan sesi (boleh diganti, mis. 'Daftar sesi')
-  sesiLinkLabel: 'Formulir sesi'
+  rehat: ''
 };
 </script>
 
@@ -308,6 +301,7 @@ const mins = (hm) => { const [h, m] = hm.split('.').map(Number); return h * 60 +
 const SPAN = mins('16.00') - mins('10.30');
 const T0 = at('2026-11-10', '10.30'), TEND = at('2026-11-11', '16.00');
 const rgb = (hex) => [1, 3, 5].map((k) => parseInt(hex.slice(k, k + 2), 16)).join(',');
+const zlink = (n) => (CONFIG.zoom[n] || {}).link;
 const has = (v) => typeof v === 'string' && v.trim() !== '';
 const ini = (n) => n.replace(/(Dr\.|Eng\.)\s*/g, '').split(/[\s\/–-]+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
 const first = (n) => { for (let d = 0; d < 2; d++) for (let i = 0; i < 4; i++) if (HARI[d].slots[i].num === n) return { d, i, x: HARI[d].slots[i] }; };
@@ -402,9 +396,9 @@ function vBeranda() {
         <span class="mono" style="font-size:11px;color:var(--mu)">CH-0${f.x.room} · ${HARI[f.d].date}</span></button>`; }).join('')}</div>
   </section>
   <section aria-labelledby="links" class="panel brk" style="padding:clamp(16px,3vw,24px);display:flex;flex-direction:column;gap:14px">
-    <h2 id="links" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">${CONFIG.sesiLinkLabel.toUpperCase()} · AKSES CEPAT</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:10px">${[3, 4, 1, 5, 2].filter((n) => has(CONFIG.sesiLink[n])).map((n) => { const se = SESI[n];
-      return `<a href="${CONFIG.sesiLink[n]}" target="_blank" rel="noopener" class="cap" style="min-height:60px;display:flex;align-items:center;gap:12px;border:1px solid ${se.a};border-left:3px solid ${se.color};border-radius:12px;padding:10px 14px;background:rgba(255,255,255,.02)">${motif(n, '36px', se.color, se.b)}<span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:11px;color:${se.color}">SESI_0${n}</span><span style="font-size:14px;font-weight:600;line-height:1.3">${se.name}</span></span><span aria-hidden="true" style="color:var(--cy)">↗</span></a>`; }).join('')}</div>
+    <h2 id="links" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">GABUNG ZOOM · TAUTAN TIAP SESI</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:10px">${[3, 4, 1, 5, 2].filter((n) => has(zlink(n))).map((n) => { const se = SESI[n];
+      return `<a href="${zlink(n)}" target="_blank" rel="noopener" class="cap" style="min-height:60px;display:flex;align-items:center;gap:12px;border:1px solid ${se.a};border-left:3px solid ${se.color};border-radius:12px;padding:10px 14px;background:rgba(255,255,255,.02)">${motif(n, '36px', se.color, se.b)}<span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:11px;color:${se.color}">SESI_0${n} · ROOM ${first(n).x.room} · ${HARI[first(n).d].date}</span><span style="font-size:14px;font-weight:600;line-height:1.3">${se.name}</span></span><span aria-hidden="true" style="color:var(--cy)">↗</span></a>`; }).join('')}</div>
   </section></div>`;
 }
 
@@ -482,9 +476,9 @@ function vSesi() {
         <span style="font-size:16px;color:var(--mu2)">${se.name}</span>
         <div class="mono" style="display:flex;flex-wrap:wrap;gap:8px;font-size:12px">${[d.long, s.time + ' WIB', `CH-0${s.room} / ROOM ${s.room}`].map((t) => `<span style="border:1px solid rgba(110,243,255,.3);border-radius:8px;padding:6px 10px">${t}</span>`).join('')}</div>
         <div class="btn-row-m" style="display:flex;flex-wrap:wrap;gap:10px;padding-top:4px">
-          <button type="button" class="btn" data-live="${s.room}" style="background:linear-gradient(90deg,${se.color},#B9A8FF);color:#05060F;box-shadow:0 0 24px ${se.b}">Masuk ruang diskusi Room ${s.room}</button>
+          ${has(zlink(s.num)) ? `<a class="btn" href="${zlink(s.num)}" target="_blank" rel="noopener" style="background:linear-gradient(90deg,${se.color},#B9A8FF);color:#05060F;box-shadow:0 0 24px ${se.b}">Gabung Zoom sesi ini ↗</a>` : ''}
+          <button type="button" class="btn btn-line" data-live="${s.room}">Buka ruang diskusi Room ${s.room}</button>
           <button type="button" class="btn btn-line" data-save="${s.key}" aria-pressed="${on}">${on ? '◆ Tersimpan' : '◇ Simpan'}</button>
-          ${has(CONFIG.sesiLink[s.num]) ? `<a class="btn" href="${CONFIG.sesiLink[s.num]}" target="_blank" rel="noopener" style="border:1px solid ${se.color};background:${se.a};color:var(--tx)">${CONFIG.sesiLinkLabel} ↗</a>` : ''}
           ${has(mat) ? `<a class="btn btn-line" href="${mat}" target="_blank" rel="noopener">Bahan sesi ↗</a>` : ''}
         </div>
       </div>
@@ -504,7 +498,7 @@ function vSesi() {
 function vLive() {
   const list = [0, 1, 2, 3].map((i) => slot(S.day, i)).filter((x) => x.room === S.room);
   const cur = list.find((x) => x.st.state === 'live') || list.find((x) => x.st.state === 'soon') || list[list.length - 1];
-  const se = cur.se, z = CONFIG.zoom[S.room] || {}, vid = CONFIG.embedVideo[S.room], m = CONFIG.menti[cur.num] || {};
+  const se = cur.se, z = CONFIG.zoom[cur.num] || {}, vid = CONFIG.embedVideo[S.room], m = CONFIG.menti[cur.num] || {};
   const roomTab = (r) => { const rs = [0, 1, 2, 3].map((i) => slot(S.day, i)).filter((x) => x.room === r), lv = rs.find((x) => x.st.state === 'live');
     return `<button type="button" class="seg" data-room="${r}" aria-pressed="${S.room === r}" style="flex:1;min-width:0;min-height:60px"><span class="mono" style="font-size:13px;font-weight:700;letter-spacing:.08em">CH-0${r} · ROOM ${r}</span><span style="font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${lv ? '● LIVE: ' + lv.title : [...new Set(rs.map((x) => x.title))].join(' · ')}</span></button>`; };
   const eq = Array.from({ length: 24 }, (_, i) => `<span class="eqb" style="height:${30 + ((i * 37) % 70)}%;background:linear-gradient(180deg,${se.color},#6EF3FF);animation-delay:${(-(i * 0.13) % 1.2).toFixed(2)}s;animation-duration:${(0.9 + ((i * 7) % 6) / 10).toFixed(1)}s"></span>`).join('');
@@ -525,7 +519,7 @@ function vLive() {
           <span style="position:relative;display:flex;align-items:flex-end;gap:14px">${motif(cur.num, 'clamp(44px,7vw,72px)', se.color, se.b)}<span style="display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:12px;color:${se.color}">SESI_0${cur.num}</span><span style="font-size:clamp(18px,3vw,30px);font-weight:700;line-height:1.15">${cur.title}</span></span></span>`}
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:10px">
-          ${has(z.link) ? `<a class="btn btn-glow" style="flex:1 1 220px" href="${z.link}" target="_blank" rel="noopener">Gabung Room ${S.room} via Zoom ↗</a>` : `<span class="btn btn-glow" style="flex:1 1 220px" aria-disabled="true">Tautan Zoom belum tersedia</span>`}
+          ${has(z.link) ? `<a class="btn btn-glow" style="flex:1 1 220px" href="${z.link}" target="_blank" rel="noopener">Gabung Zoom: Sesi ${cur.num} ↗</a>` : `<span class="btn btn-glow" style="flex:1 1 220px" aria-disabled="true">Tautan Zoom belum tersedia</span>`}
           <button type="button" class="btn btn-line" style="flex:1 1 200px" data-sesi="${cur.d}-${cur.i}">Detail sesi</button>
         </div>
         ${has(z.id) ? `<span class="mono" style="font-size:12px;color:var(--mu)">MEETING ID ${z.id}${has(z.kode) ? ' · KODE ' + z.kode : ''}</span>` : ''}
@@ -533,7 +527,6 @@ function vLive() {
       <aside class="panel brk" style="flex:1 1 340px;min-width:0;padding:14px;display:flex;flex-direction:column;gap:14px">
         <div class="tabs mono" role="tablist" aria-label="Interaksi peserta">${tabs.map(([k, l]) => `<button type="button" role="tab" id="tab-${k}" aria-controls="pn-${k}" aria-selected="${S.tab === k}" data-tab="${k}">${l}</button>`).join('')}</div>
         <div id="pn-tanya" role="tabpanel" aria-labelledby="tab-tanya" class="${S.tab === 'tanya' ? '' : 'hidden'}" style="display:flex;flex-direction:column;gap:10px">
-          ${has(CONFIG.sesiLink[cur.num]) ? `<a class="btn" href="${CONFIG.sesiLink[cur.num]}" target="_blank" rel="noopener" style="border:1px solid ${se.color};background:${se.a};color:var(--tx);justify-content:space-between;gap:12px"><span style="display:flex;align-items:center;gap:10px">${motif(cur.num, '28px', se.color, se.b)}${CONFIG.sesiLinkLabel}: Sesi ${cur.num}</span><span aria-hidden="true">↗</span></a>` : ''}
           <span style="font-size:14px;color:var(--mu2)">Kirim pertanyaan ke narasumber. Moderator akan membacakannya.</span>
           ${has(CONFIG.tanyaForm) ? `<iframe class="frame" src="${CONFIG.tanyaForm}" title="Formulir pertanyaan" style="height:560px" loading="lazy">Memuat…</iframe><a class="mono" style="font-size:12px;color:var(--cy)" href="${CONFIG.tanyaForm.replace('embedded=true', '')}" target="_blank" rel="noopener">Formulir tidak tampil? Buka di tab baru ↗</a>` : `<div class="empty">Formulir pertanyaan belum dipasang. Isi <b>tanyaForm</b> di bagian PENGATURAN.</div>`}
         </div>
