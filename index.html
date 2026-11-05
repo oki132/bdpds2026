@@ -18,14 +18,30 @@
    atau koma. Biarkan kosong ('') bila belum ada.
    ===================================================================== */
 const CONFIG = {
-  // Tautan Zoom TIAP SESI (nomor sesi 1–5 sesuai nota dinas), dibuka di tab baru.
+  // Tautan Zoom per HARI, per ROOM: pagi = SESI I (09.30–12.00), siang = SESI II (13.00–15.00).
+  // Bila pagi dan siang memakai rapat Zoom yang sama, isi tautan yang sama di keduanya.
   // id dan kode boleh dikosongkan bila sudah termasuk di dalam tautan.
   zoom: {
-    1: { link: 'https://s.komdigi.go.id/InternetPolicyGlobalLandscape', id: '', kode: '' },             // Internet Policy Global Landscape
-    2: { link: 'https://s.komdigi.go.id/TransformatorPolicy2045', id: '', kode: '' },                   // Digital Direction and Policy 2045
-    3: { link: 'https://s.komdigi.go.id/ASEAN-RSDPGuideline', id: '', kode: '' },                       // Rapid Scam Disruption Protocol
-    4: { link: 'https://s.komdigi.go.id/KesiapanOrganisasidalamImplementasiPPTUNAS', id: '', kode: '' }, // PP Tunas
-    5: { link: 'https://s.komdigi.go.id/ForumDiskusiKebijakan', id: '', kode: '' }                      // Pemanfaatan AI
+    hari1: {   // Selasa, 10 November 2026
+      room1: {
+        pagi:  { link: 'https://s.komdigi.go.id/ASEAN-RSDPGuideline', id: '', kode: '' },                        // Rapid Scam Disruption Protocol (bagian 1)
+        siang: { link: 'https://s.komdigi.go.id/ASEAN-RSDPGuideline', id: '', kode: '' }                         // Rapid Scam Disruption Protocol (bagian 2)
+      },
+      room2: {
+        pagi:  { link: 'https://s.komdigi.go.id/KesiapanOrganisasidalamImplementasiPPTUNAS', id: '', kode: '' },  // PP Tunas
+        siang: { link: 'https://s.komdigi.go.id/InternetPolicyGlobalLandscape', id: '', kode: '' }               // Internet Policy Global Landscape
+      }
+    },
+    hari2: {   // Rabu, 11 November 2026
+      room1: {
+        pagi:  { link: 'https://s.komdigi.go.id/TransformatorPolicy2045', id: '', kode: '' },                    // Digital Direction and Policy 2045 (bagian 1)
+        siang: { link: 'https://s.komdigi.go.id/TransformatorPolicy2045', id: '', kode: '' }                     // Digital Direction and Policy 2045 (bagian 2)
+      },
+      room2: {
+        pagi:  { link: 'https://s.komdigi.go.id/ForumDiskusiKebijakan', id: '', kode: '' },                      // AI Assistant for Smart City Government
+        siang: { link: 'https://s.komdigi.go.id/ForumDiskusiKebijakan', id: '', kode: '' }                       // AI for Policy Public Sentiment Analyst
+      }
+    }
   },
 
   // OPSIONAL: video yang BISA disematkan (Jitsi https://meet.jit.si/NamaRuang
@@ -51,8 +67,30 @@ const CONFIG = {
   // Bahan sesi (Google Drive, PDF, dsb.)
   materi: { 1: '', 2: '', 3: '', 4: '', 5: '' },
 
-  // Ruang ngobrol saat ISHOMA (Zoom/Meet terpisah)
-  rehat: ''
+  // INSTITUSI NARASUMBER per HARI, per ROOM: pagi = SESI I (09.30–12.00), siang = SESI II (13.00–15.00).
+  // Tulis nama institusi di antara tanda kutip, pisahkan dengan koma.
+  institusi: {
+    hari1: {
+      room1: {
+        pagi:  ['CSIS', 'IDEA', 'OJK'],                                                              // Anti Scam Disruption (bagian 1)
+        siang: ['ATSI', 'AFTECH']                                                                    // Anti Scam Disruption (bagian 2)
+      },
+      room2: {
+        pagi:  ['Universitas Pendidikan Indonesia', 'KemenPAN-RB', 'DJ Pengawasan Digital – Komdigi'], // PP Tunas Institution
+        siang: []                                                                                    // Internet Global Landscape (isi institusinya di sini)
+      }
+    },
+    hari2: {
+      room1: {
+        pagi:  ['Danantara Indonesia', 'Ericsson Indonesia', 'CELIOS', 'SAFEnet'],                    // Digital Dream 2045 (bagian 1)
+        siang: ['PERURI / INA Digital', 'Telkom Indonesia', 'Grab Indonesia', 'CfDS UGM']            // Digital Dream 2045 (bagian 2)
+      },
+      room2: {
+        pagi:  ['Pusat Kolaborasi Riset AI untuk Smart X'],                                         // Policy.ai (AI Assistant for Smart City Government)
+        siang: ['Center for Public Policy and Management Studies Unpar', 'Pusat Kebijakan Strategis'] // Policy.ai (Public Sentiment Analyst)
+      }
+    }
+  }
 };
 </script>
 
@@ -151,6 +189,18 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--cy);outline-offset:
 @keyframes node{0%,100%{transform:scale(1)}50%{transform:scale(1.4)}}
 .mo .node{animation:node 2.4s ease-in-out infinite}
 
+@keyframes pop{0%{opacity:0;transform:scale(.4)}12%{opacity:1;transform:scale(1)}80%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.9)}}
+.mo .pop{animation:pop 3.6s ease-out infinite}
+@keyframes flame{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.6)}}
+.mo .flame{transform-origin:center top;animation:flame .35s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.mo .bob{animation:bob 2.4s ease-in-out infinite}
+@keyframes fall{0%{transform:translateY(-22px);opacity:0}30%{opacity:1}100%{transform:translateY(34px);opacity:0}}
+.mo .fall{animation:fall 1.4s linear infinite}
+@keyframes win{0%,100%{opacity:.15}50%{opacity:1}}
+.mo .win{animation:win 2.6s ease-in-out infinite}
+@keyframes scanf{0%,28%{transform:translateX(0)}33%,61%{transform:translateX(26px)}66%,94%{transform:translateX(52px)}100%{transform:translateX(0)}}
+.mo .scanf{animation:scanf 4.5s cubic-bezier(.6,0,.3,1) infinite}
 /* orbit system */
 .hero{position:relative;border:1px solid rgba(110,243,255,.18);border-radius:26px;padding:clamp(20px,4vw,40px) clamp(14px,4vw,40px) 26px;overflow:hidden;background:radial-gradient(70% 60% at 50% 60%,rgba(70,60,180,.25),transparent 70%)}
 .hero h1{margin:0;display:flex;flex-direction:column;align-items:center;gap:10px}
@@ -190,7 +240,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--cy);outline-offset:
 .capsule{position:absolute;top:10px;bottom:10px;border:1px solid;border-radius:12px;cursor:pointer;text-align:left;padding:12px 62px 12px 14px;color:var(--tx);display:flex;flex-direction:column;gap:6px;overflow:hidden}
 .empty{border:1px dashed rgba(110,243,255,.35);border-radius:12px;padding:16px;font-size:14px;line-height:1.5;color:var(--mu2)}
 .frame{width:100%;border:0;border-radius:12px;background:#fff}
-.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
 .tabs button{min-height:42px;border:1px solid var(--line);border-radius:10px;padding:6px 2px;font-size:12px;font-weight:700;letter-spacing:.04em;cursor:pointer;background:transparent;color:var(--mu2)}
 .tabs button[aria-selected="true"]{background:rgba(110,243,255,.14);color:#fff;border-color:var(--cy)}
 
@@ -267,21 +317,25 @@ const SESI = {
 };
 const HARI = [
   { code: 'HARI_01', date: '10.11.2026', long: 'Selasa, 10 November 2026', iso: '2026-11-10', slots: [
-    { room: 1, time: '10.30–12.00', num: 3, title: 'Rapid Scam Disruption Protocol', part: 'Bagian 1 dari 2', parties: ['CSIS', 'IDEA', 'OJK'] },
-    { room: 2, time: '10.30–12.00', num: 4, title: 'Institutional Readiness for PP Tunas Implementation', part: 'Sesi tunggal', parties: ['Universitas Pendidikan Indonesia', 'KemenPAN-RB', 'DJ Pengawasan Digital – Komdigi'] },
-    { room: 1, time: '13.30–16.00', num: 3, title: 'Rapid Scam Disruption Protocol', part: 'Bagian 2 dari 2', parties: ['ATSI', 'AFTECH'] },
-    { room: 2, time: '13.30–16.00', num: 1, title: 'Internet Policy Global Landscape', part: 'Sesi tunggal', parties: ['Dr. Helni Mutiarsih', 'Dr. Eng. Danu Dwi Sanjoyo'] }
+    { room: 1, time: '09.30–12.00', num: 3, title: 'Rapid Scam Disruption Protocol', part: 'Bagian 1 dari 2', parties: ['CSIS', 'IDEA', 'OJK'] },
+    { room: 2, time: '09.30–12.00', num: 4, title: 'Institutional Readiness for PP Tunas Implementation', part: 'Sesi tunggal', parties: ['Universitas Pendidikan Indonesia', 'KemenPAN-RB', 'DJ Pengawasan Digital – Komdigi'] },
+    { room: 1, time: '13.00–15.00', num: 3, title: 'Rapid Scam Disruption Protocol', part: 'Bagian 2 dari 2', parties: ['ATSI', 'AFTECH'] },
+    { room: 2, time: '13.00–15.00', num: 1, title: 'Internet Policy Global Landscape', part: 'Sesi tunggal', parties: [] }
   ] },
   { code: 'HARI_02', date: '11.11.2026', long: 'Rabu, 11 November 2026', iso: '2026-11-11', slots: [
-    { room: 1, time: '10.30–12.00', num: 2, title: 'Digital Direction and Policy 2045', part: 'Bagian 1 dari 2', parties: ['Danantara Indonesia', 'Ericsson Indonesia', 'CELIOS', 'SAFEnet'] },
-    { room: 2, time: '10.30–12.00', num: 5, title: 'AI Assistant for Smart City Government', part: 'Topik 1 dari 2', parties: ['Pusat Kolaborasi Riset AI untuk Smart X'] },
-    { room: 1, time: '13.30–16.00', num: 2, title: 'Digital Direction and Policy 2045', part: 'Bagian 2 dari 2', parties: ['PERURI / INA Digital', 'Telkom Indonesia', 'Grab Indonesia', 'CfDS UGM'] },
-    { room: 2, time: '13.30–16.00', num: 5, title: 'AI for Policy Public Sentiment Analyst', part: 'Topik 2 dari 2', parties: ['Center for Public Policy and Management Studies Unpar', 'Pusat Kebijakan Strategis'] }
+    { room: 1, time: '09.30–12.00', num: 2, title: 'Digital Direction and Policy 2045', part: 'Bagian 1 dari 2', parties: ['Danantara Indonesia', 'Ericsson Indonesia', 'CELIOS', 'SAFEnet'] },
+    { room: 2, time: '09.30–12.00', num: 5, title: 'AI Assistant for Smart City Government', part: 'Topik 1 dari 2', parties: ['Pusat Kolaborasi Riset AI untuk Smart X'] },
+    { room: 1, time: '13.00–15.00', num: 2, title: 'Digital Direction and Policy 2045', part: 'Bagian 2 dari 2', parties: ['PERURI / INA Digital', 'Telkom Indonesia', 'Grab Indonesia', 'CfDS UGM'] },
+    { room: 2, time: '13.00–15.00', num: 5, title: 'AI for Policy Public Sentiment Analyst', part: 'Topik 2 dari 2', parties: ['Center for Public Policy and Management Studies Unpar', 'Pusat Kebijakan Strategis'] }
   ] }
 ];
 
 /* ===================== SIMBOL ANIMASI PER SESI ===================== */
 const MOTIF = {
+  scam2: `<svg class="mo" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="24" y="10" width="40" height="80" rx="8"/><line x1="38" y1="16" x2="50" y2="16" opacity=".6"/><line x1="40" y1="83" x2="48" y2="83" opacity=".6"/><g class="pop"><rect x="30" y="60" width="22" height="10" rx="4" fill="currentColor" stroke="none" opacity=".75"/></g><g class="pop" style="animation-delay:.6s"><rect x="36" y="46" width="22" height="10" rx="4" fill="currentColor" stroke="none" opacity=".5"/></g><g class="pop" style="animation-delay:1.2s"><rect x="30" y="28" width="26" height="12" rx="4" stroke="#FF3D9A"/><path d="M39 31 L47 37 M47 31 L39 37" stroke="#FF3D9A"/></g><path class="ringp" d="M78 48 L90 53 V62 C90 70 85 76 78 79 C71 76 66 70 66 62 V53 Z"/><path d="M78 48 L90 53 V62 C90 70 85 76 78 79 C71 76 66 70 66 62 V53 Z" fill="currentColor" fill-opacity=".25"/><polyline points="72,63 77,68 85,58"/></svg>`,
+  rocket: `<svg class="mo" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line class="fall" x1="24" y1="20" x2="24" y2="34" opacity=".6"/><line class="fall" x1="76" y1="30" x2="76" y2="44" opacity=".6" style="animation-delay:-.5s"/><line class="fall" x1="34" y1="50" x2="34" y2="60" opacity=".5" style="animation-delay:-.9s"/><line class="fall" x1="68" y1="8" x2="68" y2="18" opacity=".5" style="animation-delay:-1.2s"/><g class="bob"><path d="M50 10 C60 20 62 36 58 54 H42 C38 36 40 20 50 10 Z" fill="currentColor" fill-opacity=".18"/><circle cx="50" cy="32" r="5"/><path d="M42 46 L33 60 L42 56 Z" fill="currentColor" stroke="none" opacity=".7"/><path d="M58 46 L67 60 L58 56 Z" fill="currentColor" stroke="none" opacity=".7"/><path class="flame" d="M45 56 Q50 74 55 56 Z" fill="currentColor" stroke="none" opacity=".9"/></g><text x="50" y="94" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor" stroke="none" font-family="JetBrains Mono, monospace">2045</text></svg>`,
+  city: `<svg class="mo" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path class="ringp" d="M55 24 m-8 0 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0"/><circle cx="55" cy="24" r="3" fill="currentColor" stroke="none"/><path d="M47 16 Q55 6 63 16" opacity=".5"/><rect x="10" y="52" width="14" height="36"/><rect x="27" y="38" width="16" height="50"/><rect x="47" y="30" width="16" height="58"/><rect x="66" y="44" width="14" height="44"/><rect x="83" y="58" width="9" height="30"/><line x1="6" y1="88" x2="96" y2="88" opacity=".6"/><g fill="currentColor" stroke="none"><rect class="win" x="14" y="58" width="6" height="5"/><rect class="win" x="14" y="70" width="6" height="5" style="animation-delay:-1s"/><rect class="win" x="31" y="45" width="8" height="5" style="animation-delay:-.4s"/><rect class="win" x="31" y="58" width="8" height="5" style="animation-delay:-1.8s"/><rect class="win" x="31" y="71" width="8" height="5" style="animation-delay:-.9s"/><rect class="win" x="51" y="38" width="8" height="5" style="animation-delay:-2.2s"/><rect class="win" x="51" y="51" width="8" height="5" style="animation-delay:-.6s"/><rect class="win" x="51" y="64" width="8" height="5" style="animation-delay:-1.4s"/><rect class="win" x="70" y="52" width="6" height="5" style="animation-delay:-2s"/><rect class="win" x="70" y="66" width="6" height="5" style="animation-delay:-.2s"/></g></svg>`,
+  sentiment: `<svg class="mo" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle class="scanf" cx="24" cy="30" r="14" stroke-dasharray="4 4" opacity=".8"/><circle cx="24" cy="30" r="10"/><circle cx="50" cy="30" r="10"/><circle cx="76" cy="30" r="10"/><g fill="currentColor" stroke="none"><circle cx="20.5" cy="27" r="1.6"/><circle cx="27.5" cy="27" r="1.6"/><circle cx="46.5" cy="27" r="1.6"/><circle cx="53.5" cy="27" r="1.6"/><circle cx="72.5" cy="27" r="1.6"/><circle cx="79.5" cy="27" r="1.6"/></g><path d="M19 33 Q24 38 29 33"/><path d="M45 35 H55"/><path d="M71 37 Q76 32 81 37"/><line x1="10" y1="88" x2="90" y2="88" opacity=".4"/><rect class="bar" x="17" y="56" width="14" height="32" rx="2" fill="currentColor" stroke="none" opacity=".85"/><rect class="bar" x="43" y="66" width="14" height="22" rx="2" fill="currentColor" stroke="none" opacity=".55" style="animation-delay:-.7s"/><rect class="bar" x="69" y="72" width="14" height="16" rx="2" fill="currentColor" stroke="none" opacity=".35" style="animation-delay:-1.4s"/></svg>`,
   1: `<svg class="mo" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="50" cy="50" r="34"/><ellipse cx="50" cy="50" rx="34" ry="11" opacity=".45"/><line x1="16" y1="50" x2="84" y2="50" opacity=".35"/><ellipse class="mer" cx="50" cy="50" rx="34" ry="34"/><ellipse class="mer" cx="50" cy="50" rx="34" ry="34" opacity=".65" style="animation-delay:-1.33s"/><ellipse class="mer" cx="50" cy="50" rx="34" ry="34" opacity=".4" style="animation-delay:-2.66s"/><g class="spinv"><circle cx="50" cy="7" r="4.5" fill="currentColor" stroke="none"/></g></svg>`,
   2: `<svg class="mo" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="84" x2="88" y2="84" opacity=".4"/><rect class="bar" x="16" y="62" width="10" height="22" rx="2" fill="currentColor" stroke="none" opacity=".55"/><rect class="bar" x="31" y="52" width="10" height="32" rx="2" fill="currentColor" stroke="none" opacity=".65" style="animation-delay:-.4s"/><rect class="bar" x="46" y="42" width="10" height="42" rx="2" fill="currentColor" stroke="none" opacity=".75" style="animation-delay:-.8s"/><rect class="bar" x="61" y="32" width="10" height="52" rx="2" fill="currentColor" stroke="none" opacity=".85" style="animation-delay:-1.2s"/><rect class="bar" x="76" y="22" width="10" height="62" rx="2" fill="currentColor" stroke="none" style="animation-delay:-1.6s"/><polyline class="draw" points="12,66 32,52 50,56 70,32 88,16" style="--len:110"/><polyline class="draw" points="78,16 88,16 88,26" style="--len:22"/></svg>`,
   3: `<svg class="mo" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="50" cy="50" r="40" opacity=".55"/><circle cx="50" cy="50" r="27" opacity=".4"/><circle cx="50" cy="50" r="14" opacity=".3"/><line x1="10" y1="50" x2="90" y2="50" opacity=".25"/><line x1="50" y1="10" x2="50" y2="90" opacity=".25"/><g class="spinv" style="animation-duration:3s"><path d="M50 50 L50 10 A40 40 0 0 1 84.6 30 Z" fill="currentColor" stroke="none" opacity=".28"/><line x1="50" y1="50" x2="50" y2="10"/></g><g class="blip"><circle cx="70" cy="32" r="5" fill="currentColor" stroke="none"/><path d="M64 26 L76 38 M76 26 L64 38" stroke="#FF3D9A" stroke-width="2.6"/></g></svg>`,
@@ -290,7 +344,7 @@ const MOTIF = {
 };
 
 /* ===================== LOGIKA ===================== */
-const S = { screen: 'beranda', day: 0, slot: 0, room: 1, tab: 'tanya' };
+const S = { screen: 'beranda', day: 0, slot: 0, room: 1, tab: 'tanya', half: 'auto' };
 let saved = {};
 try { saved = JSON.parse(localStorage.getItem('bdpd-saved') || '{}'); } catch (e) { saved = {}; }
 const persist = () => { try { localStorage.setItem('bdpd-saved', JSON.stringify(saved)); } catch (e) {} };
@@ -298,10 +352,26 @@ const persist = () => { try { localStorage.setItem('bdpd-saved', JSON.stringify(
 const $app = document.getElementById('app');
 const at = (iso, hm) => Date.parse(iso + 'T' + hm.replace('.', ':') + ':00+07:00');
 const mins = (hm) => { const [h, m] = hm.split('.').map(Number); return h * 60 + m; };
-const SPAN = mins('16.00') - mins('10.30');
-const T0 = at('2026-11-10', '10.30'), TEND = at('2026-11-11', '16.00');
+const SPAN = mins('15.00') - mins('09.30');
+const T0 = at('2026-11-10', '09.30'), TEND = at('2026-11-11', '15.00');
 const rgb = (hex) => [1, 3, 5].map((k) => parseInt(hex.slice(k, k + 2), 16)).join(',');
-const zlink = (n) => (CONFIG.zoom[n] || {}).link;
+const zs = (x) => (((CONFIG.zoom || {})['hari' + (x.d + 1)] || {})['room' + x.room] || {})[x.half] || {};
+/* Enam judul utama di halaman depan */
+const TOPIK = [
+  { title: 'Internet Global Landscape', tag: 'INTERNET GLOBAL LANDSCAPE', num: 1, d: 0, i: 3, motif: 1 },
+  { title: 'Digital Dream 2045', tag: 'DIGITAL DREAM 2045', num: 2, d: 1, i: 0, motif: 'rocket', also: [1, 2] },
+  { title: 'Anti Scam Disruption', tag: 'ANTI SCAM DISRUPTION', num: 3, d: 0, i: 0, motif: 3, also: [0, 2] },
+  { title: 'PP Tunas Institution', tag: 'PP TUNAS INSTITUTION', num: 4, d: 0, i: 1, motif: 4 },
+  { title: 'Policy.ai', tag: 'POLICY.AI', num: 5, d: 1, i: 1, motif: 5, also: [1, 3] }
+];
+const topikOf = (x) => TOPIK.find((t) => (t.d === x.d && t.i === x.i) || (t.also && t.also[0] === x.d && t.also[1] === x.i));
+const SLOTMOTIF = { '0-0': 3, '0-1': 4, '0-2': 'scam2', '0-3': 1, '1-0': 2, '1-1': 'city', '1-2': 'rocket', '1-3': 'sentiment' };
+const smk = (x) => SLOTMOTIF[x.d + '-' + x.i] || x.num;
+const sp = (x) => { const l = ((((CONFIG.institusi || {})['hari' + (x.d + 1)] || {})['room' + x.room] || {})[x.half]); return (Array.isArray(l) ? l : x.parties).filter((v) => v && String(v).trim()).map((v) => ({ instansi: String(v).trim() })); };
+const spName = (p) => p.instansi || '';
+const spNames = (x) => { const n = sp(x).map(spName); return n.length ? n.join(' · ') : 'Institusi akan diumumkan'; };
+const spList = (x, se, size = 40) => { const l = sp(x); return l.length ? l.map((p) => spCard(p, se, size)).join('') : `<div style="border:1px dashed ${se.a};border-radius:14px;padding:12px;font-size:13px;color:var(--mu2)">Institusi akan diumumkan</div>`; };
+const spCard = (p, se, size = 40) => `<div style="display:flex;align-items:center;gap:12px;border:1px solid ${se.a};border-radius:14px;padding:10px 12px;background:rgba(255,255,255,.03);min-width:0"><span class="mono" aria-hidden="true" style="width:${size}px;height:${size}px;border-radius:12px;background:linear-gradient(140deg,${se.color},${se.deep});color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:${Math.round(size / 3.2)}px;font-weight:700;flex-shrink:0;box-shadow:0 0 14px ${se.b}">${ini(spName(p))}</span><span style="font-size:15px;font-weight:700;line-height:1.3;min-width:0">${spName(p)}</span></div>`;
 const has = (v) => typeof v === 'string' && v.trim() !== '';
 const ini = (n) => n.replace(/(Dr\.|Eng\.)\s*/g, '').split(/[\s\/–-]+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
 const first = (n) => { for (let d = 0; d < 2; d++) for (let i = 0; i < 4; i++) if (HARI[d].slots[i].num === n) return { d, i, x: HARI[d].slots[i] }; };
@@ -314,8 +384,9 @@ function status(iso, time) {
 }
 function slot(d, i) {
   const x = HARI[d].slots[i], se = SESI[x.num], [a, b] = x.time.split('–');
-  return Object.assign({}, x, { se, d, i, key: d + '-' + i, st: status(HARI[d].iso, x.time),
-    left: ((mins(a) - mins('10.30')) / SPAN * 100).toFixed(2) + '%', width: ((mins(b) - mins(a)) / SPAN * 100).toFixed(2) + '%' });
+  const half = a === '09.30' ? 'pagi' : 'siang';
+  return Object.assign({}, x, { se, d, i, half, halfL: half === 'pagi' ? 'Sesi I' : 'Sesi II', key: d + '-' + i, st: status(HARI[d].iso, x.time),
+    left: ((mins(a) - mins('09.30')) / SPAN * 100).toFixed(2) + '%', width: ((mins(b) - mins(a)) / SPAN * 100).toFixed(2) + '%' });
 }
 const stBadge = (st) => `<span class="mono" style="white-space:nowrap;flex-shrink:0;display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:${st.c}"><span class="${st.dot}" style="width:6px;height:6px;border-radius:50%;background:${st.c}"></span>${st.label}</span>`;
 const motif = (n, size, color, glow) => `<span aria-hidden="true" style="display:block;width:${size};height:${size};color:${color};filter:drop-shadow(0 0 7px ${glow});flex-shrink:0">${MOTIF[n]}</span>`;
@@ -347,24 +418,24 @@ function cdText() {
   return { label: 'STATUS', text: 'DISKUSI SELESAI' };
 }
 function vBeranda() {
-  const partners = []; HARI.forEach((d) => d.slots.forEach((x) => x.parties.forEach((p) => { if (!partners.includes(p)) partners.push(p); })));
+  const partners = []; HARI.forEach((d, di) => d.slots.forEach((_, i) => sp(slot(di, i)).forEach((p) => { const n = p.instansi; if (n && !partners.includes(n)) partners.push(n); })));
   const radii = [0.2, 0.27, 0.34, 0.41, 0.48], durs = [26, 34, 42, 52, 64], sizes = ['clamp(36px,5vw,54px)', 'clamp(38px,5.6vw,60px)', 'clamp(40px,6vw,66px)', 'clamp(36px,5vw,54px)', 'clamp(42px,6.4vw,70px)'];
   const cd = cdText();
   const orbs = [1, 2, 3, 4, 5].map((n, i) => { const f = first(n), se = SESI[n], d = durs[i] + 's', dl = (-durs[i] * (i * 0.21 + 0.05)).toFixed(1) + 's';
     return { ring: `<span class="orb" aria-hidden="true" style="width:calc(var(--S) * ${radii[i] * 2});height:calc(var(--S) * ${radii[i] * 2})"></span>`,
       arm: `<div class="arm" style="--d:${d};--dl:${dl};--a:${i * 72 + 20}deg"><div class="pos" style="left:calc(var(--S) * ${radii[i]})"><button type="button" class="planet" data-sesi="${f.d}-${f.i}" aria-label="Sesi ${n}: ${se.name}" style="--d:${d};--dl:${dl};--a:${i * 72 + 20}deg;--p:${sizes[i]};background:radial-gradient(circle at 32% 28%,#fff 0%,${se.color} 32%,${se.deep} 78%);box-shadow:0 0 22px 4px ${se.b},inset -6px -8px 14px rgba(0,0,0,.45)"><span class="n">${n}</span><span class="tag mono" style="border-color:${se.color}">${se.tag}</span></button></div></div>` }; });
-  const POS = [[50, 15], [85, 40], [72, 80], [28, 80], [15, 40]];
-  const hubs = [1, 2, 3, 4, 5].map((n, i) => { const f = first(n), se = SESI[n], [x, y] = POS[i];
-    return `<button type="button" class="hub" data-sesi="${f.d}-${f.i}" data-x="${x}" data-y="${y}" data-rgb="${rgb(se.color)}" aria-label="Sesi ${n}: ${se.name}" style="left:${x}%;top:${y}%;--c:${se.color};--b:${se.b};--hd:${(i * 0.5).toFixed(1)}s">
-      <span class="dot">${motif(n, '62%', se.color, se.b)}<span class="no">${n}</span></span><span class="tag mono">${se.tag}</span></button>`; }).join('');
-  const stats = [['DURASI', '2', 'hari, 10–11 November 2026', '#6EF3FF'], ['RUANG', '2', 'ruang diskusi virtual paralel', '#B9A8FF'], ['SESI', '5', 'sesi diskusi kebijakan', '#3BFFA0'], ['NODE', String(partners.length), 'narasumber dan mitra diskusi', '#FF9AD1']];
+  const POS = [[50, 14], [84, 40], [70, 80], [30, 80], [16, 40]];
+  const hubs = TOPIK.map((t, k) => { const se = SESI[t.num], [x, y] = POS[k];
+    return `<button type="button" class="hub" data-sesi="${t.d}-${t.i}" data-x="${x}" data-y="${y}" data-rgb="${rgb(se.color)}" aria-label="${k + 1}. ${t.title}" style="left:${x}%;top:${y}%;--c:${se.color};--b:${se.b};--hd:${(k * 0.45).toFixed(2)}s">
+      <span class="dot">${motif(t.motif, '62%', se.color, se.b)}<span class="no">${k + 1}</span></span><span class="tag mono">${t.tag}</span></button>`; }).join('');
+  const stats = [['DURASI', '2', 'hari, 10–11 November 2026', '#6EF3FF'], ['RUANG', '2', 'ruang diskusi virtual paralel', '#B9A8FF'], ['TOPIK', '5', 'topik diskusi kebijakan', '#3BFFA0'], ['INSTITUSI', String(partners.length), 'institusi narasumber dan mitra diskusi', '#FF9AD1']];
   return `<div style="display:flex;flex-direction:column;gap:26px">
   <section class="hero brk mat">
     <div class="mono" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:11px;color:var(--mu);letter-spacing:.08em"><span>VGD://PUSAT-KEBIJAKAN-STRATEGIS · KOMDIGI</span><span>06°54′S 107°36′E · BANDUNG</span></div>
     <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;padding-top:18px">
       <span class="mono" style="display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(110,243,255,.45);border-radius:999px;padding:7px 16px;font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--tx);background:rgba(110,243,255,.07);box-shadow:0 0 22px rgba(110,243,255,.18)"><span class="blink" style="width:7px;height:7px;border-radius:50%;background:#3BFFA0"></span>VIRTUAL GROUP DISCUSSION</span>
       <h1><span class="city">Bandung</span><span class="big glitch">Digital Policy Days</span></h1>
-      <p style="margin:0;font-size:clamp(15px,1.8vw,18px);line-height:1.55;color:var(--mu2);max-width:660px">Diskusi kelompok terarah secara daring bersama regulator, industri, akademisi, dan <i>think tank</i>. Lima sesi diskusi, satu jaringan gagasan menuju rekomendasi kebijakan digital nasional dan regional. Ikuti dari mana saja.</p>
+      <p style="margin:0;font-size:clamp(15px,1.8vw,18px);line-height:1.55;color:var(--mu2);max-width:660px">Diskusi kelompok terarah secara daring bersama regulator, industri, akademisi, dan <i>think tank</i>. Lima topik diskusi, satu jaringan gagasan menuju rekomendasi kebijakan digital nasional dan regional. Ikuti dari mana saja.</p>
     </div>
     <div class="net" id="net" role="group" aria-label="Jaringan lima sesi kebijakan">
       <canvas id="netc" aria-hidden="true"></canvas>
@@ -387,18 +458,33 @@ function vBeranda() {
     </div>
   </section>
   <section aria-labelledby="sigil" style="display:flex;flex-direction:column;gap:14px">
-    <h2 id="sigil" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">LIMA SESI DISKUSI · PILIH TOPIK ANDA</h2>
-    <div class="grid-auto">${[1, 2, 3, 4, 5].map((n, i) => { const f = first(n), se = SESI[n];
-      return `<button type="button" class="panel cap capin" data-sesi="${f.d}-${f.i}" style="animation-delay:${(0.1 * i + 0.2).toFixed(2)}s;position:relative;overflow:hidden;text-align:left;cursor:pointer;padding:18px;display:flex;flex-direction:column;gap:12px;border-color:${se.a}">
-        <span class="shim" aria-hidden="true" style="animation-delay:${-(i * 0.8)}s"></span>${motif(n, '76px', se.color, se.b)}
-        <span class="mono" style="font-size:11px;letter-spacing:.12em;color:${se.color}">SESI_0${n} · ${se.tag}</span>
-        <span style="font-size:17px;font-weight:700;line-height:1.25">${se.name}</span>
-        <span class="mono" style="font-size:11px;color:var(--mu)">CH-0${f.x.room} · ${HARI[f.d].date}</span></button>`; }).join('')}</div>
+    <h2 id="sigil" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">LIMA TOPIK DISKUSI · PILIH TOPIK ANDA</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:12px">${TOPIK.map((t, k) => { const se = SESI[t.num], x = slot(t.d, t.i), two = t.also ? slot(t.also[0], t.also[1]) : null;
+      return `<button type="button" class="panel cap capin" data-sesi="${t.d}-${t.i}" style="animation-delay:${(0.08 * k + 0.2).toFixed(2)}s;position:relative;overflow:hidden;text-align:left;cursor:pointer;padding:18px;display:flex;flex-direction:column;gap:12px;border-color:${se.a}">
+        <span class="shim" aria-hidden="true" style="animation-delay:${-(k * 0.7)}s"></span>${motif(t.motif, '76px', se.color, se.b)}
+        <span class="mono" style="font-size:11px;letter-spacing:.12em;color:${se.color}">TOPIK_0${k + 1}</span>
+        <span style="font-size:clamp(20px,2vw,24px);font-weight:700;line-height:1.15">${t.title}</span>
+        <span style="font-size:13px;color:var(--mu2);line-height:1.4">${se.name}</span>
+        <span class="mono" style="font-size:11px;color:var(--mu)">${HARI[x.d].date} · ROOM ${x.room} · ${two ? 'SESI I & II' : x.halfL.toUpperCase()}</span></button>`; }).join('')}</div>
   </section>
-  <section aria-labelledby="links" class="panel brk" style="padding:clamp(16px,3vw,24px);display:flex;flex-direction:column;gap:14px">
-    <h2 id="links" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">GABUNG ZOOM · TAUTAN TIAP SESI</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:10px">${[3, 4, 1, 5, 2].filter((n) => has(zlink(n))).map((n) => { const se = SESI[n];
-      return `<a href="${zlink(n)}" target="_blank" rel="noopener" class="cap" style="min-height:60px;display:flex;align-items:center;gap:12px;border:1px solid ${se.a};border-left:3px solid ${se.color};border-radius:12px;padding:10px 14px;background:rgba(255,255,255,.02)">${motif(n, '36px', se.color, se.b)}<span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:11px;color:${se.color}">SESI_0${n} · ROOM ${first(n).x.room} · ${HARI[first(n).d].date}</span><span style="font-size:14px;font-weight:600;line-height:1.3">${se.name}</span></span><span aria-hidden="true" style="color:var(--cy)">↗</span></a>`; }).join('')}</div>
+  <section aria-labelledby="spk" style="display:flex;flex-direction:column;gap:16px">
+    <h2 id="spk" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">INSTITUSI NARASUMBER · 2 HARI · 2 ROOM</h2>
+    ${HARI.map((dd, di) => `<div style="display:flex;flex-direction:column;gap:10px">
+      <span class="mono" style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700">${dd.code} · ${dd.long}<span style="flex:1;height:1px;background:var(--line)"></span></span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px">${[0, 1, 2, 3].map((i) => slot(di, i)).sort((a, b) => a.room - b.room || a.i - b.i).map((x) => `<div class="panel cap" style="padding:14px;display:flex;flex-direction:column;gap:10px;border-color:${x.se.a}">
+        <button type="button" data-sesi="${x.d}-${x.i}" style="display:flex;align-items:center;gap:12px;border:none;background:none;padding:0;cursor:pointer;text-align:left">${motif(smk(x), '44px', x.se.color, x.se.b)}<span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span class="mono" style="font-size:11px;color:${x.se.color}">ROOM ${x.room} · ${x.halfL.toUpperCase()} · ${x.time}</span><span style="font-size:16px;font-weight:700;line-height:1.25">${(topikOf(x) || x).title}</span></span></button>
+        <div style="display:flex;flex-direction:column;gap:8px">${spList(x, x.se, 40)}</div>
+      </div>`).join('')}</div></div>`).join('')}
+  </section>
+  <section aria-labelledby="links" class="panel brk" style="padding:clamp(16px,3vw,24px);display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;flex-direction:column;gap:6px"><h2 id="links" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">GABUNG ZOOM · 2 ROOM · SESI I DAN SESI II</h2><span style="font-size:14px;color:var(--mu2)">Sesi I 09.30–12.00 WIB, ISHOMA 12.00–13.00 WIB, Sesi II 13.00–15.00 WIB.</span></div>
+    ${HARI.map((dd, di) => `<div style="display:flex;flex-direction:column;gap:10px">
+      <span class="mono" style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700">${dd.code} · ${dd.long}<span style="flex:1;height:1px;background:var(--line)"></span></span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px">${[1, 2].map((r) => `<div style="border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px;background:rgba(255,255,255,.02)">
+        <span class="mono" style="font-size:12px;font-weight:700;letter-spacing:.1em">ROOM ${r}</span>
+        ${[0, 1, 2, 3].map((i) => slot(di, i)).filter((x) => x.room === r).map((x) => { const z = zs(x); const inner = `${motif(smk(x), '34px', x.se.color, x.se.b)}<span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:11px;color:${x.se.color}">${x.halfL.toUpperCase()} · ${x.time}</span><span style="font-size:14px;font-weight:600;line-height:1.3">${(topikOf(x) || x).title}</span></span>`;
+          return has(z.link) ? `<a href="${z.link}" target="_blank" rel="noopener" class="cap" style="min-height:58px;display:flex;align-items:center;gap:12px;border:1px solid ${x.se.a};border-left:3px solid ${x.se.color};border-radius:10px;padding:8px 12px">${inner}<span aria-hidden="true" style="color:var(--cy)">↗</span></a>` : `<span style="min-height:58px;display:flex;align-items:center;gap:12px;border:1px dashed var(--line);border-radius:10px;padding:8px 12px;opacity:.7">${inner}<span class="mono" style="font-size:10px;color:var(--mu)">SEGERA</span></span>`; }).join('')}
+      </div>`).join('')}</div></div>`).join('')}
   </section></div>`;
 }
 
@@ -406,27 +492,27 @@ function vBeranda() {
 const dayTabs = (attr) => HARI.map((d, i) => `<button type="button" class="seg mono" data-${attr}="${i}" aria-pressed="${i === S.day}"><span style="font-size:14px;font-weight:700">${d.code}</span><span style="font-size:11px">${d.date}</span></button>`).join('');
 function vAgenda() {
   const d = HARI[S.day], sl = [0, 1, 2, 3].map((i) => slot(S.day, i));
-  const nowMin = (Date.now() - at(d.iso, '10.30')) / 60000, showNow = nowMin >= 0 && nowMin <= SPAN;
-  const ticks = [['10.30', '0%', '0'], ['12.00', '27.27%', '-50%'], ['13.30', '54.55%', '-50%'], ['16.00', '100%', '-100%']];
+  const nowMin = (Date.now() - at(d.iso, '09.30')) / 60000, showNow = nowMin >= 0 && nowMin <= SPAN;
+  const ticks = [['09.30 · SESI I', '0%', '0'], ['12.00 · ISHOMA', '45.45%', 'calc(-100% - 6px)'], ['13.00 · SESI II', '63.64%', '6px'], ['15.00', '100%', '-100%']];
   const block = (time, arr) => `<div style="display:flex;flex-direction:column;gap:10px">
-    <span class="mono" style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700">${time} <span style="color:var(--mu);font-weight:400">WIB</span><span style="flex:1;height:1px;background:var(--line)"></span></span>
+    <span class="mono" style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:14px;font-weight:700">${time} <span style="color:var(--mu);font-weight:400">WIB</span><span style="flex:1;height:1px;background:var(--line)"></span></span>
     <div class="grid-slots">${arr.map((x) => `<button type="button" class="capsule-s cap capin ${x.st.state === 'live' ? 'livecap' : ''}" data-sesi="${x.d}-${x.i}" style="--g:${x.se.b};animation-delay:${(0.1 * x.i + 0.05).toFixed(2)}s;border-color:${x.se.color};background:linear-gradient(135deg,${x.se.a},rgba(10,13,32,.88));box-shadow:0 0 20px ${x.se.b}">
       <span class="shim" aria-hidden="true" style="animation-delay:${-(x.i * 0.9)}s"></span>
-      <span style="position:absolute;right:14px;top:50%;transform:translateY(-50%)">${motif(x.num, '58px', x.se.color, x.se.b)}</span>
-      <span style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px"><span class="mono" style="font-size:11px;font-weight:700;letter-spacing:.08em;color:${x.se.color}">CH-0${x.room} · SESI_0${x.num}</span>${stBadge(x.st)}</span>
+      <span style="position:absolute;right:14px;top:50%;transform:translateY(-50%)">${motif(smk(x), '58px', x.se.color, x.se.b)}</span>
+      <span style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px"><span class="mono" style="font-size:11px;font-weight:700;letter-spacing:.08em;color:${x.se.color}">ROOM ${x.room} · SESI_0${x.num}</span>${stBadge(x.st)}</span>
       <span style="font-size:18px;font-weight:700;line-height:1.22">${x.title}</span>
-      <span style="font-size:13px;color:var(--mu2);line-height:1.4">${x.parties.join(' · ')}</span></button>`).join('')}</div></div>`;
+      <span style="font-size:13px;color:var(--mu2);line-height:1.4">${spNames(x)}</span></button>`).join('')}</div></div>`;
   const lane = (r) => `<div style="display:flex;align-items:stretch">
-    <span class="mono" style="width:96px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;font-size:12px;color:var(--mu)"><span style="color:var(--tx);font-weight:700;font-size:14px">CH-0${r}</span>ROOM ${r}</span>
+    <span class="mono" style="width:96px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;font-size:12px;color:var(--mu)"><span style="color:var(--tx);font-weight:700;font-size:14px">ROOM ${r}</span>SESI I · II</span>
     <div class="lane">
-      <span aria-hidden="true" style="position:absolute;left:27.27%;width:27.27%;top:0;bottom:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px);border-left:1px dashed rgba(110,243,255,.2);border-right:1px dashed rgba(110,243,255,.2)"></span>
+      <span aria-hidden="true" style="position:absolute;left:45.45%;width:18.18%;top:0;bottom:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px);border-left:1px dashed rgba(110,243,255,.2);border-right:1px dashed rgba(110,243,255,.2)"></span>
       <span class="lanef" aria-hidden="true"></span>
       ${sl.filter((x) => x.room === r).map((x, k) => `<button type="button" class="capsule cap capin ${x.st.state === 'live' ? 'livecap' : ''}" data-sesi="${x.d}-${x.i}" style="--g:${x.se.b};animation-delay:${(0.12 * x.i + 0.1).toFixed(2)}s;left:calc(${x.left} + 4px);width:calc(${x.width} - 8px);border-color:${x.se.color};background:linear-gradient(135deg,${x.se.a},rgba(10,13,32,.85));box-shadow:0 0 22px ${x.se.b},inset 0 0 20px ${x.se.b}">
         <span class="shim" aria-hidden="true" style="animation-delay:${-(x.i * 0.9)}s"></span>
-        <span style="position:absolute;right:10px;bottom:10px">${motif(x.num, '46px', x.se.color, x.se.b)}</span>
-        <span style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="mono" style="font-size:11px;font-weight:700;letter-spacing:.08em;color:${x.se.color}">SESI_0${x.num} · ${x.time}</span>${stBadge(x.st)}</span>
+        <span style="position:absolute;right:10px;bottom:10px">${motif(smk(x), '46px', x.se.color, x.se.b)}</span>
+        <span style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="mono" style="font-size:11px;font-weight:700;letter-spacing:.08em;color:${x.se.color}">${x.halfL.toUpperCase()} · ${x.time}</span>${stBadge(x.st)}</span>
         <span style="font-size:16px;font-weight:700;line-height:1.2">${x.title}</span>
-        <span style="font-size:12px;color:var(--mu2);line-height:1.35">${x.parties.join(' · ')}</span></button>`).join('')}
+        <span style="font-size:12px;color:var(--mu2);line-height:1.35">${spNames(x)}</span></button>`).join('')}
     </div></div>`;
   return `<div class="mat" style="display:flex;flex-direction:column;gap:20px">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:14px">
@@ -441,16 +527,15 @@ function vAgenda() {
         </div>
       </div>
     </div>
-    <span class="mono tl-desk" style="font-size:12px;color:var(--mu)">Area bergaris = ISHOMA dan networking, 12.00–13.30 WIB.</span>
+    <span class="mono tl-desk" style="font-size:12px;color:var(--mu)">Area bergaris = ISHOMA (istirahat, salat, makan), 12.00–13.00 WIB.</span>
     <div class="tl-mob" style="flex-direction:column;gap:22px">
-      ${block('10.30–12.00', [sl[0], sl[1]])}
+      ${block('SESI I · 09.30–12.00', [sl[0], sl[1]])}
       <div style="display:flex;flex-direction:column;gap:10px">
-        <span class="mono" style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700">12.00–13.30 <span style="color:var(--mu);font-weight:400">WIB</span><span style="flex:1;height:1px;background:var(--line)"></span></span>
-        <button type="button" class="panel" data-rehat="1" style="text-align:left;cursor:pointer;padding:16px;display:flex;flex-direction:column;gap:4px;background:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px),rgba(10,13,32,.72)"><span class="mono" style="font-size:11px;letter-spacing:.12em;color:#FF9AD1">ISHOMA · NETWORKING</span><span style="font-size:16px;font-weight:700">Istirahat dan ngobrol santai dengan peserta dari kedua kanal</span></button>
+        <span class="mono" style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700">ISHOMA · 12.00–13.00 <span style="color:var(--mu);font-weight:400">WIB</span><span style="flex:1;height:1px;background:var(--line)"></span></span>
+        <div class="panel" style="padding:16px;display:flex;flex-direction:column;gap:4px;background:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px),rgba(10,13,32,.72)"><span class="mono" style="font-size:11px;letter-spacing:.12em;color:var(--mu)">ISHOMA</span><span style="font-size:16px;font-weight:700">Istirahat, salat, dan makan siang</span></div>
       </div>
-      ${block('13.30–16.00', [sl[2], sl[3]])}
+      ${block('SESI II · 13.00–15.00', [sl[2], sl[3]])}
     </div>
-    <button type="button" class="btn btn-line" style="align-self:flex-start;min-height:46px;font-size:14px" data-rehat="1">Buka ruang rehat</button>
   </div>`;
 }
 
@@ -465,7 +550,7 @@ function vSesi() {
         <div class="scan"></div>
         <span style="position:relative;width:clamp(170px,24vw,240px);height:clamp(170px,24vw,240px);border-radius:50%;background:radial-gradient(circle at 50% 45%,rgba(10,13,32,.4),rgba(5,6,15,.9) 70%);border:1px solid ${se.color};box-shadow:0 0 60px 6px ${se.b},inset 0 0 40px ${se.a};display:flex;align-items:center;justify-content:center">
           <span aria-hidden="true" class="ringspin" style="position:absolute;inset:-14px;border-radius:50%;border:1px dashed ${se.color};opacity:.55"></span>
-          ${motif(s.num, '68%', se.color, se.b)}
+          ${motif(smk(s), '68%', se.color, se.b)}
           <span class="mono" style="position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);background:#05060F;border:1px solid ${se.color};border-radius:6px;padding:2px 8px;font-size:12px;font-weight:700;color:${se.color}">SESI_0${s.num}</span>
         </span>
         <span class="mono" style="position:absolute;left:14px;bottom:12px;font-size:11px;color:var(--mu)">OBJ://SESI_0${s.num}</span>
@@ -474,10 +559,10 @@ function vSesi() {
         <span class="mono" style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:12px;letter-spacing:.1em;color:${se.color}">SESI_0${s.num} · ${s.part.toUpperCase()} ${stBadge(s.st)}</span>
         <h1 class="glitch" style="margin:0;font-size:clamp(30px,5vw,56px);line-height:1.02;font-weight:700;letter-spacing:-.02em">${s.title}</h1>
         <span style="font-size:16px;color:var(--mu2)">${se.name}</span>
-        <div class="mono" style="display:flex;flex-wrap:wrap;gap:8px;font-size:12px">${[d.long, s.time + ' WIB', `CH-0${s.room} / ROOM ${s.room}`].map((t) => `<span style="border:1px solid rgba(110,243,255,.3);border-radius:8px;padding:6px 10px">${t}</span>`).join('')}</div>
+        <div class="mono" style="display:flex;flex-wrap:wrap;gap:8px;font-size:12px">${[d.long, s.halfL + ', ' + s.time + ' WIB', `ROOM ${s.room}`].map((t) => `<span style="border:1px solid rgba(110,243,255,.3);border-radius:8px;padding:6px 10px">${t}</span>`).join('')}</div>
         <div class="btn-row-m" style="display:flex;flex-wrap:wrap;gap:10px;padding-top:4px">
-          ${has(zlink(s.num)) ? `<a class="btn" href="${zlink(s.num)}" target="_blank" rel="noopener" style="background:linear-gradient(90deg,${se.color},#B9A8FF);color:#05060F;box-shadow:0 0 24px ${se.b}">Gabung Zoom sesi ini ↗</a>` : ''}
-          <button type="button" class="btn btn-line" data-live="${s.room}">Buka ruang diskusi Room ${s.room}</button>
+          ${has(zs(s).link) ? `<a class="btn" href="${zs(s).link}" target="_blank" rel="noopener" style="background:linear-gradient(90deg,${se.color},#B9A8FF);color:#05060F;box-shadow:0 0 24px ${se.b}">Gabung Zoom Room ${s.room} · ${s.halfL} ↗</a>` : ''}
+          <button type="button" class="btn btn-line" data-live="${s.room}" data-half="${s.half}">Buka ruang diskusi Room ${s.room}</button>
           <button type="button" class="btn btn-line" data-save="${s.key}" aria-pressed="${on}">${on ? '◆ Tersimpan' : '◇ Simpan'}</button>
           ${has(mat) ? `<a class="btn btn-line" href="${mat}" target="_blank" rel="noopener">Bahan sesi ↗</a>` : ''}
         </div>
@@ -485,10 +570,10 @@ function vSesi() {
     </div>
     <p class="mat2" style="margin:0;font-size:clamp(16px,2vw,19px);line-height:1.65;color:#C9D0EA;max-width:74ch">${se.bg}</p>
     <div class="mat3" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px">${cols.map(([h, arr], k) => `<div class="panel brk" style="padding:18px;display:flex;flex-direction:column;gap:10px"><span class="mono" style="font-size:11px;letter-spacing:.14em;color:${se.color}">MODUL_0${k + 1} · ${h}</span>${arr.map((t) => `<span style="display:flex;gap:10px;font-size:15px;line-height:1.45"><span class="mono" aria-hidden="true" style="color:var(--cy)">›</span>${t}</span>`).join('')}</div>`).join('')}</div>
-    <div class="panel" style="padding:18px;display:flex;flex-direction:column;gap:14px"><span class="mono label">NODE TERHUBUNG · NARASUMBER DAN MITRA</span>
-      <div style="display:flex;flex-wrap:wrap;gap:10px">${s.parties.map((p) => `<span style="display:inline-flex;align-items:center;gap:10px;border:1px solid ${se.color};border-radius:999px;padding:6px 14px 6px 6px;background:rgba(255,255,255,.03);box-shadow:0 0 14px ${se.b}"><span class="mono" style="width:30px;height:30px;border-radius:50%;background:${se.color};color:#05060F;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">${ini(p)}</span><span style="font-size:14px;font-weight:600">${p}</span></span>`).join('')}</div></div>
+    <div class="panel brk mat3" style="padding:18px;display:flex;flex-direction:column;gap:14px"><span class="mono" style="font-size:11px;letter-spacing:.14em;color:${se.color}">INSTITUSI NARASUMBER · ROOM ${s.room} · ${s.halfL.toUpperCase()}</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:10px">${spList(s, se, 48)}</div></div>
     <div style="display:flex;flex-wrap:wrap;gap:10px">
-      <button type="button" class="panel" data-sesi="${par.d}-${par.i}" style="flex:1 1 260px;text-align:left;padding:14px 16px;cursor:pointer;display:flex;flex-direction:column;gap:4px"><span class="mono" style="font-size:11px;color:var(--mu)">PARALEL · CH-0${par.room}</span><span style="font-size:16px;font-weight:700">${par.title}</span></button>
+      <button type="button" class="panel" data-sesi="${par.d}-${par.i}" style="flex:1 1 260px;text-align:left;padding:14px 16px;cursor:pointer;display:flex;flex-direction:column;gap:4px"><span class="mono" style="font-size:11px;color:var(--mu)">PARALEL · ROOM ${par.room}</span><span style="font-size:16px;font-weight:700">${par.title}</span></button>
       <button type="button" class="btn btn-line mono" style="flex:1 1 140px;font-size:13px" data-step="-1" ${S.slot === 0 ? 'aria-disabled="true"' : ''}>‹ SEBELUMNYA</button>
       <button type="button" class="btn btn-line mono" style="flex:1 1 140px;font-size:13px" data-step="1" ${S.slot === 3 ? 'aria-disabled="true"' : ''}>BERIKUTNYA ›</button>
     </div></div>`;
@@ -497,32 +582,36 @@ function vSesi() {
 /* ---------- TRANSMISI (Ruang live) ---------- */
 function vLive() {
   const list = [0, 1, 2, 3].map((i) => slot(S.day, i)).filter((x) => x.room === S.room);
-  const cur = list.find((x) => x.st.state === 'live') || list.find((x) => x.st.state === 'soon') || list[list.length - 1];
-  const se = cur.se, z = CONFIG.zoom[cur.num] || {}, vid = CONFIG.embedVideo[S.room], m = CONFIG.menti[cur.num] || {};
+  const auto = list.find((x) => x.st.state === 'live') || list.find((x) => x.st.state === 'soon') || list[list.length - 1];
+  const cur = (S.half !== 'auto' && list.find((x) => x.half === S.half)) || auto;
+  const se = cur.se, z = zs(cur), vid = CONFIG.embedVideo[S.room], m = CONFIG.menti[cur.num] || {};
   const roomTab = (r) => { const rs = [0, 1, 2, 3].map((i) => slot(S.day, i)).filter((x) => x.room === r), lv = rs.find((x) => x.st.state === 'live');
-    return `<button type="button" class="seg" data-room="${r}" aria-pressed="${S.room === r}" style="flex:1;min-width:0;min-height:60px"><span class="mono" style="font-size:13px;font-weight:700;letter-spacing:.08em">CH-0${r} · ROOM ${r}</span><span style="font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${lv ? '● LIVE: ' + lv.title : [...new Set(rs.map((x) => x.title))].join(' · ')}</span></button>`; };
+    return `<button type="button" class="seg" data-room="${r}" aria-pressed="${S.room === r}" style="flex:1;min-width:0;min-height:60px"><span class="mono" style="font-size:13px;font-weight:700;letter-spacing:.08em">ROOM ${r}</span><span style="font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${lv ? '● LIVE: ' + lv.title : [...new Set(rs.map((x) => x.title))].join(' · ')}</span></button>`; };
   const eq = Array.from({ length: 24 }, (_, i) => `<span class="eqb" style="height:${30 + ((i * 37) % 70)}%;background:linear-gradient(180deg,${se.color},#6EF3FF);animation-delay:${(-(i * 0.13) % 1.2).toFixed(2)}s;animation-duration:${(0.9 + ((i * 7) % 6) / 10).toFixed(1)}s"></span>`).join('');
-  const tabs = [['tanya', 'TANYA'], ['survei', 'SURVEI'], ['materi', 'MATERI'], ['rehat', 'REHAT']];
+  const tabs = [['tanya', 'TANYA'], ['survei', 'SURVEI'], ['materi', 'MATERI']];
   return `<div class="mat" style="display:flex;flex-direction:column;gap:18px">
     <div style="display:flex;flex-direction:column;gap:6px"><span class="mono" style="font-size:12px;letter-spacing:.2em;color:var(--cy)">VIRTUAL GROUP DISCUSSION</span><h1 style="margin:0;font-size:clamp(28px,4.5vw,46px);font-weight:700;letter-spacing:-.02em;line-height:1.05">Ruang diskusi virtual</h1></div>
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px">
       <div role="group" aria-label="Pilih kanal" style="display:flex;gap:10px;flex:1 1 300px;max-width:620px;min-width:0">${roomTab(1)}${roomTab(2)}</div>
       <div role="group" aria-label="Pilih hari" style="display:flex;gap:8px;flex-wrap:wrap">${dayTabs('liveday')}</div>
     </div>
+    <div role="group" aria-label="Pilih sesi pagi atau siang" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">${list.map((x) => `<button type="button" class="seg" data-half="${x.half}" data-room-keep="1" aria-pressed="${x === cur}" style="min-width:0;border-left:3px solid ${x.se.color}"><span class="mono" style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:12px;font-weight:700;letter-spacing:.08em">${x.halfL.toUpperCase()} · ${x.time} ${stBadge(x.st)}</span><span style="font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${x.title}</span></button>`).join('')}</div>
     <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start">
       <div style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:14px">
         <div class="brk stage" style="position:relative;overflow:hidden;border-radius:20px;border:1px solid rgba(110,243,255,.3);background:radial-gradient(120% 120% at 25% 15%,${se.a},#070A1C 70%);display:flex;flex-direction:column;justify-content:space-between;padding:clamp(14px,3vw,24px)">
           ${has(vid) ? `<iframe src="${vid}" title="Siaran Room ${S.room}" allow="camera; microphone; fullscreen; display-capture; autoplay" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>` : `
           <div class="scan"></div>
-          <span style="position:relative;display:flex;justify-content:space-between;align-items:center;gap:10px"><span style="border:1px solid ${cur.st.c};border-radius:6px;padding:3px 8px">${stBadge(cur.st)}</span><span class="mono" style="font-size:12px;color:var(--mu2)">CH-0${S.room} · ${cur.time} WIB</span></span>
+          <span style="position:relative;display:flex;justify-content:space-between;align-items:center;gap:10px"><span style="border:1px solid ${cur.st.c};border-radius:6px;padding:3px 8px">${stBadge(cur.st)}</span><span class="mono" style="font-size:12px;color:var(--mu2)">ROOM ${S.room} · ${cur.halfL.toUpperCase()} · ${cur.time} WIB</span></span>
           <span aria-hidden="true" style="position:relative;display:flex;align-items:flex-end;justify-content:center;gap:clamp(3px,.6vw,6px);height:clamp(60px,12vw,120px)">${eq}</span>
-          <span style="position:relative;display:flex;align-items:flex-end;gap:14px">${motif(cur.num, 'clamp(44px,7vw,72px)', se.color, se.b)}<span style="display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:12px;color:${se.color}">SESI_0${cur.num}</span><span style="font-size:clamp(18px,3vw,30px);font-weight:700;line-height:1.15">${cur.title}</span></span></span>`}
+          <span style="position:relative;display:flex;align-items:flex-end;gap:14px">${motif(smk(cur), 'clamp(44px,7vw,72px)', se.color, se.b)}<span style="display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:12px;color:${se.color}">SESI_0${cur.num}</span><span style="font-size:clamp(18px,3vw,30px);font-weight:700;line-height:1.15">${cur.title}</span></span></span>`}
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:10px">
-          ${has(z.link) ? `<a class="btn btn-glow" style="flex:1 1 220px" href="${z.link}" target="_blank" rel="noopener">Gabung Zoom: Sesi ${cur.num} ↗</a>` : `<span class="btn btn-glow" style="flex:1 1 220px" aria-disabled="true">Tautan Zoom belum tersedia</span>`}
+          ${has(z.link) ? `<a class="btn btn-glow" style="flex:1 1 220px" href="${z.link}" target="_blank" rel="noopener">Gabung Zoom Room ${S.room} · ${cur.halfL} ↗</a>` : `<span class="btn btn-glow" style="flex:1 1 220px" aria-disabled="true">Tautan Zoom belum tersedia</span>`}
           <button type="button" class="btn btn-line" style="flex:1 1 200px" data-sesi="${cur.d}-${cur.i}">Detail sesi</button>
         </div>
         ${has(z.id) ? `<span class="mono" style="font-size:12px;color:var(--mu)">MEETING ID ${z.id}${has(z.kode) ? ' · KODE ' + z.kode : ''}</span>` : ''}
+        <div style="display:flex;flex-direction:column;gap:10px"><span class="mono label">INSTITUSI NARASUMBER · ${cur.halfL.toUpperCase()} · ROOM ${S.room}</span>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:10px">${spList(cur, se, 40)}</div></div>
       </div>
       <aside class="panel brk" style="flex:1 1 340px;min-width:0;padding:14px;display:flex;flex-direction:column;gap:14px">
         <div class="tabs mono" role="tablist" aria-label="Interaksi peserta">${tabs.map(([k, l]) => `<button type="button" role="tab" id="tab-${k}" aria-controls="pn-${k}" aria-selected="${S.tab === k}" data-tab="${k}">${l}</button>`).join('')}</div>
@@ -531,7 +620,7 @@ function vLive() {
           ${has(CONFIG.tanyaForm) ? `<iframe class="frame" src="${CONFIG.tanyaForm}" title="Formulir pertanyaan" style="height:560px" loading="lazy">Memuat…</iframe><a class="mono" style="font-size:12px;color:var(--cy)" href="${CONFIG.tanyaForm.replace('embedded=true', '')}" target="_blank" rel="noopener">Formulir tidak tampil? Buka di tab baru ↗</a>` : `<div class="empty">Formulir pertanyaan belum dipasang. Isi <b>tanyaForm</b> di bagian PENGATURAN.</div>`}
         </div>
         <div id="pn-survei" role="tabpanel" aria-labelledby="tab-survei" class="${S.tab === 'survei' ? '' : 'hidden'}" style="display:flex;flex-direction:column;gap:12px">
-          <span style="display:flex;align-items:center;gap:12px">${motif(cur.num, '44px', se.color, se.b)}<span style="display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:11px;letter-spacing:.12em;color:${se.color}">SURVEI · SESI_0${cur.num}</span><span style="font-size:17px;font-weight:700;line-height:1.3">${cur.title}</span></span></span>
+          <span style="display:flex;align-items:center;gap:12px">${motif(smk(cur), '44px', se.color, se.b)}<span style="display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:11px;letter-spacing:.12em;color:${se.color}">SURVEI · SESI_0${cur.num}</span><span style="font-size:17px;font-weight:700;line-height:1.3">${cur.title}</span></span></span>
           ${has(m.vote) ? `<a class="btn btn-glow" href="${m.vote}" target="_blank" rel="noopener">Isi survei di Mentimeter ↗</a>` : `<div class="empty">Tautan survei Sesi ${cur.num} belum dipasang. Isi <b>menti.${cur.num}.vote</b> di PENGATURAN.</div>`}
           ${has(m.code) ? `<div style="border:1px solid rgba(110,243,255,.3);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;color:var(--mu2)">Atau buka <b>menti.com</b> dan masukkan kode</span><span class="mono" style="font-size:28px;font-weight:700;letter-spacing:.08em;color:var(--cy)">${m.code}</span></div>` : ''}
           ${has(m.embed) ? `<span class="mono label">HASIL LIVE</span><div style="position:relative;aspect-ratio:16/10;border-radius:12px;overflow:hidden;border:1px solid rgba(110,243,255,.3)"><iframe src="${m.embed}" title="Hasil survei Sesi ${cur.num}" style="position:absolute;inset:0;width:100%;height:100%;border:0" allowfullscreen loading="lazy"></iframe></div>` : ''}
@@ -541,11 +630,6 @@ function vLive() {
             return `<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;border:1px solid rgba(110,243,255,.15);border-left:3px solid ${x.color};border-radius:10px;padding:10px 12px">
               <span style="display:flex;align-items:center;gap:10px;min-width:0">${motif(n, '34px', x.color, x.b)}<span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span class="mono" style="font-size:11px;color:${x.color}">SESI_0${n}</span><span style="font-size:14px;font-weight:600;line-height:1.3">${x.name}</span></span></span>
               ${has(u) ? `<a class="mono" href="${u}" target="_blank" rel="noopener" style="min-height:40px;display:inline-flex;align-items:center;border:1px solid rgba(110,243,255,.4);border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700;flex-shrink:0">BUKA ↗</a>` : `<span class="mono" style="font-size:11px;color:var(--mu);flex-shrink:0">SEGERA</span>`}</div>`; }).join('')}
-        </div>
-        <div id="pn-rehat" role="tabpanel" aria-labelledby="tab-rehat" class="${S.tab === 'rehat' ? '' : 'hidden'}" style="display:flex;flex-direction:column;gap:12px">
-          <span class="mono" style="font-size:11px;letter-spacing:.12em;color:#FF9AD1">ISHOMA · 12.00–13.30 WIB</span>
-          <span style="font-size:20px;font-weight:700;line-height:1.25">Ruang networking: ngobrol santai dengan peserta dari kedua ruang diskusi</span>
-          ${has(CONFIG.rehat) ? `<a class="btn" href="${CONFIG.rehat}" target="_blank" rel="noopener" style="background:linear-gradient(90deg,#FF9AD1,#B9A8FF);color:#05060F">Masuk ruang rehat ↗</a>` : `<div class="empty">Tautan ruang rehat belum dipasang. Isi <b>rehat</b> di PENGATURAN.</div>`}
         </div>
       </aside>
     </div></div>`;
@@ -638,10 +722,10 @@ document.addEventListener('click', (e) => {
   if (ds.nav) return go(ds.nav);
   if (ds.sesi) { const [d, i] = ds.sesi.split('-').map(Number); return go('sesi', { day: d, slot: i }); }
   if (ds.pickday) return go('agenda', { day: +ds.pickday, slot: 0 });
-  if (ds.live) return go('live', { room: +ds.live });
-  if (ds.room) return go('live', { room: +ds.room });
-  if (ds.liveday) return go('live', { day: +ds.liveday });
-  if (ds.rehat) return go('live', { tab: 'rehat' });
+  if (ds.live) return go('live', { room: +ds.live, half: ds.half || 'auto' });
+  if (ds.half) return go('live', { half: ds.half });
+  if (ds.room) return go('live', { room: +ds.room, half: 'auto' });
+  if (ds.liveday) return go('live', { day: +ds.liveday, half: 'auto' });
   if (ds.step) return go('sesi', { slot: Math.min(3, Math.max(0, S.slot + +ds.step)) });
   if (ds.save) {
     saved[ds.save] = !saved[ds.save]; persist();
@@ -662,4 +746,5 @@ fromHash(); render(false);
 </script>
 </body>
 </html>
+
 
