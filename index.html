@@ -4,13 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#05060F">
-<title>Virtual Group Discussion · Bandung Digital Policy Days 2026</title>
-<meta name="description" content="Virtual Group Discussion Bandung Digital Policy Days 2026 — Pusat Kebijakan Strategis, Kementerian Komunikasi dan Digital. 10–11 November 2026, daring.">
+<title>Digital Policy Days 2026 · Virtual Group Discussion · Komdigi</title>
+<meta name="description" content="Digital Policy Days 2026 — Pusat Kebijakan Strategis, Kementerian Komunikasi dan Digital. Diskusi daring, Selasa–Rabu, 10–11 November 2026, dua ruang virtual paralel.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
 
+<script>window.__cfgErr = null; window.addEventListener('error', function (e) { if (!window.__mainStarted && !window.__cfgErr) window.__cfgErr = (e.message || 'Kesalahan penulisan') + (e.lineno ? ' (baris ' + e.lineno + ')' : ''); });</script>
 <script>
 /* =====================================================================
    PENGATURAN — CUKUP UBAH BAGIAN INI
@@ -24,22 +25,22 @@ const CONFIG = {
   zoom: {
     hari1: {   // Selasa, 10 November 2026
       room1: {
-        pagi:  { link: 'https://s.komdigi.go.id/ASEAN-RSDPGuideline', id: '', kode: '' },                        // Rapid Scam Disruption Protocol (bagian 1)
-        siang: { link: 'https://s.komdigi.go.id/ASEAN-RSDPGuideline', id: '', kode: '' }                         // Rapid Scam Disruption Protocol (bagian 2)
+        pagi:  { link: 'https://s.komdigi.go.id/ASEAN-RSDPGuideline', id: '', kode: '' },                        // 01 ASEAN RSDP Guideline · Sesi I
+        siang: { link: 'https://s.komdigi.go.id/ASEAN-RSDPGuideline', id: '', kode: '' }                         // 01 ASEAN RSDP Guideline · Sesi II
       },
       room2: {
-        pagi:  { link: 'https://s.komdigi.go.id/KesiapanOrganisasidalamImplementasiPPTUNAS', id: '', kode: '' },  // PP Tunas
-        siang: { link: 'https://s.komdigi.go.id/InternetPolicyGlobalLandscape', id: '', kode: '' }               // Internet Policy Global Landscape
+        pagi:  { link: 'https://s.komdigi.go.id/KesiapanOrganisasidalamImplementasiPPTUNAS', id: '', kode: '' },  // 02 PP TUNAS
+        siang: { link: 'https://s.komdigi.go.id/LanskapKebijakanInternet', id: '', kode: '' }                   // 03 Lanskap Kebijakan Internet Global
       }
     },
     hari2: {   // Rabu, 11 November 2026
       room1: {
-        pagi:  { link: 'https://s.komdigi.go.id/TransformatorPolicy2045', id: '', kode: '' },                    // Digital Direction and Policy 2045 (bagian 1)
-        siang: { link: 'https://s.komdigi.go.id/TransformatorPolicy2045', id: '', kode: '' }                     // Digital Direction and Policy 2045 (bagian 2)
+        pagi:  { link: 'https://s.komdigi.go.id/TransformasiDigital2045', id: '', kode: '' },                     // 04 Transformasi Digital 2045 · Panel I
+        siang: { link: 'https://s.komdigi.go.id/TransformasiDigital2045', id: '', kode: '' }                      // 04 Transformasi Digital 2045 · Panel II
       },
       room2: {
-        pagi:  { link: 'https://s.komdigi.go.id/ForumDiskusiKebijakan', id: '', kode: '' },                      // AI Assistant for Smart City Government
-        siang: { link: 'https://s.komdigi.go.id/ForumDiskusiKebijakan', id: '', kode: '' }                       // AI for Policy Public Sentiment Analyst
+        pagi:  { link: 'https://s.komdigi.go.id/EksplorasiPemanfaatanAI', id: '', kode: '' },                     // 05 Pemanfaatan AI · Sesi ITB
+        siang: { link: 'https://s.komdigi.go.id/EksplorasiPemanfaatanAI', id: '', kode: '' }                      // 05 Pemanfaatan AI · Sesi UNPAR
       }
     }
   },
@@ -52,7 +53,9 @@ const CONFIG = {
   // Contoh: https://docs.google.com/forms/d/e/1FAIpQLS.../viewform?embedded=true
   tanyaForm: '',
 
-  // Mentimeter per sesi (nomor sesi 1–5 sesuai nota dinas)
+  // Mentimeter per topik (nomor sesuai undangan):
+  //  1 = ASEAN RSDP Guideline, 2 = PP TUNAS, 3 = Lanskap Kebijakan Internet Global,
+  //  4 = Transformasi Digital Nasional 2045, 5 = Pemanfaatan AI (ITB & UNPAR)
   //  vote : tautan partisipasi, mis. https://www.menti.com/abc123xyz
   //  code : kode partisipasi, mis. '1234 5678'
   //  embed: dari Share > Embed slides, salin isi src="..." saja (untuk hasil live)
@@ -60,36 +63,90 @@ const CONFIG = {
     1: { vote: '', code: '', embed: '' },
     2: { vote: '', code: '', embed: '' },
     3: { vote: '', code: '', embed: '' },
-    4: { vote: '', code: '', embed: '' },
+    4: { vote: 'https://form.menti.com/s/aliu4vutvsv5', code: '', embed: '' },   // Transformasi Digital 2045
     5: { vote: '', code: '', embed: '' }
   },
 
-  // Bahan sesi (Google Drive, PDF, dsb.)
+  // Bahan / panduan sesi per topik (nomor sama seperti di atas)
   materi: { 1: '', 2: '', 3: '', 4: '', 5: '' },
 
-  // INSTITUSI NARASUMBER per HARI, per ROOM: pagi = SESI I (09.30–12.00), siang = SESI II (13.00–15.00).
-  // Tulis nama institusi di antara tanda kutip, pisahkan dengan koma.
-  institusi: {
+  // Tautan tambahan per topik (nomor sama dengan Mentimeter di atas). Kosongkan bila belum ada.
+  //  digika     : tautan Digika
+  //  pertanyaan : formulir pertanyaan peserta (dibuka di tab baru)
+  tautanTopik: {
+    1: { digika: '', pertanyaan: '' },   // ASEAN RSDP Guideline
+    2: { digika: '', pertanyaan: '' },   // Kesiapan Organisasi dalam Implementasi PP TUNAS
+    3: { digika: '', pertanyaan: '' },   // Lanskap Kebijakan Internet Global
+    4: { digika: 'https://digika.komdigi.go.id/s/XKLVjRm', pertanyaan: 'https://s.komdigi.go.id/FormPertanyaanArahKebijakanTransformasiDigitalNasional2045' },   // Transformasi Digital 2045
+    5: { digika: '', pertanyaan: '' }    // Eksplorasi Pemanfaatan AI
+  },
+
+  // Informasi umum dari surat undangan
+  info: {
+    telekonferensi: 'https://s.komdigi.go.id/DigitalPolicyDays2026',
+    latarVirtual: 'https://s.komdigi.go.id/BackgroundDPD2026',
+    kontakNama: 'Widya Siwi Lajuba',
+    kontakTelp: '0811-942-676',
+    kontakWA: '62811942676'
+  },
+
+  // NARASUMBER per HARI, per RUANG VIRTUAL: pagi = SESI I (09.30–12.00), siang = SESI II (13.00–15.00).
+  // nama boleh dikosongkan bila belum dikonfirmasi; jam & topik opsional.
+  narasumber: {
     hari1: {
       room1: {
-        pagi:  ['CSIS', 'IDEA', 'OJK'],                                                              // Anti Scam Disruption (bagian 1)
-        siang: ['ATSI', 'AFTECH']                                                                    // Anti Scam Disruption (bagian 2)
+        pagi: [   // 01 · ASEAN RSDP Guideline · Sesi I
+          { nama: '', jabatan: 'Indonesia Anti-Scam Centre (IASC)', instansi: 'Otoritas Jasa Keuangan (OJK)', jam: '', topik: '' },
+          { nama: '', jabatan: 'Center for Digital Society (CfDS)', instansi: 'Universitas Gadjah Mada (UGM)', jam: '', topik: '' },
+          { nama: '', jabatan: '', instansi: 'Asosiasi E-Commerce Indonesia (idEA)', jam: '', topik: '' }
+        ],
+        siang: [  // 01 · ASEAN RSDP Guideline · Sesi II (lanjutan)
+          { nama: '', jabatan: '', instansi: 'Asosiasi Penyelenggara Telekomunikasi Seluruh Indonesia (ATSI)', jam: '', topik: '' },
+          { nama: '', jabatan: '', instansi: 'Asosiasi Fintech Indonesia (AFTECH)', jam: '', topik: '' },
+          { nama: '', jabatan: '', instansi: 'PT Digital Forensic Indonesia (DFI)', jam: '', topik: '' }
+        ]
       },
       room2: {
-        pagi:  ['Universitas Pendidikan Indonesia', 'KemenPAN-RB', 'DJ Pengawasan Digital – Komdigi'], // PP Tunas Institution
-        siang: ['Telkom University']                                                                 // Internet Global Landscape
+        pagi: [   // 02 · Kesiapan Organisasi dalam Implementasi PP TUNAS
+          { nama: 'Prof. Dr. H. Agus Rahayu, M.P.', jabatan: 'Profesor', instansi: 'Universitas Pendidikan Indonesia (UPI)', jam: '', topik: 'Perspektif manajemen strategis dan organisasi' },
+          { nama: '', jabatan: 'Perwakilan Deputi Bidang Kelembagaan dan Tata Laksana', instansi: 'Kementerian PANRB', jam: '', topik: '' },
+          { nama: '', jabatan: 'Perwakilan', instansi: 'Ditjen Pengawasan Ruang Digital, Komdigi', jam: '', topik: 'Pengawasan dan tantangan pelaksanaan' }
+        ],
+        siang: [  // 03 · Lanskap Kebijakan Internet Global
+          { nama: 'Dr. Helni Mutiarsih Jumhur', jabatan: 'Lektor Kepala; Head of Center of Excellence Policy and Ethics Technology', instansi: 'Telkom University', jam: '', topik: '' },
+          { nama: 'Dr. Eng. Danu Dwi Sanjoyo', jabatan: '', instansi: 'Telkom University', jam: '', topik: '' }
+        ]
       }
     },
     hari2: {
       room1: {
-        pagi:  ['Danantara Indonesia', 'Ericsson Indonesia', 'CELIOS', 'SAFEnet'],                    // Digital Dream 2045 (bagian 1)
-        siang: ['PERURI / INA Digital', 'Telkom Indonesia', 'Grab Indonesia', 'CfDS UGM']            // Digital Dream 2045 (bagian 2)
+        pagi: [   // 04 · Transformasi Digital Nasional Menuju 2045 · Panel I
+          { nama: 'Ricardo Irwan Rei', jabatan: 'Managing Director, Strategic Technology Initiatives', instansi: 'Danantara Indonesia', jam: '09.55–10.20', topik: 'Investasi dan kemampuan industri' },
+          { nama: 'Stanislaus Bawono', jabatan: 'Head of Network Solution Southeast Asia Cluster', instansi: 'Ericsson Indonesia', jam: '10.20–10.45', topik: 'Konektivitas dan teknologi' },
+          { nama: 'Nailul Huda', jabatan: 'Direktur Ekonomi', instansi: 'CELIOS', jam: '10.45–11.10', topik: 'Dampak ekonomi dan distribusi manfaat' },
+          { nama: 'Nenden S. Arum', jabatan: 'Executive Director', instansi: 'SAFEnet', jam: '11.10–11.35', topik: 'Hak dan keamanan digital' }
+        ],
+        siang: [  // 04 · Transformasi Digital Nasional Menuju 2045 · Panel II
+          { nama: 'Edwin Purwandesi', jabatan: 'Direktur Digital Business', instansi: 'PERURI', jam: '13.05–13.30', topik: 'Integrasi pelayanan publik' },
+          { nama: '', jabatan: 'Perwakilan Telkom Indonesia', instansi: 'PT Telkom Indonesia (Persero) Tbk', jam: '13.30–13.55', topik: 'Regulasi dan implementasi industri' },
+          { nama: 'Arryo Harman', jabatan: 'Head, Government and Community Partnership', instansi: 'Grab Indonesia', jam: '13.55–14.20', topik: 'Ekonomi platform dan UMKM' },
+          { nama: 'Iradat Wirid', jabatan: 'Deputy Director', instansi: 'CfDS UGM', jam: '14.20–14.45', topik: 'Bukti penelitian sosial-ekonomi' }
+        ]
       },
       room2: {
-        pagi:  ['Pusat Kolaborasi Riset AI untuk Smart X'],                                         // Policy.ai (AI Assistant for Smart City Government)
-        siang: ['Center for Public Policy and Management Studies Unpar', 'Pusat Kebijakan Strategis'] // Policy.ai (Public Sentiment Analyst)
+        pagi: [   // 05 · Pemanfaatan AI · Sesi ITB
+          { nama: '', jabatan: 'Narasumber Cognitive City', instansi: 'Institut Teknologi Bandung (ITB)', jam: '09.30–12.00', topik: 'AI dan data lintas sektor dalam kebijakan perkotaan' }
+        ],
+        siang: [  // 05 · Pemanfaatan AI · Sesi UNPAR
+          { nama: '', jabatan: 'Narasumber analisis sentimen publik', instansi: 'Universitas Katolik Parahyangan (UNPAR)', jam: '13.00–15.00', topik: 'AI untuk analisis sentimen dan persepsi publik atas kebijakan' }
+        ]
       }
     }
+  },
+
+  // Moderator per sesi (kosongkan bila tidak ada)
+  moderator: {
+    hari2: { room1: { pagi: 'Ir. Ahmad Tri Hanuranto, M.T. · Telkom University', siang: 'Ir. Ahmad Tri Hanuranto, M.T. · Telkom University' } }
   }
 };
 </script>
@@ -204,7 +261,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--cy);outline-offset:
 /* orbit system */
 .hero{position:relative;border:1px solid rgba(110,243,255,.18);border-radius:26px;padding:clamp(20px,4vw,40px) clamp(14px,4vw,40px) 26px;overflow:hidden;background:radial-gradient(70% 60% at 50% 60%,rgba(70,60,180,.25),transparent 70%)}
 .hero h1{margin:0;display:flex;flex-direction:column;align-items:center;gap:10px}
-.hero h1 .city{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:clamp(12px,1.4vw,15px);font-weight:700;letter-spacing:.45em;text-transform:uppercase;color:var(--cy);padding-left:.45em}
+.hero h1 .city{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:clamp(11px,1.3vw,14px);font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--cy);padding-left:.24em;text-wrap:balance;line-height:1.5}
 .hero h1 .big{display:block;font-size:clamp(34px,7.2vw,92px);line-height:.95;font-weight:700;letter-spacing:-.03em;text-transform:uppercase;text-wrap:balance;background:linear-gradient(100deg,#fff 0%,#BFF8FF 35%,#B9A8FF 70%,#FF9AD1 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .sys{--S:clamp(260px,calc(100vw - 72px),760px);position:relative;width:var(--S);height:calc(var(--S) * .62);margin:0 auto;perspective:1200px}
 .plane{position:absolute;left:0;top:50%;width:var(--S);height:var(--S);margin-top:calc(var(--S) * -.5);transform:rotateX(66deg);transform-style:preserve-3d}
@@ -270,7 +327,7 @@ h1,h2,h3,p{overflow-wrap:break-word}
 <div class="nebula" aria-hidden="true"></div>
 <div class="wrap">
   <header class="top panel">
-    <button type="button" class="brand" data-nav="beranda"><span class="orbdot core" aria-hidden="true"></span><span><b>BDPD//2026</b><small class="mono">Virtual Group Discussion</small></span></button>
+    <button type="button" class="brand" data-nav="beranda"><span class="orbdot core" aria-hidden="true"></span><span><b>DPD//2026</b><small class="mono">Virtual Group Discussion</small></span></button>
     <nav class="tnav" aria-label="Navigasi utama">
       <button type="button" class="navbtn mono" data-nav="beranda">BERANDA</button>
       <button type="button" class="navbtn mono" data-nav="agenda">AGENDA</button>
@@ -287,46 +344,56 @@ h1,h2,h3,p{overflow-wrap:break-word}
 </nav>
 
 <script>
-/* ===================== DATA ACARA (dari nota dinas) ===================== */
+window.__mainStarted = true;
+/* Pengaman: bila blok PENGATURAN rusak/kurang lengkap, situs tetap berjalan */
+if (typeof CONFIG === 'undefined') { window.CONFIG = {}; if (!window.__cfgErr) window.__cfgErr = 'Blok PENGATURAN tidak terbaca'; }
+(function () { var d = { zoom: {}, embedVideo: {}, tanyaForm: '', menti: {}, materi: {}, info: {}, narasumber: {}, moderator: {}, tautanTopik: {} };
+  for (var k in d) { if (CONFIG[k] === undefined || CONFIG[k] === null || typeof CONFIG[k] !== typeof d[k]) CONFIG[k] = d[k]; } })();
+/* ===================== DATA ACARA (dari surat undangan B-1060/SJ.9/PR.01.01/11/2026) ===================== */
 const SESI = {
-  1: { name: 'Internet Policy Global Landscape', tag: 'INTERNET GLOBAL', color: '#FF8A4C', deep: '#A8380E', a: 'rgba(255,138,76,.28)', b: 'rgba(255,138,76,.45)',
-    bg: 'Tata kelola internet global berubah cepat, ditandai menguatnya regulasi platform, pelindungan data, dan isu kedaulatan digital. Sesi ini membahas perkembangan kebijakan internet global serta arah kebijakan internet yang perlu dimiliki Indonesia.',
-    tujuan: ['Memetakan lanskap kebijakan internet global', 'Merumuskan arah kebijakan internet Indonesia'],
-    lingkup: ['Tren regulasi internet global', 'Tata kelola platform, data, dan kedaulatan digital', 'Praktik baik negara lain'],
-    keluaran: ['Rekomendasi arah kebijakan internet nasional'] },
-  2: { name: 'Digital Direction and Policy 2045', tag: 'DIGITAL 2045', color: '#3BFFA0', deep: '#0E7A4C', a: 'rgba(59,255,160,.22)', b: 'rgba(59,255,160,.4)',
-    bg: 'Diskusi panel untuk menghimpun pandangan pemangku kepentingan mengenai arah dan prioritas kebijakan transformasi digital menuju Indonesia Emas 2045, dengan fokus pada pemanfaatan teknologi dan inovasi.',
-    tujuan: ['Menghimpun pandangan arah dan prioritas transformasi digital menuju 2045'],
-    lingkup: ['Produktivitas ekonomi', 'Kualitas pelayanan publik', 'Manfaat nyata dan merata bagi masyarakat'],
-    keluaran: ['Masukan kajian arah kebijakan transformasi digital 2045'] },
-  3: { name: 'Follow-on Session: Rapid Scam Disruption Protocol', tag: 'ANTI-SCAM', color: '#5AA8FF', deep: '#1B4C9C', a: 'rgba(90,168,255,.26)', b: 'rgba(90,168,255,.45)',
-    bg: 'Tindak lanjut pembahasan ASEAN Rapid Scam Disruption Protocol: forum pendalaman substansi dan penghimpunan pengalaman operasional dari regulator, asosiasi industri, dan think tank dalam menghadapi penipuan digital lintas negara.',
-    tujuan: ['Mendalami substansi RSDP', 'Menghimpun pengalaman operasional regulator, industri, dan think tank'],
-    lingkup: ['Deteksi, pelaporan, dan pemblokiran scam', 'Koordinasi lintas sektor', 'Kebutuhan data antarlembaga'],
-    keluaran: ['Masukan initial draft ASEAN-RSDP Guideline', 'Pemetaan kebijakan dan data', 'Bahan Regional Workshop 2027'] },
-  4: { name: 'Institutional Readiness for PP Tunas Implementation', tag: 'PP TUNAS', color: '#FF5FA8', deep: '#9A1E5A', a: 'rgba(255,95,168,.26)', b: 'rgba(255,95,168,.45)',
-    bg: 'Setelah PP Tunas ditetapkan sebagai landasan pelindungan anak dalam penyelenggaraan sistem elektronik, sesi ini memetakan kesiapan kelembagaan, regulasi turunan, dan koordinasi antarinstansi bersama akademisi dan kementerian/lembaga terkait.',
-    tujuan: ['Menilai kesiapan kelembagaan implementasi PP Tunas'],
-    lingkup: ['Regulasi turunan', 'Kelembagaan dan SDM', 'Koordinasi K/L dan akademisi'],
-    keluaran: ['Langkah penguatan kelembagaan implementasi PP Tunas'] },
-  5: { name: 'Pemanfaatan Kecerdasan Artifisial (AI)', tag: 'AI', color: '#B9A8FF', deep: '#4A2FB0', a: 'rgba(185,168,255,.26)', b: 'rgba(185,168,255,.45)',
-    bg: 'AI membuka peluang meningkatkan layanan pemerintahan dan perumusan kebijakan berbasis data, sekaligus menuntut perhatian pada etika dan pelindungan data.',
-    tujuan: ['Mengkaji AI untuk tata kelola kota cerdas', 'Mengkaji AI untuk analisis sentimen publik'],
-    lingkup: ['AI Assistant for Smart City', 'AI for Policy Public Sentiment Analyst', 'Etika dan perlindungan data'],
-    keluaran: ['Rekomendasi pemanfaatan AI dalam kebijakan dan pelayanan publik'] }
+  1: { name: 'Diskusi Arah Strategis Kerangka ASEAN Rapid Scam Disruption Protocol (RSDP) Guideline', format: 'FOLLOW-ON SESSION', tag: 'ANTI SCAM', color: '#5AA8FF', deep: '#1B4C9C', a: 'rgba(90,168,255,.26)', b: 'rgba(90,168,255,.45)',
+    kL: 'Konteks pembahasan', konteks: 'Penipuan daring dapat melibatkan layanan telekomunikasi, platform digital, dan rekening bank. Penanganannya membutuhkan pelaporan dan koordinasi lintas sektor maupun negara.',
+    tL: 'Tujuan diskusi', tujuan: 'Diskusi ini menggali pengalaman regulator dan industri dalam menangani penipuan daring sebagai bahan awal penyusunan pedoman ASEAN-RSDP pada 2027.',
+    qL: 'Tiga pertanyaan pengarah', q: [['Alur dan kewenangan', 'Bagaimana laporan penipuan lintas sektor ditangani? Siapa bertanggung jawab pada setiap tahap?'], ['Informasi dan eskalasi', 'Informasi apa yang perlu dibagikan? Bagaimana prioritas dan eskalasinya ditentukan?'], ['Lintas negara', 'Bagaimana koordinasi antarnegara ASEAN dijalankan dan informasi minimum apa yang dibutuhkan?']],
+    lL: 'Alur diskusi', lingkup: [['Sesi I · 09.30–12.00', 'Penanganan penipuan daring dan koordinasi lintas sektor'], ['Istirahat · 12.00–13.00', 'Istirahat, salat, dan makan siang'], ['Sesi II · 13.00–15.00', 'Diskusi lanjutan: peran industri dalam pelaporan, respons cepat, dan pertukaran informasi']],
+    hasil: 'Usulan alur penanganan, pembagian peran, pertukaran informasi, dan langkah eskalasi sebagai bahan penyusunan pedoman serta konsultasi ASEAN pada 2027.', catatan: 'Diskusi ini menyiapkan masukan awal, bukan menetapkan keputusan bersama ASEAN.' },
+  2: { name: 'Kesiapan Organisasi dalam Implementasi PP TUNAS', format: 'FOCUS GROUP DISCUSSION', tag: 'PP TUNAS', color: '#FF5FA8', deep: '#9A1E5A', a: 'rgba(255,95,168,.26)', b: 'rgba(255,95,168,.45)',
+    kL: 'Konteks pembahasan', konteks: 'PP Nomor 17 Tahun 2025 menuntut kejelasan tugas, kesiapan proses kerja, koordinasi, dan pengawasan dalam pelaksanaannya.',
+    tL: 'Tujuan diskusi', tujuan: 'Diskusi ini membahas kesiapan organisasi untuk menjalankan PP TUNAS dan bukti yang masih perlu diperiksa. Forum tidak menilai kinerja atau menetapkan tingkat kesiapan.',
+    qL: 'Tiga pertanyaan pengarah', q: [['Kebutuhan organisasi', 'Proses kerja apa yang perlu disesuaikan? Bukti apa yang dapat menunjukkan kesiapan organisasi?'], ['Adaptasi organisasi', 'Bagaimana organisasi menyesuaikan cara kerja ketika menghadapi tuntutan baru dari PP TUNAS?'], ['Koordinasi dan pengawasan', 'Bagaimana koordinasi dan pengawasan dijalankan? Dokumen dan informan apa yang perlu ditelaah?']],
+    lL: 'Ruang lingkup', lingkup: [['Kesiapan organisasi', 'Mandat, struktur, kompetensi, dan sumber daya'], ['Kemampuan organisasi beradaptasi', 'Mengenali risiko, merespons, dan menyesuaikan cara kerja'], ['Tata kelola implementasi', 'Hubungan lintas unit, PSE, dan tindak lanjut'], ['Kemampuan menjalankan regulasi', 'Kesesuaian kewajiban dengan kemampuan pelaksana']],
+    hasil: 'Gambaran awal kebutuhan organisasi, tantangan koordinasi, dan bukti yang masih perlu diperiksa sebagai bahan kajian lanjutan.', catatan: '' },
+  3: { name: 'Lanskap Kebijakan Internet Global', format: 'FORUM DISCUSSION', tag: 'INTERNET GLOBAL', color: '#FF8A4C', deep: '#A8380E', a: 'rgba(255,138,76,.28)', b: 'rgba(255,138,76,.45)',
+    kL: 'Konteks pembahasan', konteks: 'Kebijakan internet dunia berkembang melalui berbagai forum internasional. Keputusan tentang keamanan, data, dan layanan lintas negara juga berdampak pada Indonesia.',
+    tL: 'Tujuan diskusi', tujuan: 'Diskusi ini membahas perkembangan kebijakan internet dunia dan pelajaran yang relevan untuk memperkuat analisis kebijakan Indonesia.',
+    qL: 'Tiga pertanyaan pengarah', q: [['Perkembangan global', 'Perubahan apa dalam tata kelola dan regulasi internet dunia yang perlu dicermati Indonesia?'], ['Pelajaran dari negara lain', 'Praktik atau pendekatan apa dari negara lain yang layak dikaji untuk Indonesia?'], ['Prioritas kajian', 'Isu kebijakan internet mana yang perlu ditelaah lebih lanjut di Indonesia?']],
+    lL: 'Ruang lingkup', lingkup: [['Perkembangan regulasi global', 'Perubahan kebijakan dan regulasi internet dunia'], ['Tata kelola platform dan data', 'Keamanan dan kedaulatan digital'], ['Praktik kebijakan negara lain', 'Pelajaran bagi kebijakan Indonesia']],
+    hasil: 'Rangkuman perkembangan kebijakan internet dunia, pembelajaran dari negara lain, dan isu yang perlu dikaji lebih lanjut di Indonesia.', catatan: 'Pandangan narasumber menjadi masukan kajian, bukan posisi resmi pemerintah.' },
+  4: { name: 'Arah Kebijakan Transformasi Digital Nasional Menuju 2045 untuk Meningkatkan Produktivitas Ekonomi dan Kesejahteraan Masyarakat', format: 'PANEL DISCUSSION', tag: 'DIGITAL 2045', color: '#3BFFA0', deep: '#0E7A4C', a: 'rgba(59,255,160,.22)', b: 'rgba(59,255,160,.4)',
+    kL: 'Tentang forum', konteks: 'Forum ini mempertemukan pelaku investasi, industri, akademisi, dan masyarakat sipil untuk memberi masukan tentang arah transformasi digital Indonesia menuju 2045.',
+    tL: 'Mengapa dibahas?', tujuan: 'Forum ini membahas bagaimana teknologi dan investasi dapat meningkatkan produktivitas, memperbaiki layanan publik, dan memperluas kesempatan ekonomi.',
+    qL: 'Tiga pertanyaan utama', q: [['Manfaat 2045', 'Pada 2045, manfaat apa yang seharusnya dirasakan masyarakat, dunia usaha, dan pengguna layanan publik?'], ['Faktor keberhasilan', 'Apa yang perlu dilakukan agar teknologi, investasi, dan inovasi digital benar-benar meningkatkan produktivitas dan kesejahteraan masyarakat?'], ['Langkah awal 2027–2034', 'Apa yang perlu diperkuat pada 2027–2029, lalu dikembangkan pada 2030–2034?']],
+    lL: 'Susunan panel', lingkup: [['Panel I · 09.30–12.00', 'Investasi, teknologi, ekonomi, dan masyarakat'], ['Panel II · 13.00–15.00', 'Layanan publik, industri, platform, dan akademisi']],
+    hasil: 'Pandangan panelis tentang manfaat, hambatan, dan langkah awal 2027–2034 sebagai masukan kajian kebijakan transformasi digital nasional.', catatan: 'Forum menghimpun pandangan, bukan menetapkan keputusan atau komitmen.' },
+  5: { name: 'Eksplorasi Pemanfaatan Kecerdasan Artifisial dalam Analisis Kebijakan Publik Berlandaskan Bukti Empiris', format: 'PANEL DISCUSSION', tag: 'AI', color: '#B9A8FF', deep: '#4A2FB0', a: 'rgba(185,168,255,.26)', b: 'rgba(185,168,255,.45)',
+    kL: 'Konteks pembahasan', konteks: 'ITB dan UNPAR mengembangkan contoh penggunaan AI untuk analisis sentimen publik dan pengolahan data perkotaan yang dapat dipelajari Komdigi.',
+    tL: 'Tujuan diskusi', tujuan: 'Diskusi ini mempelajari penerapan AI dari ITB dan UNPAR serta menjajaki peluang pemanfaatannya dalam analisis kebijakan Komdigi.',
+    qL: 'Tiga pertanyaan pengarah', q: [['Contoh penggunaan', 'Masalah kebijakan apa yang dapat dibantu AI melalui analisis sentimen dan integrasi data?'], ['Kualitas hasil', 'Data dan pengujian apa yang dibutuhkan agar hasil AI dapat dipercaya sebagai bahan analisis kebijakan?'], ['Peluang kerja sama', 'Bentuk kerja sama apa yang layak dijajaki Komdigi bersama perguruan tinggi?']],
+    lL: 'Paparan akademisi', lingkup: [['Sesi I · ITB · Cognitive City', 'AI dan data lintas sektor dalam kebijakan perkotaan'], ['Sesi II · UNPAR', 'Analisis sentimen dan persepsi publik atas kebijakan']],
+    hasil: 'Masukan mengenai kegunaan, keterbatasan, kebutuhan data, dan peluang kerja sama pemanfaatan AI dalam analisis kebijakan.', catatan: 'Penerapan AI perlu dikaji dan diuji sebelum digunakan dalam analisis kebijakan.' }
 };
 const HARI = [
   { code: 'HARI_01', date: '10.11.2026', long: 'Selasa, 10 November 2026', iso: '2026-11-10', slots: [
-    { room: 1, time: '09.30–12.00', num: 3, title: 'Rapid Scam Disruption Protocol', part: 'Bagian 1 dari 2', parties: ['CSIS', 'IDEA', 'OJK'] },
-    { room: 2, time: '09.30–12.00', num: 4, title: 'Institutional Readiness for PP Tunas Implementation', part: 'Sesi tunggal', parties: ['Universitas Pendidikan Indonesia', 'KemenPAN-RB', 'DJ Pengawasan Digital – Komdigi'] },
-    { room: 1, time: '13.00–15.00', num: 3, title: 'Rapid Scam Disruption Protocol', part: 'Bagian 2 dari 2', parties: ['ATSI', 'AFTECH'] },
-    { room: 2, time: '13.00–15.00', num: 1, title: 'Internet Policy Global Landscape', part: 'Sesi tunggal', parties: [] }
+    { room: 1, time: '09.30–12.00', num: 1, title: 'Diskusi Arah Strategis Kerangka ASEAN RSDP Guideline', part: 'Sesi I', desc: 'Penanganan penipuan daring dan koordinasi lintas sektor.', parties: [] },
+    { room: 2, time: '09.30–12.00', num: 2, title: 'Kesiapan Organisasi dalam Implementasi PP TUNAS', part: 'Focus group discussion', desc: 'Pembagian tugas, proses kerja, dan pengawasan PP TUNAS.', parties: [] },
+    { room: 1, time: '13.00–15.00', num: 1, title: 'Diskusi Arah Strategis Kerangka ASEAN RSDP Guideline — Lanjutan', part: 'Sesi II · Lanjutan', desc: 'Pelaporan penipuan, respons cepat, dan pertukaran informasi.', parties: [] },
+    { room: 2, time: '13.00–15.00', num: 3, title: 'Lanskap Kebijakan Internet Global', part: 'Forum discussion', desc: 'Perkembangan kebijakan internet dunia dan dampaknya bagi Indonesia.', parties: [] }
   ] },
   { code: 'HARI_02', date: '11.11.2026', long: 'Rabu, 11 November 2026', iso: '2026-11-11', slots: [
-    { room: 1, time: '09.30–12.00', num: 2, title: 'Digital Direction and Policy 2045', part: 'Bagian 1 dari 2', parties: ['Danantara Indonesia', 'Ericsson Indonesia', 'CELIOS', 'SAFEnet'] },
-    { room: 2, time: '09.30–12.00', num: 5, title: 'AI Assistant for Smart City Government', part: 'Topik 1 dari 2', parties: ['Pusat Kolaborasi Riset AI untuk Smart X'] },
-    { room: 1, time: '13.00–15.00', num: 2, title: 'Digital Direction and Policy 2045', part: 'Bagian 2 dari 2', parties: ['PERURI / INA Digital', 'Telkom Indonesia', 'Grab Indonesia', 'CfDS UGM'] },
-    { room: 2, time: '13.00–15.00', num: 5, title: 'AI for Policy Public Sentiment Analyst', part: 'Topik 2 dari 2', parties: ['Center for Public Policy and Management Studies Unpar', 'Pusat Kebijakan Strategis'] }
+    { room: 1, time: '09.30–12.00', num: 4, title: 'Transformasi Digital Nasional Menuju 2045 — Panel I', part: 'Panel I', desc: 'Investasi, teknologi, ekonomi, dan manfaat bagi masyarakat.', parties: [] },
+    { room: 2, time: '09.30–12.00', num: 5, title: 'AI untuk Analisis Kebijakan — Sesi ITB', part: 'Sesi I · ITB · Cognitive City', desc: 'Pemanfaatan AI dan data lintas sektor untuk kebijakan perkotaan.', parties: [] },
+    { room: 1, time: '13.00–15.00', num: 4, title: 'Transformasi Digital Nasional Menuju 2045 — Panel II', part: 'Panel II', desc: 'Layanan publik, industri, platform digital, dan akademisi.', parties: [] },
+    { room: 2, time: '13.00–15.00', num: 5, title: 'AI untuk Analisis Kebijakan — Sesi UNPAR', part: 'Sesi II · UNPAR', desc: 'Pemanfaatan AI untuk membaca tanggapan publik atas kebijakan.', parties: [] }
   ] }
 ];
 
@@ -358,20 +425,28 @@ const rgb = (hex) => [1, 3, 5].map((k) => parseInt(hex.slice(k, k + 2), 16)).joi
 const zs = (x) => (((CONFIG.zoom || {})['hari' + (x.d + 1)] || {})['room' + x.room] || {})[x.half] || {};
 /* Enam judul utama di halaman depan */
 const TOPIK = [
-  { title: 'Internet Global Landscape', tag: 'INTERNET GLOBAL LANDSCAPE', num: 1, d: 0, i: 3, motif: 1 },
-  { title: 'Digital Dream 2045', tag: 'DIGITAL DREAM 2045', num: 2, d: 1, i: 0, motif: 'rocket', also: [1, 2] },
-  { title: 'Anti Scam Disruption', tag: 'ANTI SCAM DISRUPTION', num: 3, d: 0, i: 0, motif: 3, also: [0, 2] },
-  { title: 'PP Tunas Institution', tag: 'PP TUNAS INSTITUTION', num: 4, d: 0, i: 1, motif: 4 },
-  { title: 'Policy.ai', tag: 'POLICY.AI', num: 5, d: 1, i: 1, motif: 5, also: [1, 3] }
+  { title: 'Diskusi Arah Strategis Kerangka ASEAN RSDP Guideline', tag: 'ASEAN RSDP GUIDELINE', desc: 'Penanganan penipuan daring dan koordinasi lintas sektor.', num: 1, d: 0, i: 0, motif: 3, also: [0, 2] },
+  { title: 'Kesiapan Organisasi dalam Implementasi PP TUNAS', tag: 'PP TUNAS', desc: 'Pembagian tugas, proses kerja, dan pengawasan PP TUNAS.', num: 2, d: 0, i: 1, motif: 4 },
+  { title: 'Lanskap Kebijakan Internet Global', tag: 'INTERNET GLOBAL', desc: 'Perkembangan kebijakan internet dunia dan dampaknya bagi Indonesia.', num: 3, d: 0, i: 3, motif: 1 },
+  { title: 'Arah Kebijakan Transformasi Digital Nasional Menuju 2045', tag: 'TRANSFORMASI DIGITAL 2045', desc: 'Untuk meningkatkan produktivitas ekonomi dan kesejahteraan masyarakat.', num: 4, d: 1, i: 0, motif: 'rocket', also: [1, 2] },
+  { title: 'Eksplorasi Pemanfaatan Kecerdasan Artifisial dalam Analisis Kebijakan Publik', tag: 'AI ANALISIS KEBIJAKAN', desc: 'Berlandaskan bukti empiris, bersama ITB dan UNPAR.', num: 5, d: 1, i: 1, motif: 5, also: [1, 3] }
 ];
+const SESSMOTIF = { 1: 3, 2: 4, 3: 1, 4: 'rocket', 5: 5 };
 const topikOf = (x) => TOPIK.find((t) => (t.d === x.d && t.i === x.i) || (t.also && t.also[0] === x.d && t.also[1] === x.i));
 const SLOTMOTIF = { '0-0': 3, '0-1': 4, '0-2': 'scam2', '0-3': 1, '1-0': 2, '1-1': 'city', '1-2': 'rocket', '1-3': 'sentiment' };
 const smk = (x) => SLOTMOTIF[x.d + '-' + x.i] || x.num;
-const sp = (x) => { const l = ((((CONFIG.institusi || {})['hari' + (x.d + 1)] || {})['room' + x.room] || {})[x.half]); return (Array.isArray(l) ? l : x.parties).filter((v) => v && String(v).trim()).map((v) => ({ instansi: String(v).trim() })); };
-const spName = (p) => p.instansi || '';
-const spNames = (x) => { const n = sp(x).map(spName); return n.length ? n.join(' · ') : 'Institusi akan diumumkan'; };
-const spList = (x, se, size = 40) => { const l = sp(x); return l.length ? l.map((p) => spCard(p, se, size)).join('') : `<div style="border:1px dashed ${se.a};border-radius:14px;padding:12px;font-size:13px;color:var(--mu2)">Institusi akan diumumkan</div>`; };
-const spCard = (p, se, size = 40) => `<div style="display:flex;align-items:center;gap:12px;border:1px solid ${se.a};border-radius:14px;padding:10px 12px;background:rgba(255,255,255,.03);min-width:0"><span class="mono" aria-hidden="true" style="width:${size}px;height:${size}px;border-radius:12px;background:linear-gradient(140deg,${se.color},${se.deep});color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:${Math.round(size / 3.2)}px;font-weight:700;flex-shrink:0;box-shadow:0 0 14px ${se.b}">${ini(spName(p))}</span><span style="font-size:15px;font-weight:700;line-height:1.3;min-width:0">${spName(p)}</span></div>`;
+const sp = (x) => { const l = ((((CONFIG.narasumber || {})['hari' + (x.d + 1)] || {})['room' + x.room] || {})[x.half]); return (Array.isArray(l) ? l : []).filter((p) => p && (p.nama || p.instansi)); };
+const modr = (x) => ((((CONFIG.moderator || {})['hari' + (x.d + 1)] || {})['room' + x.room] || {})[x.half]) || '';
+const shortInst = (s) => { const m = /\(([^)]+)\)\s*$/.exec(s || ''); return m ? m[1] : (s || ''); };
+const spName = (p) => p.nama || p.instansi || '';
+const spNames = (x) => { const n = sp(x).map((p) => p.nama ? p.nama : shortInst(p.instansi)); return n.length ? n.join(' · ') : 'Narasumber menyusul'; };
+const spCard = (p, se, size = 40) => { const sub = p.nama ? [p.jabatan, p.instansi].filter((v) => v && v.trim()).join(' · ') : (p.jabatan && p.jabatan.trim() ? p.jabatan + ' · nama belum dikonfirmasi' : 'Perwakilan · nama belum dikonfirmasi');
+  const meta = [p.jam, p.topik].filter((v) => v && v.trim()).join(' · ');
+  return `<div style="display:flex;align-items:flex-start;gap:12px;border:1px solid ${se.a};border-radius:14px;padding:10px 12px;background:rgba(255,255,255,.03);min-width:0"><span class="mono" aria-hidden="true" style="width:${size}px;height:${size}px;border-radius:${p.nama ? '50%' : '12px'};background:linear-gradient(140deg,${se.color},${se.deep});color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:${Math.round(size / 3.2)}px;font-weight:700;flex-shrink:0;box-shadow:0 0 14px ${se.b}">${ini(p.nama || shortInst(p.instansi))}</span><span style="display:flex;flex-direction:column;gap:3px;min-width:0"><span style="font-size:15px;font-weight:700;line-height:1.3">${spName(p)}</span><span style="font-size:12px;color:var(--mu2);line-height:1.4">${sub}</span>${meta ? `<span class="mono" style="font-size:11px;color:${se.color};line-height:1.4">${meta}</span>` : ''}</span></div>`; };
+const spList = (x, se, size = 40) => { const l = sp(x), m = modr(x); return (l.length ? l.map((p) => spCard(p, se, size)).join('') : `<div style="border:1px dashed ${se.a};border-radius:14px;padding:12px;font-size:13px;color:var(--mu2)">Narasumber menyusul</div>`) + (m ? `<div class="mono" style="font-size:12px;color:var(--mu2);padding:4px 2px">MODERATOR · <span style="color:var(--tx)">${m}</span></div>` : ''); };
+const tl = (n) => { const t = CONFIG.tautanTopik[n] || {}, m = CONFIG.menti[n] || {}; return { digika: t.digika || '', tanya: t.pertanyaan || '', survei: m.vote || '' }; };
+const linkChips = (n, se) => { const t = tl(n); const items = [['DIGIKA', t.digika], ['PERTANYAAN', t.tanya], ['SURVEI', t.survei]].filter((x) => x[1] && String(x[1]).trim());
+  return items.length ? `<div style="display:flex;flex-wrap:wrap;gap:6px;padding-left:4px">${items.map(([l, u]) => `<a class="mono" href="${u}" target="_blank" rel="noopener" style="min-height:36px;display:inline-flex;align-items:center;gap:6px;border:1px solid ${se.a};border-radius:8px;padding:6px 10px;font-size:11px;font-weight:700;letter-spacing:.06em;color:${se.color}">${l} ↗</a>`).join('')}</div>` : ''; };
 const has = (v) => typeof v === 'string' && v.trim() !== '';
 const ini = (n) => n.replace(/(Dr\.|Eng\.)\s*/g, '').split(/[\s\/–-]+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
 const first = (n) => { for (let d = 0; d < 2; d++) for (let i = 0; i < 4; i++) if (HARI[d].slots[i].num === n) return { d, i, x: HARI[d].slots[i] }; };
@@ -418,7 +493,7 @@ function cdText() {
   return { label: 'STATUS', text: 'DISKUSI SELESAI' };
 }
 function vBeranda() {
-  const partners = []; HARI.forEach((d, di) => d.slots.forEach((_, i) => sp(slot(di, i)).forEach((p) => { const n = p.instansi; if (n && !partners.includes(n)) partners.push(n); })));
+  const partners = []; HARI.forEach((d, di) => d.slots.forEach((_, i) => sp(slot(di, i)).forEach((p) => { const n = shortInst(p.instansi); if (n && !partners.includes(n)) partners.push(n); })));
   const radii = [0.2, 0.27, 0.34, 0.41, 0.48], durs = [26, 34, 42, 52, 64], sizes = ['clamp(36px,5vw,54px)', 'clamp(38px,5.6vw,60px)', 'clamp(40px,6vw,66px)', 'clamp(36px,5vw,54px)', 'clamp(42px,6.4vw,70px)'];
   const cd = cdText();
   const orbs = [1, 2, 3, 4, 5].map((n, i) => { const f = first(n), se = SESI[n], d = durs[i] + 's', dl = (-durs[i] * (i * 0.21 + 0.05)).toFixed(1) + 's';
@@ -431,11 +506,11 @@ function vBeranda() {
   const stats = [['DURASI', '2', 'hari, 10–11 November 2026', '#6EF3FF'], ['RUANG', '2', 'ruang diskusi virtual paralel', '#B9A8FF'], ['TOPIK', '5', 'topik diskusi kebijakan', '#3BFFA0'], ['INSTITUSI', String(partners.length), 'institusi narasumber dan mitra diskusi', '#FF9AD1']];
   return `<div style="display:flex;flex-direction:column;gap:26px">
   <section class="hero brk mat">
-    <div class="mono" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:11px;color:var(--mu);letter-spacing:.08em"><span>VGD://PUSAT-KEBIJAKAN-STRATEGIS · KOMDIGI</span><span>06°54′S 107°36′E · BANDUNG</span></div>
+    <div class="mono" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:11px;color:var(--mu);letter-spacing:.08em"><span>VGD://DIGITAL-POLICY-DAYS-2026</span><span>DARING · 2 RUANG VIRTUAL PARALEL</span></div>
     <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;padding-top:18px">
       <span class="mono" style="display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(110,243,255,.45);border-radius:999px;padding:7px 16px;font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--tx);background:rgba(110,243,255,.07);box-shadow:0 0 22px rgba(110,243,255,.18)"><span class="blink" style="width:7px;height:7px;border-radius:50%;background:#3BFFA0"></span>VIRTUAL GROUP DISCUSSION</span>
-      <h1><span class="city">Bandung</span><span class="big glitch">Digital Policy Days</span></h1>
-      <p style="margin:0;font-size:clamp(15px,1.8vw,18px);line-height:1.55;color:var(--mu2);max-width:660px">Diskusi kelompok terarah secara daring bersama regulator, industri, akademisi, dan <i>think tank</i>. Lima topik diskusi, satu jaringan gagasan menuju rekomendasi kebijakan digital nasional dan regional. Ikuti dari mana saja.</p>
+      <h1><span class="city">Komdigi · Pusat Kebijakan Strategis</span><span class="big glitch">Digital Policy Days 2026</span></h1>
+      <p style="margin:0;font-size:clamp(15px,1.8vw,18px);line-height:1.55;color:var(--mu2);max-width:660px">Menghimpun pandangan dan pengalaman berbagai pemangku kepentingan, dari pelindungan masyarakat di ruang digital hingga pemanfaatan teknologi bagi pelayanan publik dan perekonomian, sebagai bahan analisis kebijakan strategis. Lima topik, dua ruang virtual, ikuti secara daring.</p>
     </div>
     <div class="net" id="net" role="group" aria-label="Jaringan lima sesi kebijakan">
       <canvas id="netc" aria-hidden="true"></canvas>
@@ -454,36 +529,40 @@ function vBeranda() {
   <section aria-labelledby="cara" class="panel brk" style="padding:clamp(18px,3vw,28px);display:flex;flex-direction:column;gap:16px">
     <h2 id="cara" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">CARA MENGIKUTI VIRTUAL GROUP DISCUSSION</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px">
-      ${[['01', 'Pilih sesi', 'Lihat agenda dan pilih topik diskusi yang sesuai dengan bidang Anda.', '#6EF3FF'], ['02', 'Masuk ruang diskusi', 'Bergabung ke Room 1 atau Room 2 lewat Zoom pada jam sesi, kamera dan mikrofon siap.', '#B9A8FF'], ['03', 'Sampaikan pandangan', 'Berdiskusi langsung, ajukan pertanyaan lewat formulir, dan isi survei Mentimeter.', '#3BFFA0'], ['04', 'Kawal hasilnya', 'Masukan Anda menjadi bahan rumusan rekomendasi kebijakan Komdigi.', '#FF9AD1']].map(([n, t, d, c]) => `<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid ${c};padding-top:12px"><span class="mono" style="font-size:22px;font-weight:700;color:${c}">${n}</span><span style="font-size:17px;font-weight:700">${t}</span><span style="font-size:14px;line-height:1.5;color:var(--mu2)">${d}</span></div>`).join('')}
+      ${[['01', 'Pilih sesi', 'Lihat agenda dan pilih ruang virtual sesuai bidang tugas dan minat Anda. Dua sesi berlangsung bersamaan.', '#6EF3FF'], ['02', 'Pasang latar virtual', 'Unduh latar belakang virtual yang disiapkan untuk tiap sesi dan gunakan saat bergabung.', '#B9A8FF'], ['03', 'Masuk ruang virtual', 'Bergabung ke Ruang Virtual 1 atau 2 lewat Zoom sesuai jadwal Sesi I atau Sesi II.', '#3BFFA0'], ['04', 'Ikuti dan dapatkan sertifikat', 'Berdiskusi, ajukan pertanyaan, isi survei. Peserta yang memenuhi ketentuan kehadiran memperoleh sertifikat.', '#FF9AD1']].map(([n, t, d, c]) => `<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid ${c};padding-top:12px"><span class="mono" style="font-size:22px;font-weight:700;color:${c}">${n}</span><span style="font-size:17px;font-weight:700">${t}</span><span style="font-size:14px;line-height:1.5;color:var(--mu2)">${d}</span></div>`).join('')}
     </div>
   </section>
+  <section aria-labelledby="infop" class="panel" style="padding:clamp(16px,3vw,24px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px">
+    <h2 id="infop" class="mono" style="grid-column:1/-1;margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">INFORMASI PESERTA</h2>
+    ${[['MEDIA', 'Telekonferensi daring', CONFIG.info.telekonferensi, 'Halaman informasi kegiatan ↗'], ['LATAR VIRTUAL', 'Gunakan latar belakang yang disiapkan untuk tiap sesi', CONFIG.info.latarVirtual, 'Unduh latar belakang ↗'], ['KONTAK PANITIA', [CONFIG.info.kontakNama, CONFIG.info.kontakTelp].filter(has).join(' · ') || 'Hubungi panitia', has(CONFIG.info.kontakWA) ? 'https://wa.me/' + String(CONFIG.info.kontakWA).replace(/\D/g, '') : '', 'Hubungi via WhatsApp ↗']].map(([k, d, u, l]) => `<div style="border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px;background:rgba(255,255,255,.02)"><span class="mono label">${k}</span><span style="font-size:15px;line-height:1.45">${d}</span>${has(u) ? `<a class="mono" href="${u}" target="_blank" rel="noopener" style="font-size:12px;font-weight:700;color:var(--cy)">${l}</a>` : ''}</div>`).join('')}
+  </section>
   <section aria-labelledby="sigil" style="display:flex;flex-direction:column;gap:14px">
-    <h2 id="sigil" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">LIMA TOPIK DISKUSI · PILIH TOPIK ANDA</h2>
+    <h2 id="sigil" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">LIMA TOPIK DISKUSI · PILIH SESUAI BIDANG TUGAS DAN MINAT</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:12px">${TOPIK.map((t, k) => { const se = SESI[t.num], x = slot(t.d, t.i), two = t.also ? slot(t.also[0], t.also[1]) : null;
       return `<button type="button" class="panel cap capin" data-sesi="${t.d}-${t.i}" style="animation-delay:${(0.08 * k + 0.2).toFixed(2)}s;position:relative;overflow:hidden;text-align:left;cursor:pointer;padding:18px;display:flex;flex-direction:column;gap:12px;border-color:${se.a}">
         <span class="shim" aria-hidden="true" style="animation-delay:${-(k * 0.7)}s"></span>${motif(t.motif, '76px', se.color, se.b)}
-        <span class="mono" style="font-size:11px;letter-spacing:.12em;color:${se.color}">TOPIK_0${k + 1}</span>
-        <span style="font-size:clamp(20px,2vw,24px);font-weight:700;line-height:1.15">${t.title}</span>
-        <span style="font-size:13px;color:var(--mu2);line-height:1.4">${se.name}</span>
-        <span class="mono" style="font-size:11px;color:var(--mu)">${HARI[x.d].date} · ROOM ${x.room} · ${two ? 'SESI I & II' : x.halfL.toUpperCase()}</span></button>`; }).join('')}</div>
+        <span class="mono" style="font-size:11px;letter-spacing:.12em;color:${se.color}">TOPIK_0${k + 1} · ${se.format}</span>
+        <span style="font-size:clamp(19px,1.8vw,22px);font-weight:700;line-height:1.25">${t.title}</span>
+        <span style="font-size:13px;color:var(--mu2);line-height:1.45">${t.desc}</span>
+        <span class="mono" style="font-size:11px;color:var(--mu)">${HARI[x.d].date} · RUANG ${x.room} · ${two ? 'SESI I & II' : x.halfL.toUpperCase()}</span></button>`; }).join('')}</div>
   </section>
   <section aria-labelledby="spk" style="display:flex;flex-direction:column;gap:16px">
-    <h2 id="spk" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">INSTITUSI NARASUMBER · 2 HARI · 2 ROOM</h2>
+    <h2 id="spk" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">NARASUMBER · 2 HARI · 2 RUANG VIRTUAL</h2>
     ${HARI.map((dd, di) => `<div style="display:flex;flex-direction:column;gap:10px">
       <span class="mono" style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700">${dd.code} · ${dd.long}<span style="flex:1;height:1px;background:var(--line)"></span></span>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px">${[0, 1, 2, 3].map((i) => slot(di, i)).sort((a, b) => a.room - b.room || a.i - b.i).map((x) => `<div class="panel cap" style="padding:14px;display:flex;flex-direction:column;gap:10px;border-color:${x.se.a}">
-        <button type="button" data-sesi="${x.d}-${x.i}" style="display:flex;align-items:center;gap:12px;border:none;background:none;padding:0;cursor:pointer;text-align:left">${motif(smk(x), '44px', x.se.color, x.se.b)}<span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span class="mono" style="font-size:11px;color:${x.se.color}">ROOM ${x.room} · ${x.halfL.toUpperCase()} · ${x.time}</span><span style="font-size:16px;font-weight:700;line-height:1.25">${(topikOf(x) || x).title}</span></span></button>
+        <button type="button" data-sesi="${x.d}-${x.i}" style="display:flex;align-items:center;gap:12px;border:none;background:none;padding:0;cursor:pointer;text-align:left">${motif(smk(x), '44px', x.se.color, x.se.b)}<span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span class="mono" style="font-size:11px;color:${x.se.color}">RUANG ${x.room} · ${x.halfL.toUpperCase()} · ${x.time}</span><span style="font-size:16px;font-weight:700;line-height:1.25">${x.title}</span></span></button>
         <div style="display:flex;flex-direction:column;gap:8px">${spList(x, x.se, 40)}</div>
       </div>`).join('')}</div></div>`).join('')}
   </section>
   <section aria-labelledby="links" class="panel brk" style="padding:clamp(16px,3vw,24px);display:flex;flex-direction:column;gap:18px">
-    <div style="display:flex;flex-direction:column;gap:6px"><h2 id="links" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">GABUNG ZOOM · 2 ROOM · SESI I DAN SESI II</h2><span style="font-size:14px;color:var(--mu2)">Sesi I 09.30–12.00 WIB, ISHOMA 12.00–13.00 WIB, Sesi II 13.00–15.00 WIB.</span></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><h2 id="links" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">AKSES SESI · ZOOM, DIGIKA, PERTANYAAN, SURVEI</h2><span style="font-size:14px;color:var(--mu2)">Sesi I 09.30–12.00 WIB, ISHOMA 12.00–13.00 WIB, Sesi II 13.00–15.00 WIB.</span></div>
     ${HARI.map((dd, di) => `<div style="display:flex;flex-direction:column;gap:10px">
       <span class="mono" style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700">${dd.code} · ${dd.long}<span style="flex:1;height:1px;background:var(--line)"></span></span>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px">${[1, 2].map((r) => `<div style="border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px;background:rgba(255,255,255,.02)">
-        <span class="mono" style="font-size:12px;font-weight:700;letter-spacing:.1em">ROOM ${r}</span>
-        ${[0, 1, 2, 3].map((i) => slot(di, i)).filter((x) => x.room === r).map((x) => { const z = zs(x); const inner = `${motif(smk(x), '34px', x.se.color, x.se.b)}<span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:11px;color:${x.se.color}">${x.halfL.toUpperCase()} · ${x.time}</span><span style="font-size:14px;font-weight:600;line-height:1.3">${(topikOf(x) || x).title}</span></span>`;
-          return has(z.link) ? `<a href="${z.link}" target="_blank" rel="noopener" class="cap" style="min-height:58px;display:flex;align-items:center;gap:12px;border:1px solid ${x.se.a};border-left:3px solid ${x.se.color};border-radius:10px;padding:8px 12px">${inner}<span aria-hidden="true" style="color:var(--cy)">↗</span></a>` : `<span style="min-height:58px;display:flex;align-items:center;gap:12px;border:1px dashed var(--line);border-radius:10px;padding:8px 12px;opacity:.7">${inner}<span class="mono" style="font-size:10px;color:var(--mu)">SEGERA</span></span>`; }).join('')}
+        <span class="mono" style="font-size:12px;font-weight:700;letter-spacing:.1em">RUANG ${r}</span>
+        ${[0, 1, 2, 3].map((i) => slot(di, i)).filter((x) => x.room === r).map((x) => { const z = zs(x); const inner = `${motif(smk(x), '34px', x.se.color, x.se.b)}<span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:11px;color:${x.se.color}">${x.halfL.toUpperCase()} · ${x.time}</span><span style="font-size:14px;font-weight:600;line-height:1.3">${x.title}</span></span>`;
+          return `<div style="display:flex;flex-direction:column;gap:6px">${has(z.link) ? `<a href="${z.link}" target="_blank" rel="noopener" class="cap" style="min-height:58px;display:flex;align-items:center;gap:12px;border:1px solid ${x.se.a};border-left:3px solid ${x.se.color};border-radius:10px;padding:8px 12px">${inner}<span class="mono" style="font-size:10px;font-weight:700;color:var(--cy);white-space:nowrap">ZOOM ↗</span></a>` : `<span style="min-height:58px;display:flex;align-items:center;gap:12px;border:1px dashed var(--line);border-radius:10px;padding:8px 12px;opacity:.7">${inner}<span class="mono" style="font-size:10px;color:var(--mu)">SEGERA</span></span>`}${x.i < 2 || !(topikOf(x) && topikOf(x).also) ? linkChips(x.num, x.se) : ''}</div>`; }).join('')}
       </div>`).join('')}</div></div>`).join('')}
   </section></div>`;
 }
@@ -499,11 +578,11 @@ function vAgenda() {
     <div class="grid-slots">${arr.map((x) => `<button type="button" class="capsule-s cap capin ${x.st.state === 'live' ? 'livecap' : ''}" data-sesi="${x.d}-${x.i}" style="--g:${x.se.b};animation-delay:${(0.1 * x.i + 0.05).toFixed(2)}s;border-color:${x.se.color};background:linear-gradient(135deg,${x.se.a},rgba(10,13,32,.88));box-shadow:0 0 20px ${x.se.b}">
       <span class="shim" aria-hidden="true" style="animation-delay:${-(x.i * 0.9)}s"></span>
       <span style="position:absolute;right:14px;top:50%;transform:translateY(-50%)">${motif(smk(x), '58px', x.se.color, x.se.b)}</span>
-      <span style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px"><span class="mono" style="font-size:11px;font-weight:700;letter-spacing:.08em;color:${x.se.color}">ROOM ${x.room} · SESI_0${x.num}</span>${stBadge(x.st)}</span>
+      <span style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px"><span class="mono" style="font-size:11px;font-weight:700;letter-spacing:.08em;color:${x.se.color}">RUANG ${x.room} · SESI_0${x.num}</span>${stBadge(x.st)}</span>
       <span style="font-size:18px;font-weight:700;line-height:1.22">${x.title}</span>
       <span style="font-size:13px;color:var(--mu2);line-height:1.4">${spNames(x)}</span></button>`).join('')}</div></div>`;
   const lane = (r) => `<div style="display:flex;align-items:stretch">
-    <span class="mono" style="width:96px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;font-size:12px;color:var(--mu)"><span style="color:var(--tx);font-weight:700;font-size:14px">ROOM ${r}</span>SESI I · II</span>
+    <span class="mono" style="width:96px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;font-size:12px;color:var(--mu)"><span style="color:var(--tx);font-weight:700;font-size:14px">RUANG ${r}</span>VIRTUAL</span>
     <div class="lane">
       <span aria-hidden="true" style="position:absolute;left:45.45%;width:18.18%;top:0;bottom:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px);border-left:1px dashed rgba(110,243,255,.2);border-right:1px dashed rgba(110,243,255,.2)"></span>
       <span class="lanef" aria-hidden="true"></span>
@@ -542,7 +621,6 @@ function vAgenda() {
 /* ---------- DOSIR (Detail sesi) ---------- */
 function vSesi() {
   const s = slot(S.day, S.slot), se = s.se, par = slot(S.day, S.slot ^ 1), d = HARI[S.day], on = !!saved[s.key], mat = CONFIG.materi[s.num];
-  const cols = [['TUJUAN', se.tujuan], ['LINGKUP', se.lingkup], ['KELUARAN', se.keluaran]];
   return `<div style="display:flex;flex-direction:column;gap:20px">
     <button type="button" class="mono" data-nav="agenda" style="align-self:flex-start;min-height:44px;border:none;background:transparent;color:var(--cy);font-size:13px;font-weight:700;letter-spacing:.08em;padding:8px 0;cursor:pointer">‹ KEMBALI KE AGENDA</button>
     <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:stretch">
@@ -556,24 +634,38 @@ function vSesi() {
         <span class="mono" style="position:absolute;left:14px;bottom:12px;font-size:11px;color:var(--mu)">OBJ://SESI_0${s.num}</span>
       </div>
       <div class="mat2" style="flex:2 1 360px;min-width:0;display:flex;flex-direction:column;gap:14px;justify-content:center">
-        <span class="mono" style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:12px;letter-spacing:.1em;color:${se.color}">SESI_0${s.num} · ${s.part.toUpperCase()} ${stBadge(s.st)}</span>
+        <span class="mono" style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:12px;letter-spacing:.1em;color:${se.color}">${String(s.num).padStart(2, '0')} · ${se.format} · ${s.part.toUpperCase()} ${stBadge(s.st)}</span>
         <h1 class="glitch" style="margin:0;font-size:clamp(30px,5vw,56px);line-height:1.02;font-weight:700;letter-spacing:-.02em">${s.title}</h1>
-        <span style="font-size:16px;color:var(--mu2)">${se.name}</span>
-        <div class="mono" style="display:flex;flex-wrap:wrap;gap:8px;font-size:12px">${[d.long, s.halfL + ', ' + s.time + ' WIB', `ROOM ${s.room}`].map((t) => `<span style="border:1px solid rgba(110,243,255,.3);border-radius:8px;padding:6px 10px">${t}</span>`).join('')}</div>
+        <span style="font-size:16px;color:var(--mu2);line-height:1.5">${se.name}</span>
+        <span style="font-size:15px;color:#C9D0EA;line-height:1.5">${s.desc}</span>
+        <div class="mono" style="display:flex;flex-wrap:wrap;gap:8px;font-size:12px">${[d.long, s.halfL + ', ' + s.time + ' WIB', `RUANG ${s.room}`].map((t) => `<span style="border:1px solid rgba(110,243,255,.3);border-radius:8px;padding:6px 10px">${t}</span>`).join('')}</div>
         <div class="btn-row-m" style="display:flex;flex-wrap:wrap;gap:10px;padding-top:4px">
-          ${has(zs(s).link) ? `<a class="btn" href="${zs(s).link}" target="_blank" rel="noopener" style="background:linear-gradient(90deg,${se.color},#B9A8FF);color:#05060F;box-shadow:0 0 24px ${se.b}">Gabung Zoom Room ${s.room} · ${s.halfL} ↗</a>` : ''}
-          <button type="button" class="btn btn-line" data-live="${s.room}" data-half="${s.half}">Buka ruang diskusi Room ${s.room}</button>
+          ${has(zs(s).link) ? `<a class="btn" href="${zs(s).link}" target="_blank" rel="noopener" style="background:linear-gradient(90deg,${se.color},#B9A8FF);color:#05060F;box-shadow:0 0 24px ${se.b}">Gabung Zoom Ruang Virtual ${s.room} · ${s.halfL} ↗</a>` : ''}
+          ${has(tl(s.num).digika) ? `<a class="btn btn-line" href="${tl(s.num).digika}" target="_blank" rel="noopener">Buka di Digika ↗</a>` : ''}
+          ${has(tl(s.num).tanya) ? `<a class="btn btn-line" href="${tl(s.num).tanya}" target="_blank" rel="noopener">Ajukan pertanyaan ↗</a>` : ''}
+          ${has(tl(s.num).survei) ? `<a class="btn btn-line" href="${tl(s.num).survei}" target="_blank" rel="noopener">Isi survei ↗</a>` : ''}
+          <button type="button" class="btn btn-line" data-live="${s.room}" data-half="${s.half}">Buka ruang diskusi Ruang Virtual ${s.room}</button>
           <button type="button" class="btn btn-line" data-save="${s.key}" aria-pressed="${on}">${on ? '◆ Tersimpan' : '◇ Simpan'}</button>
           ${has(mat) ? `<a class="btn btn-line" href="${mat}" target="_blank" rel="noopener">Bahan sesi ↗</a>` : ''}
         </div>
       </div>
     </div>
-    <p class="mat2" style="margin:0;font-size:clamp(16px,2vw,19px);line-height:1.65;color:#C9D0EA;max-width:74ch">${se.bg}</p>
-    <div class="mat3" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px">${cols.map(([h, arr], k) => `<div class="panel brk" style="padding:18px;display:flex;flex-direction:column;gap:10px"><span class="mono" style="font-size:11px;letter-spacing:.14em;color:${se.color}">MODUL_0${k + 1} · ${h}</span>${arr.map((t) => `<span style="display:flex;gap:10px;font-size:15px;line-height:1.45"><span class="mono" aria-hidden="true" style="color:var(--cy)">›</span>${t}</span>`).join('')}</div>`).join('')}</div>
-    <div class="panel brk mat3" style="padding:18px;display:flex;flex-direction:column;gap:14px"><span class="mono" style="font-size:11px;letter-spacing:.14em;color:${se.color}">INSTITUSI NARASUMBER · ROOM ${s.room} · ${s.halfL.toUpperCase()}</span>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:10px">${spList(s, se, 48)}</div></div>
+    <div class="mat2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px">
+      ${[[se.kL, se.konteks], [se.tL, se.tujuan]].map(([l, t]) => `<div class="panel brk" style="padding:18px;display:flex;flex-direction:column;gap:8px"><span class="mono" style="font-size:11px;letter-spacing:.14em;color:${se.color}">${l.toUpperCase()}</span><span style="font-size:16px;line-height:1.6;color:#D6DCF2">${t}</span></div>`).join('')}
+    </div>
+    <div class="mat3" style="display:flex;flex-direction:column;gap:12px">
+      <span class="mono" style="font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">${se.qL.toUpperCase()}</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px">${se.q.map(([t, q], k) => `<div class="panel" style="padding:18px;display:flex;flex-direction:column;gap:8px;border-color:${se.a}"><span style="display:flex;align-items:center;gap:10px"><span class="mono" style="width:30px;height:30px;border-radius:8px;background:${se.color};color:#05060F;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0">0${k + 1}</span><span style="font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.03em">${t}</span></span><span style="font-size:15px;line-height:1.55;color:var(--mu2)">${q}</span></div>`).join('')}</div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start">
+      <div class="panel brk" style="flex:3 1 420px;min-width:0;padding:18px;display:flex;flex-direction:column;gap:12px"><span class="mono" style="font-size:11px;letter-spacing:.14em;color:${se.color}">NARASUMBER · RUANG VIRTUAL ${s.room} · ${s.halfL.toUpperCase()} · ${s.time} WIB</span>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:10px">${spList(s, se, 46)}</div></div>
+      <div class="panel" style="flex:2 1 300px;min-width:0;padding:18px;display:flex;flex-direction:column;gap:12px"><span class="mono" style="font-size:11px;letter-spacing:.14em;color:${se.color}">${se.lL.toUpperCase()}</span>
+        ${se.lingkup.map(([t, d]) => `<span style="display:flex;gap:12px;align-items:flex-start"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:${se.color};box-shadow:0 0 10px ${se.b};margin-top:6px;flex-shrink:0"></span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;font-weight:700">${t}</span><span style="font-size:13px;color:var(--mu2);line-height:1.45">${d}</span></span></span>`).join('')}</div>
+    </div>
+    <div class="panel brk" style="padding:20px;display:flex;flex-direction:column;gap:8px;background:linear-gradient(135deg,${se.a},rgba(10,13,32,.85))"><span class="mono" style="font-size:11px;letter-spacing:.14em;color:${se.color}">HASIL YANG DIHARAPKAN</span><span style="font-size:clamp(16px,2vw,19px);font-weight:600;line-height:1.55">${se.hasil}</span>${se.catatan ? `<span style="font-size:14px;font-style:italic;color:var(--mu2)">${se.catatan}</span>` : ''}</div>
     <div style="display:flex;flex-wrap:wrap;gap:10px">
-      <button type="button" class="panel" data-sesi="${par.d}-${par.i}" style="flex:1 1 260px;text-align:left;padding:14px 16px;cursor:pointer;display:flex;flex-direction:column;gap:4px"><span class="mono" style="font-size:11px;color:var(--mu)">PARALEL · ROOM ${par.room}</span><span style="font-size:16px;font-weight:700">${par.title}</span></button>
+      <button type="button" class="panel" data-sesi="${par.d}-${par.i}" style="flex:1 1 260px;text-align:left;padding:14px 16px;cursor:pointer;display:flex;flex-direction:column;gap:4px"><span class="mono" style="font-size:11px;color:var(--mu)">PARALEL · RUANG ${par.room}</span><span style="font-size:16px;font-weight:700">${par.title}</span></button>
       <button type="button" class="btn btn-line mono" style="flex:1 1 140px;font-size:13px" data-step="-1" ${S.slot === 0 ? 'aria-disabled="true"' : ''}>‹ SEBELUMNYA</button>
       <button type="button" class="btn btn-line mono" style="flex:1 1 140px;font-size:13px" data-step="1" ${S.slot === 3 ? 'aria-disabled="true"' : ''}>BERIKUTNYA ›</button>
     </div></div>`;
@@ -586,7 +678,7 @@ function vLive() {
   const cur = (S.half !== 'auto' && list.find((x) => x.half === S.half)) || auto;
   const se = cur.se, z = zs(cur), vid = CONFIG.embedVideo[S.room], m = CONFIG.menti[cur.num] || {};
   const roomTab = (r) => { const rs = [0, 1, 2, 3].map((i) => slot(S.day, i)).filter((x) => x.room === r), lv = rs.find((x) => x.st.state === 'live');
-    return `<button type="button" class="seg" data-room="${r}" aria-pressed="${S.room === r}" style="flex:1;min-width:0;min-height:60px"><span class="mono" style="font-size:13px;font-weight:700;letter-spacing:.08em">ROOM ${r}</span><span style="font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${lv ? '● LIVE: ' + lv.title : [...new Set(rs.map((x) => x.title))].join(' · ')}</span></button>`; };
+    return `<button type="button" class="seg" data-room="${r}" aria-pressed="${S.room === r}" style="flex:1;min-width:0;min-height:60px"><span class="mono" style="font-size:13px;font-weight:700;letter-spacing:.08em">RUANG ${r}</span><span style="font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${lv ? '● LIVE: ' + lv.title : [...new Set(rs.map((x) => x.title))].join(' · ')}</span></button>`; };
   const eq = Array.from({ length: 24 }, (_, i) => `<span class="eqb" style="height:${30 + ((i * 37) % 70)}%;background:linear-gradient(180deg,${se.color},#6EF3FF);animation-delay:${(-(i * 0.13) % 1.2).toFixed(2)}s;animation-duration:${(0.9 + ((i * 7) % 6) / 10).toFixed(1)}s"></span>`).join('');
   const tabs = [['tanya', 'TANYA'], ['survei', 'SURVEI'], ['materi', 'MATERI']];
   return `<div class="mat" style="display:flex;flex-direction:column;gap:18px">
@@ -599,36 +691,38 @@ function vLive() {
     <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start">
       <div style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:14px">
         <div class="brk stage" style="position:relative;overflow:hidden;border-radius:20px;border:1px solid rgba(110,243,255,.3);background:radial-gradient(120% 120% at 25% 15%,${se.a},#070A1C 70%);display:flex;flex-direction:column;justify-content:space-between;padding:clamp(14px,3vw,24px)">
-          ${has(vid) ? `<iframe src="${vid}" title="Siaran Room ${S.room}" allow="camera; microphone; fullscreen; display-capture; autoplay" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>` : `
+          ${has(vid) ? `<iframe src="${vid}" title="Siaran Ruang Virtual ${S.room}" allow="camera; microphone; fullscreen; display-capture; autoplay" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>` : `
           <div class="scan"></div>
-          <span style="position:relative;display:flex;justify-content:space-between;align-items:center;gap:10px"><span style="border:1px solid ${cur.st.c};border-radius:6px;padding:3px 8px">${stBadge(cur.st)}</span><span class="mono" style="font-size:12px;color:var(--mu2)">ROOM ${S.room} · ${cur.halfL.toUpperCase()} · ${cur.time} WIB</span></span>
+          <span style="position:relative;display:flex;justify-content:space-between;align-items:center;gap:10px"><span style="border:1px solid ${cur.st.c};border-radius:6px;padding:3px 8px">${stBadge(cur.st)}</span><span class="mono" style="font-size:12px;color:var(--mu2)">RUANG ${S.room} · ${cur.halfL.toUpperCase()} · ${cur.time} WIB</span></span>
           <span aria-hidden="true" style="position:relative;display:flex;align-items:flex-end;justify-content:center;gap:clamp(3px,.6vw,6px);height:clamp(60px,12vw,120px)">${eq}</span>
           <span style="position:relative;display:flex;align-items:flex-end;gap:14px">${motif(smk(cur), 'clamp(44px,7vw,72px)', se.color, se.b)}<span style="display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:12px;color:${se.color}">SESI_0${cur.num}</span><span style="font-size:clamp(18px,3vw,30px);font-weight:700;line-height:1.15">${cur.title}</span></span></span>`}
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:10px">
-          ${has(z.link) ? `<a class="btn btn-glow" style="flex:1 1 220px" href="${z.link}" target="_blank" rel="noopener">Gabung Zoom Room ${S.room} · ${cur.halfL} ↗</a>` : `<span class="btn btn-glow" style="flex:1 1 220px" aria-disabled="true">Tautan Zoom belum tersedia</span>`}
+          ${has(z.link) ? `<a class="btn btn-glow" style="flex:1 1 220px" href="${z.link}" target="_blank" rel="noopener">Gabung Zoom Ruang Virtual ${S.room} · ${cur.halfL} ↗</a>` : `<span class="btn btn-glow" style="flex:1 1 220px" aria-disabled="true">Tautan Zoom belum tersedia</span>`}
+          ${has(tl(cur.num).digika) ? `<a class="btn btn-line" style="flex:1 1 200px" href="${tl(cur.num).digika}" target="_blank" rel="noopener">Buka di Digika ↗</a>` : ''}
           <button type="button" class="btn btn-line" style="flex:1 1 200px" data-sesi="${cur.d}-${cur.i}">Detail sesi</button>
         </div>
         ${has(z.id) ? `<span class="mono" style="font-size:12px;color:var(--mu)">MEETING ID ${z.id}${has(z.kode) ? ' · KODE ' + z.kode : ''}</span>` : ''}
-        <div style="display:flex;flex-direction:column;gap:10px"><span class="mono label">INSTITUSI NARASUMBER · ${cur.halfL.toUpperCase()} · ROOM ${S.room}</span>
+        <div style="display:flex;flex-direction:column;gap:10px"><span class="mono label">NARASUMBER · ${cur.halfL.toUpperCase()} · RUANG VIRTUAL ${S.room}</span>
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:10px">${spList(cur, se, 40)}</div></div>
       </div>
       <aside class="panel brk" style="flex:1 1 340px;min-width:0;padding:14px;display:flex;flex-direction:column;gap:14px">
         <div class="tabs mono" role="tablist" aria-label="Interaksi peserta">${tabs.map(([k, l]) => `<button type="button" role="tab" id="tab-${k}" aria-controls="pn-${k}" aria-selected="${S.tab === k}" data-tab="${k}">${l}</button>`).join('')}</div>
         <div id="pn-tanya" role="tabpanel" aria-labelledby="tab-tanya" class="${S.tab === 'tanya' ? '' : 'hidden'}" style="display:flex;flex-direction:column;gap:10px">
           <span style="font-size:14px;color:var(--mu2)">Kirim pertanyaan ke narasumber. Moderator akan membacakannya.</span>
-          ${has(CONFIG.tanyaForm) ? `<iframe class="frame" src="${CONFIG.tanyaForm}" title="Formulir pertanyaan" style="height:560px" loading="lazy">Memuat…</iframe><a class="mono" style="font-size:12px;color:var(--cy)" href="${CONFIG.tanyaForm.replace('embedded=true', '')}" target="_blank" rel="noopener">Formulir tidak tampil? Buka di tab baru ↗</a>` : `<div class="empty">Formulir pertanyaan belum dipasang. Isi <b>tanyaForm</b> di bagian PENGATURAN.</div>`}
+          ${has(tl(cur.num).tanya) ? `<a class="btn btn-glow" href="${tl(cur.num).tanya}" target="_blank" rel="noopener">Isi formulir pertanyaan ↗</a>` : ''}
+          ${has(CONFIG.tanyaForm) ? `<iframe class="frame" src="${CONFIG.tanyaForm}" title="Formulir pertanyaan" style="height:560px" loading="lazy">Memuat…</iframe><a class="mono" style="font-size:12px;color:var(--cy)" href="${CONFIG.tanyaForm.replace('embedded=true', '')}" target="_blank" rel="noopener">Formulir tidak tampil? Buka di tab baru ↗</a>` : (has(tl(cur.num).tanya) ? '' : `<div class="empty">Formulir pertanyaan untuk sesi ini belum tersedia.</div>`)}
         </div>
         <div id="pn-survei" role="tabpanel" aria-labelledby="tab-survei" class="${S.tab === 'survei' ? '' : 'hidden'}" style="display:flex;flex-direction:column;gap:12px">
           <span style="display:flex;align-items:center;gap:12px">${motif(smk(cur), '44px', se.color, se.b)}<span style="display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:11px;letter-spacing:.12em;color:${se.color}">SURVEI · SESI_0${cur.num}</span><span style="font-size:17px;font-weight:700;line-height:1.3">${cur.title}</span></span></span>
-          ${has(m.vote) ? `<a class="btn btn-glow" href="${m.vote}" target="_blank" rel="noopener">Isi survei di Mentimeter ↗</a>` : `<div class="empty">Tautan survei Sesi ${cur.num} belum dipasang. Isi <b>menti.${cur.num}.vote</b> di PENGATURAN.</div>`}
+          ${has(m.vote) ? `<a class="btn btn-glow" href="${m.vote}" target="_blank" rel="noopener">Isi survei ↗</a>` : `<div class="empty">Survei untuk sesi ini belum tersedia.</div>`}
           ${has(m.code) ? `<div style="border:1px solid rgba(110,243,255,.3);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;color:var(--mu2)">Atau buka <b>menti.com</b> dan masukkan kode</span><span class="mono" style="font-size:28px;font-weight:700;letter-spacing:.08em;color:var(--cy)">${m.code}</span></div>` : ''}
           ${has(m.embed) ? `<span class="mono label">HASIL LIVE</span><div style="position:relative;aspect-ratio:16/10;border-radius:12px;overflow:hidden;border:1px solid rgba(110,243,255,.3)"><iframe src="${m.embed}" title="Hasil survei Sesi ${cur.num}" style="position:absolute;inset:0;width:100%;height:100%;border:0" allowfullscreen loading="lazy"></iframe></div>` : ''}
         </div>
         <div id="pn-materi" role="tabpanel" aria-labelledby="tab-materi" class="${S.tab === 'materi' ? '' : 'hidden'}" style="display:flex;flex-direction:column;gap:8px">
           ${[1, 2, 3, 4, 5].map((n) => { const x = SESI[n], u = CONFIG.materi[n];
             return `<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;border:1px solid rgba(110,243,255,.15);border-left:3px solid ${x.color};border-radius:10px;padding:10px 12px">
-              <span style="display:flex;align-items:center;gap:10px;min-width:0">${motif(n, '34px', x.color, x.b)}<span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span class="mono" style="font-size:11px;color:${x.color}">SESI_0${n}</span><span style="font-size:14px;font-weight:600;line-height:1.3">${x.name}</span></span></span>
+              <span style="display:flex;align-items:center;gap:10px;min-width:0">${motif(SESSMOTIF[n], '34px', x.color, x.b)}<span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span class="mono" style="font-size:11px;color:${x.color}">SESI_0${n}</span><span style="font-size:14px;font-weight:600;line-height:1.3">${x.name}</span></span></span>
               ${has(u) ? `<a class="mono" href="${u}" target="_blank" rel="noopener" style="min-height:40px;display:inline-flex;align-items:center;border:1px solid rgba(110,243,255,.4);border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700;flex-shrink:0">BUKA ↗</a>` : `<span class="mono" style="font-size:11px;color:var(--mu);flex-shrink:0">SEGERA</span>`}</div>`; }).join('')}
         </div>
       </aside>
@@ -711,7 +805,14 @@ function initNet() {
 function render(quiet) {
   const views = { beranda: vBeranda, agenda: vAgenda, sesi: vSesi, live: vLive };
   $app.classList.toggle('quiet', !!quiet);
-  $app.innerHTML = (views[S.screen] || vBeranda)();
+  let html;
+  try { html = (views[S.screen] || vBeranda)(); }
+  catch (err) {
+    console.error(err);
+    html = `<div class="panel brk" style="padding:24px;display:flex;flex-direction:column;gap:10px"><span class="mono" style="font-size:12px;letter-spacing:.14em;color:#FF3D9A">TERJADI KESALAHAN</span><span style="font-size:16px;line-height:1.55">Halaman ini gagal ditampilkan. Biasanya karena ada isian yang tidak lengkap di blok PENGATURAN.</span><span class="mono" style="font-size:12px;color:var(--mu2)">${String(err && err.message || err).replace(/</g, '&lt;')}</span><button type="button" class="btn btn-line" data-nav="beranda" style="align-self:flex-start">Kembali ke beranda</button></div>`;
+  }
+  const warn = window.__cfgErr ? `<div class="panel" role="alert" style="margin-bottom:16px;padding:14px 16px;border-color:#FF3D9A;display:flex;flex-direction:column;gap:4px"><span class="mono" style="font-size:11px;letter-spacing:.14em;color:#FF3D9A">PERIKSA BLOK PENGATURAN</span><span style="font-size:14px;line-height:1.5">Ada kesalahan penulisan (biasanya tanda kutip atau koma yang terhapus), sehingga tautan belum terbaca. Detail: ${String(window.__cfgErr).replace(/</g, '&lt;')}</span></div>` : '';
+  $app.innerHTML = warn + html;
   try { if (S.screen === 'beranda') initNet(); else if (netStop) netStop(); } catch (e) { /* animasi opsional */ }
   const navKey = S.screen === 'sesi' ? 'agenda' : S.screen;
   document.querySelectorAll('.tnav [data-nav], .bnav [data-nav]').forEach((b) => { if (b.dataset.nav === navKey) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
@@ -746,6 +847,7 @@ fromHash(); render(false);
 </script>
 </body>
 </html>
+
 
 
 
