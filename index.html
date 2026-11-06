@@ -25,22 +25,22 @@ const CONFIG = {
   zoom: {
     hari1: {   // Selasa, 10 November 2026
       room1: {
-        pagi:  { link: 'https://digika.komdigi.go.id/s/6DjdRHZ', id: '', kode: '' },                        // 01 ASEAN RSDP Guideline · Sesi I
-        siang: { link: 'https://digika.komdigi.go.id/s/6DjdRHZ', id: '', kode: '' }                         // 01 ASEAN RSDP Guideline · Sesi II
+        pagi:  { link: 'https://s.komdigi.go.id/ASEAN-RSDPGuideline', id: '', kode: '' },                        // 01 ASEAN RSDP Guideline · Sesi I
+        siang: { link: 'https://s.komdigi.go.id/ASEAN-RSDPGuideline', id: '', kode: '' }                         // 01 ASEAN RSDP Guideline · Sesi II
       },
       room2: {
-        pagi:  { link: 'https://digika.komdigi.go.id/s/gGSlMiN', id: '', kode: '' },  // 02 PP TUNAS
-        siang: { link: 'https://digika.komdigi.go.id/s/TAsG2XL', id: '', kode: '' }                   // 03 Lanskap Kebijakan Internet Global
+        pagi:  { link: 'https://s.komdigi.go.id/KesiapanOrganisasidalamImplementasiPPTUNAS', id: '', kode: '' },  // 02 PP TUNAS
+        siang: { link: 'https://s.komdigi.go.id/LanskapKebijakanInternet', id: '', kode: '' }                   // 03 Lanskap Kebijakan Internet Global
       }
     },
     hari2: {   // Rabu, 11 November 2026
       room1: {
-        pagi:  { link: 'https://digika.komdigi.go.id/s/XKLVjRm', id: '', kode: '' },                     // 04 Transformasi Digital 2045 · Panel I
-        siang: { link: 'https://digika.komdigi.go.id/s/XKLVjRm', id: '', kode: '' }                      // 04 Transformasi Digital 2045 · Panel II
+        pagi:  { link: 'https://s.komdigi.go.id/TransformasiDigital2045', id: '', kode: '' },                     // 04 Transformasi Digital 2045 · Panel I
+        siang: { link: 'https://s.komdigi.go.id/TransformasiDigital2045', id: '', kode: '' }                      // 04 Transformasi Digital 2045 · Panel II
       },
       room2: {
-        pagi:  { link: 'https://digika.komdigi.go.id/s/38ARC27', id: '', kode: '' },                     // 05 Pemanfaatan AI · Sesi ITB
-        siang: { link: 'https://digika.komdigi.go.id/s/38ARC27', id: '', kode: '' }                      // 05 Pemanfaatan AI · Sesi UNPAR
+        pagi:  { link: 'https://s.komdigi.go.id/EksplorasiPemanfaatanAI', id: '', kode: '' },                     // 05 Pemanfaatan AI · Sesi ITB
+        siang: { link: 'https://s.komdigi.go.id/EksplorasiPemanfaatanAI', id: '', kode: '' }                      // 05 Pemanfaatan AI · Sesi UNPAR
       }
     }
   },
@@ -529,7 +529,7 @@ function vBeranda() {
   <section aria-labelledby="cara" class="panel brk" style="padding:clamp(18px,3vw,28px);display:flex;flex-direction:column;gap:16px">
     <h2 id="cara" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">CARA MENGIKUTI VIRTUAL GROUP DISCUSSION</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px">
-      ${[['01', 'Pilih sesi', 'Lihat agenda dan pilih ruang virtual sesuai bidang tugas dan minat Anda. Dua sesi berlangsung bersamaan.', '#6EF3FF'], ['02', 'Pasang latar virtual', 'Unduh latar belakang virtual yang disiapkan untuk tiap sesi dan gunakan saat bergabung.', '#B9A8FF'], ['03', 'Masuk ruang virtual', 'Bergabung ke Ruang Virtual 1 atau 2 lewat Digika (atau Zoom sebagai alternatif) sesuai jadwal Sesi I atau Sesi II.', '#3BFFA0'], ['04', 'Ikuti dan dapatkan sertifikat', 'Berdiskusi, ajukan pertanyaan, isi survei. Peserta yang memenuhi ketentuan kehadiran memperoleh sertifikat.', '#FF9AD1']].map(([n, t, d, c]) => `<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid ${c};padding-top:12px"><span class="mono" style="font-size:22px;font-weight:700;color:${c}">${n}</span><span style="font-size:17px;font-weight:700">${t}</span><span style="font-size:14px;line-height:1.5;color:var(--mu2)">${d}</span></div>`).join('')}
+      ${[['01', 'Pilih sesi', 'Lihat agenda dan pilih ruang virtual sesuai bidang tugas dan minat Anda. Dua sesi berlangsung bersamaan.', '#6EF3FF'], ['02', 'Pasang latar virtual', 'Unduh latar belakang virtual yang disiapkan untuk tiap sesi dan gunakan saat bergabung.', '#B9A8FF'], ['03', 'Masuk ruang virtual', 'Bergabung ke Ruang Virtual 1 atau 2 lewat tombol Masuk Diskusi Virtual sesuai jadwal Sesi I atau Sesi II.', '#3BFFA0'], ['04', 'Ikuti dan dapatkan sertifikat', 'Berdiskusi, ajukan pertanyaan, isi survei. Peserta yang memenuhi ketentuan kehadiran memperoleh sertifikat.', '#FF9AD1']].map(([n, t, d, c]) => `<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid ${c};padding-top:12px"><span class="mono" style="font-size:22px;font-weight:700;color:${c}">${n}</span><span style="font-size:17px;font-weight:700">${t}</span><span style="font-size:14px;line-height:1.5;color:var(--mu2)">${d}</span></div>`).join('')}
     </div>
   </section>
   <section aria-labelledby="infop" class="panel" style="padding:clamp(16px,3vw,24px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px">
@@ -556,13 +556,13 @@ function vBeranda() {
       </div>`).join('')}</div></div>`).join('')}
   </section>
   <section aria-labelledby="links" class="panel brk" style="padding:clamp(16px,3vw,24px);display:flex;flex-direction:column;gap:18px">
-    <div style="display:flex;flex-direction:column;gap:6px"><h2 id="links" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">AKSES SESI · GABUNG VIA DIGIKA · ZOOM SEBAGAI ALTERNATIF</h2><span style="font-size:14px;color:var(--mu2)">Sesi I 09.30–12.00 WIB, ISHOMA 12.00–13.00 WIB, Sesi II 13.00–15.00 WIB.</span></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><h2 id="links" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">AKSES DISKUSI VIRTUAL · PILIH SESI ANDA</h2><span style="font-size:14px;color:var(--mu2)">Sesi I 09.30–12.00 WIB, ISHOMA 12.00–13.00 WIB, Sesi II 13.00–15.00 WIB.</span></div>
     ${HARI.map((dd, di) => `<div style="display:flex;flex-direction:column;gap:10px">
       <span class="mono" style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700">${dd.code} · ${dd.long}<span style="flex:1;height:1px;background:var(--line)"></span></span>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px">${[1, 2].map((r) => `<div style="border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px;background:rgba(255,255,255,.02)">
         <span class="mono" style="font-size:12px;font-weight:700;letter-spacing:.1em">RUANG ${r}</span>
         ${[0, 1, 2, 3].map((i) => slot(di, i)).filter((x) => x.room === r).map((x) => { const z = zs(x); const inner = `${motif(smk(x), '34px', x.se.color, x.se.b)}<span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:11px;color:${x.se.color}">${x.halfL.toUpperCase()} · ${x.time}</span><span style="font-size:14px;font-weight:600;line-height:1.3">${x.title}</span></span>`;
-          const j = joinOf(x); return `<div style="display:flex;flex-direction:column;gap:6px">${has(j.url) ? `<a href="${j.url}" target="_blank" rel="noopener" class="cap" style="min-height:58px;display:flex;align-items:center;gap:12px;border:1px solid ${x.se.a};border-left:3px solid ${x.se.color};border-radius:10px;padding:8px 12px">${inner}<span class="mono" style="font-size:10px;font-weight:700;color:var(--cy);white-space:nowrap">${j.via.toUpperCase()} ↗</span></a>` : `<span style="min-height:58px;display:flex;align-items:center;gap:12px;border:1px dashed var(--line);border-radius:10px;padding:8px 12px;opacity:.7">${inner}<span class="mono" style="font-size:10px;color:var(--mu)">SEGERA</span></span>`}${linkChips(x.num, x.se, j.alt)}</div>`; }).join('')}
+          const j = joinOf(x); return `<div style="display:flex;flex-direction:column;gap:6px">${has(j.url) ? `<a href="${j.url}" target="_blank" rel="noopener" class="cap" style="min-height:58px;display:flex;align-items:center;gap:12px;border:1px solid ${x.se.a};border-left:3px solid ${x.se.color};border-radius:10px;padding:8px 12px">${inner}<span class="mono" style="font-size:10px;font-weight:700;color:var(--cy);white-space:nowrap">DISKUSI VIRTUAL ↗</span></a>` : `<span style="min-height:58px;display:flex;align-items:center;gap:12px;border:1px dashed var(--line);border-radius:10px;padding:8px 12px;opacity:.7">${inner}<span class="mono" style="font-size:10px;color:var(--mu)">SEGERA</span></span>`}${linkChips(x.num, x.se, '')}</div>`; }).join('')}
       </div>`).join('')}</div></div>`).join('')}
   </section></div>`;
 }
@@ -640,11 +640,9 @@ function vSesi() {
         <span style="font-size:15px;color:#C9D0EA;line-height:1.5">${s.desc}</span>
         <div class="mono" style="display:flex;flex-wrap:wrap;gap:8px;font-size:12px">${[d.long, s.halfL + ', ' + s.time + ' WIB', `RUANG ${s.room}`].map((t) => `<span style="border:1px solid rgba(110,243,255,.3);border-radius:8px;padding:6px 10px">${t}</span>`).join('')}</div>
         <div class="btn-row-m" style="display:flex;flex-wrap:wrap;gap:10px;padding-top:4px">
-          ${has(joinOf(s).url) ? `<a class="btn" href="${joinOf(s).url}" target="_blank" rel="noopener" style="background:linear-gradient(90deg,${se.color},#B9A8FF);color:#05060F;box-shadow:0 0 24px ${se.b}">Gabung via ${joinOf(s).via} · Ruang Virtual ${s.room} ↗</a>` : ''}
-          ${has(joinOf(s).alt) ? `<a class="btn btn-line" href="${joinOf(s).alt}" target="_blank" rel="noopener">Alternatif via Zoom ↗</a>` : ''}
+          ${has(joinOf(s).url) ? `<a class="btn" href="${joinOf(s).url}" target="_blank" rel="noopener" style="background:linear-gradient(90deg,${se.color},#B9A8FF);color:#05060F;box-shadow:0 0 24px ${se.b}">Masuk Diskusi Virtual ↗</a>` : ''}
           ${has(tl(s.num).tanya) ? `<a class="btn btn-line" href="${tl(s.num).tanya}" target="_blank" rel="noopener">Ajukan pertanyaan ↗</a>` : ''}
           ${has(tl(s.num).survei) ? `<a class="btn btn-line" href="${tl(s.num).survei}" target="_blank" rel="noopener">Isi survei ↗</a>` : ''}
-          <button type="button" class="btn btn-line" data-live="${s.room}" data-half="${s.half}">Buka ruang diskusi Ruang Virtual ${s.room}</button>
           <button type="button" class="btn btn-line" data-save="${s.key}" aria-pressed="${on}">${on ? '◆ Tersimpan' : '◇ Simpan'}</button>
           ${has(mat) ? `<a class="btn btn-line" href="${mat}" target="_blank" rel="noopener">Bahan sesi ↗</a>` : ''}
         </div>
@@ -698,11 +696,9 @@ function vLive() {
           <span style="position:relative;display:flex;align-items:flex-end;gap:14px">${motif(smk(cur), 'clamp(44px,7vw,72px)', se.color, se.b)}<span style="display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:12px;color:${se.color}">SESI_0${cur.num}</span><span style="font-size:clamp(18px,3vw,30px);font-weight:700;line-height:1.15">${cur.title}</span></span></span>`}
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:10px">
-          ${has(joinOf(cur).url) ? `<a class="btn btn-glow" style="flex:1 1 220px" href="${joinOf(cur).url}" target="_blank" rel="noopener">Gabung via ${joinOf(cur).via} · Ruang Virtual ${S.room} · ${cur.halfL} ↗</a>` : `<span class="btn btn-glow" style="flex:1 1 220px" aria-disabled="true">Tautan belum tersedia</span>`}
-          ${has(joinOf(cur).alt) ? `<a class="btn btn-line" style="flex:1 1 200px" href="${joinOf(cur).alt}" target="_blank" rel="noopener">Alternatif via Zoom ↗</a>` : ''}
+          ${has(joinOf(cur).url) ? `<a class="btn btn-glow" style="flex:1 1 220px" href="${joinOf(cur).url}" target="_blank" rel="noopener">Masuk Diskusi Virtual ↗</a>` : `<span class="btn btn-glow" style="flex:1 1 220px" aria-disabled="true">Tautan belum tersedia</span>`}
           <button type="button" class="btn btn-line" style="flex:1 1 200px" data-sesi="${cur.d}-${cur.i}">Detail sesi</button>
         </div>
-        ${has(z.id) ? `<span class="mono" style="font-size:12px;color:var(--mu)">MEETING ID ${z.id}${has(z.kode) ? ' · KODE ' + z.kode : ''}</span>` : ''}
         <div style="display:flex;flex-direction:column;gap:10px"><span class="mono label">NARASUMBER · ${cur.halfL.toUpperCase()} · RUANG VIRTUAL ${S.room}</span>
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:10px">${spList(cur, se, 40)}</div></div>
       </div>
@@ -847,6 +843,7 @@ fromHash(); render(false);
 </script>
 </body>
 </html>
+
 
 
 
