@@ -71,14 +71,14 @@ const CONFIG = {
   materi: { 1: '', 2: '', 3: '', 4: '', 5: '' },
 
   // Tautan tambahan per topik (nomor sama dengan Mentimeter di atas). Kosongkan bila belum ada.
-  //  digika     : tautan Digika
+  //  digika     : tautan Digika (dipakai sebagai TAUTAN UTAMA untuk bergabung; Zoom menjadi alternatif)
   //  pertanyaan : formulir pertanyaan peserta (dibuka di tab baru)
   tautanTopik: {
-    1: { digika: '', pertanyaan: '' },   // ASEAN RSDP Guideline
-    2: { digika: '', pertanyaan: '' },   // Kesiapan Organisasi dalam Implementasi PP TUNAS
-    3: { digika: '', pertanyaan: '' },   // Lanskap Kebijakan Internet Global
+    1: { digika: 'https://digika.komdigi.go.id/s/6DjdRHZ', pertanyaan: '' },   // Persiapan Penyusunan Draf Awal ASEAN RSDP
+    2: { digika: 'https://digika.komdigi.go.id/s/gGSlMiN', pertanyaan: '' },   // Kesiapan Organisasi dalam Implementasi PP TUNAS
+    3: { digika: 'https://digika.komdigi.go.id/s/TAsG2XL', pertanyaan: '' },   // Lanskap Kebijakan Internet Global
     4: { digika: 'https://digika.komdigi.go.id/s/XKLVjRm', pertanyaan: 'https://s.komdigi.go.id/FormPertanyaanArahKebijakanTransformasiDigitalNasional2045' },   // Transformasi Digital 2045
-    5: { digika: '', pertanyaan: '' }    // Eksplorasi Pemanfaatan AI
+    5: { digika: 'https://digika.komdigi.go.id/s/38ARC27', pertanyaan: '' }    // Eksplorasi Pemanfaatan AI
   },
 
   // Informasi umum dari surat undangan
@@ -95,26 +95,25 @@ const CONFIG = {
   narasumber: {
     hari1: {
       room1: {
-        pagi: [   // 01 · ASEAN RSDP Guideline · Sesi I
-          { nama: '', jabatan: 'Indonesia Anti-Scam Centre (IASC)', instansi: 'Otoritas Jasa Keuangan (OJK)', jam: '', topik: '' },
-          { nama: '', jabatan: 'Center for Digital Society (CfDS)', instansi: 'Universitas Gadjah Mada (UGM)', jam: '', topik: '' },
-          { nama: '', jabatan: '', instansi: 'Asosiasi E-Commerce Indonesia (idEA)', jam: '', topik: '' }
+        pagi: [   // 01 · Persiapan Penyusunan Draf Awal ASEAN RSDP · Sesi I
+          { nama: '', jabatan: 'Indonesia Anti-Scam Centre (IASC); nama narasumber belum dikonfirmasi', instansi: 'Otoritas Jasa Keuangan (OJK)', jam: '', topik: '' },
+          { nama: '', jabatan: 'Perwakilan narasumber; nama dan jabatan belum dikonfirmasi', instansi: 'Center for Strategic and International Studies (CSIS)', jam: '', topik: '' },
+          { nama: '', jabatan: 'Perwakilan narasumber; nama dan jabatan belum dikonfirmasi', instansi: 'Asosiasi E-Commerce Indonesia (idEA)', jam: '', topik: '' }
         ],
-        siang: [  // 01 · ASEAN RSDP Guideline · Sesi II (lanjutan)
-          { nama: '', jabatan: '', instansi: 'Asosiasi Penyelenggara Telekomunikasi Seluruh Indonesia (ATSI)', jam: '', topik: '' },
-          { nama: '', jabatan: '', instansi: 'Asosiasi Fintech Indonesia (AFTECH)', jam: '', topik: '' },
-          { nama: '', jabatan: '', instansi: 'PT Digital Forensic Indonesia (DFI)', jam: '', topik: '' }
+        siang: [  // 01 · Persiapan Penyusunan Draf Awal ASEAN RSDP · Sesi II (lanjutan)
+          { nama: '', jabatan: 'Perwakilan narasumber; nama dan jabatan belum dikonfirmasi', instansi: 'Asosiasi Penyelenggara Telekomunikasi Seluruh Indonesia (ATSI)', jam: '', topik: '' },
+          { nama: '', jabatan: 'Perwakilan narasumber; nama dan jabatan belum dikonfirmasi', instansi: 'Asosiasi Fintech Indonesia (AFTECH)', jam: '', topik: '' }
         ]
       },
       room2: {
         pagi: [   // 02 · Kesiapan Organisasi dalam Implementasi PP TUNAS
-          { nama: 'Prof. Dr. H. Agus Rahayu, M.P.', jabatan: 'Profesor', instansi: 'Universitas Pendidikan Indonesia (UPI)', jam: '', topik: 'Perspektif manajemen strategis dan organisasi' },
+          { nama: 'Prof. Dr. H. Agus Rahayu, M.P.', jabatan: 'Profesor', instansi: 'Universitas Pendidikan Indonesia (UPI)', jam: '', topik: '' },
           { nama: '', jabatan: 'Perwakilan Deputi Bidang Kelembagaan dan Tata Laksana', instansi: 'Kementerian PANRB', jam: '', topik: '' },
-          { nama: '', jabatan: 'Perwakilan', instansi: 'Ditjen Pengawasan Ruang Digital, Komdigi', jam: '', topik: 'Pengawasan dan tantangan pelaksanaan' }
+          { nama: '', jabatan: 'Perwakilan · Kementerian Komunikasi dan Digital', instansi: 'Direktorat Jenderal Pengawasan Ruang Digital', jam: '', topik: '' }
         ],
         siang: [  // 03 · Lanskap Kebijakan Internet Global
           { nama: 'Dr. Helni Mutiarsih Jumhur', jabatan: 'Lektor Kepala; Head of Center of Excellence Policy and Ethics Technology', instansi: 'Telkom University', jam: '', topik: '' },
-          { nama: 'Dr. Eng. Danu Dwi Sanjoyo', jabatan: '', instansi: 'Telkom University', jam: '', topik: '' }
+          { nama: 'Dr. Eng. Danu Dwi Sanjoyo', jabatan: 'Jabatan dan afiliasi belum dikonfirmasi', instansi: '', jam: '', topik: '' }
         ]
       }
     },
@@ -128,17 +127,17 @@ const CONFIG = {
         ],
         siang: [  // 04 · Transformasi Digital Nasional Menuju 2045 · Panel II
           { nama: 'Edwin Purwandesi', jabatan: 'Direktur Digital Business', instansi: 'PERURI', jam: '13.05–13.30', topik: 'Integrasi pelayanan publik' },
-          { nama: '', jabatan: 'Perwakilan Telkom Indonesia', instansi: 'PT Telkom Indonesia (Persero) Tbk', jam: '13.30–13.55', topik: 'Regulasi dan implementasi industri' },
+          { nama: '', jabatan: 'Perwakilan narasumber; nama dan jabatan belum dikonfirmasi', instansi: 'PT Telkom Indonesia (Persero) Tbk', jam: '13.30–13.55', topik: 'Regulasi dan implementasi industri' },
           { nama: 'Arryo Harman', jabatan: 'Head, Government and Community Partnership', instansi: 'Grab Indonesia', jam: '13.55–14.20', topik: 'Ekonomi platform dan UMKM' },
           { nama: 'Iradat Wirid', jabatan: 'Deputy Director', instansi: 'CfDS UGM', jam: '14.20–14.45', topik: 'Bukti penelitian sosial-ekonomi' }
         ]
       },
       room2: {
         pagi: [   // 05 · Pemanfaatan AI · Sesi ITB
-          { nama: '', jabatan: 'Narasumber Cognitive City', instansi: 'Institut Teknologi Bandung (ITB)', jam: '09.30–12.00', topik: 'AI dan data lintas sektor dalam kebijakan perkotaan' }
+          { nama: '', jabatan: 'Narasumber Cognitive City; nama dan jabatan belum dikonfirmasi', instansi: 'Institut Teknologi Bandung (ITB)', jam: '09.30–12.00', topik: 'AI dan data lintas sektor dalam kebijakan perkotaan' }
         ],
         siang: [  // 05 · Pemanfaatan AI · Sesi UNPAR
-          { nama: '', jabatan: 'Narasumber analisis sentimen publik', instansi: 'Universitas Katolik Parahyangan (UNPAR)', jam: '13.00–15.00', topik: 'AI untuk analisis sentimen dan persepsi publik atas kebijakan' }
+          { nama: '', jabatan: 'Narasumber analisis sentimen publik; nama dan jabatan belum dikonfirmasi', instansi: 'Universitas Katolik Parahyangan (UNPAR)', jam: '13.00–15.00', topik: 'AI untuk analisis sentimen dan persepsi publik atas kebijakan' }
         ]
       }
     }
@@ -363,19 +362,19 @@ const SESI = {
     qL: 'Tiga pertanyaan pengarah', q: [['Kebutuhan organisasi', 'Proses kerja apa yang perlu disesuaikan? Bukti apa yang dapat menunjukkan kesiapan organisasi?'], ['Adaptasi organisasi', 'Bagaimana organisasi menyesuaikan cara kerja ketika menghadapi tuntutan baru dari PP TUNAS?'], ['Koordinasi dan pengawasan', 'Bagaimana koordinasi dan pengawasan dijalankan? Dokumen dan informan apa yang perlu ditelaah?']],
     lL: 'Ruang lingkup', lingkup: [['Kesiapan organisasi', 'Mandat, struktur, kompetensi, dan sumber daya'], ['Kemampuan organisasi beradaptasi', 'Mengenali risiko, merespons, dan menyesuaikan cara kerja'], ['Tata kelola implementasi', 'Hubungan lintas unit, PSE, dan tindak lanjut'], ['Kemampuan menjalankan regulasi', 'Kesesuaian kewajiban dengan kemampuan pelaksana']],
     hasil: 'Gambaran awal kebutuhan organisasi, tantangan koordinasi, dan bukti yang masih perlu diperiksa sebagai bahan kajian lanjutan.', catatan: '' },
-  3: { name: 'Lanskap Kebijakan Internet Global', format: 'FORUM DISCUSSION', tag: 'INTERNET GLOBAL', color: '#FF8A4C', deep: '#A8380E', a: 'rgba(255,138,76,.28)', b: 'rgba(255,138,76,.45)',
+  3: { name: 'Lanskap Kebijakan Internet Global', format: 'FORUM DISKUSI', tag: 'INTERNET GLOBAL', color: '#FF8A4C', deep: '#A8380E', a: 'rgba(255,138,76,.28)', b: 'rgba(255,138,76,.45)',
     kL: 'Konteks pembahasan', konteks: 'Kebijakan internet dunia berkembang melalui berbagai forum internasional. Keputusan tentang keamanan, data, dan layanan lintas negara juga berdampak pada Indonesia.',
     tL: 'Tujuan diskusi', tujuan: 'Diskusi ini membahas perkembangan kebijakan internet dunia dan pelajaran yang relevan untuk memperkuat analisis kebijakan Indonesia.',
     qL: 'Tiga pertanyaan pengarah', q: [['Perkembangan global', 'Perubahan apa dalam tata kelola dan regulasi internet dunia yang perlu dicermati Indonesia?'], ['Pelajaran dari negara lain', 'Praktik atau pendekatan apa dari negara lain yang layak dikaji untuk Indonesia?'], ['Prioritas kajian', 'Isu kebijakan internet mana yang perlu ditelaah lebih lanjut di Indonesia?']],
     lL: 'Ruang lingkup', lingkup: [['Perkembangan regulasi global', 'Perubahan kebijakan dan regulasi internet dunia'], ['Tata kelola platform dan data', 'Keamanan dan kedaulatan digital'], ['Praktik kebijakan negara lain', 'Pelajaran bagi kebijakan Indonesia']],
     hasil: 'Rangkuman perkembangan kebijakan internet dunia, pembelajaran dari negara lain, dan isu yang perlu dikaji lebih lanjut di Indonesia.', catatan: 'Pandangan narasumber menjadi masukan kajian, bukan posisi resmi pemerintah.' },
-  4: { name: 'Arah Kebijakan Transformasi Digital Nasional Menuju 2045 untuk Meningkatkan Produktivitas Ekonomi dan Kesejahteraan Masyarakat', format: 'PANEL DISCUSSION', tag: 'DIGITAL 2045', color: '#3BFFA0', deep: '#0E7A4C', a: 'rgba(59,255,160,.22)', b: 'rgba(59,255,160,.4)',
+  4: { name: 'Arah Kebijakan Transformasi Digital Nasional Menuju 2045 untuk Meningkatkan Produktivitas Ekonomi dan Kesejahteraan Masyarakat', format: 'DISKUSI PANEL', tag: 'DIGITAL 2045', color: '#3BFFA0', deep: '#0E7A4C', a: 'rgba(59,255,160,.22)', b: 'rgba(59,255,160,.4)',
     kL: 'Tentang forum', konteks: 'Forum ini mempertemukan pelaku investasi, industri, akademisi, dan masyarakat sipil untuk memberi masukan tentang arah transformasi digital Indonesia menuju 2045.',
     tL: 'Mengapa dibahas?', tujuan: 'Forum ini membahas bagaimana teknologi dan investasi dapat meningkatkan produktivitas, memperbaiki layanan publik, dan memperluas kesempatan ekonomi.',
     qL: 'Tiga pertanyaan utama', q: [['Manfaat 2045', 'Pada 2045, manfaat apa yang seharusnya dirasakan masyarakat, dunia usaha, dan pengguna layanan publik?'], ['Faktor keberhasilan', 'Apa yang perlu dilakukan agar teknologi, investasi, dan inovasi digital benar-benar meningkatkan produktivitas dan kesejahteraan masyarakat?'], ['Langkah awal 2027–2034', 'Apa yang perlu diperkuat pada 2027–2029, lalu dikembangkan pada 2030–2034?']],
     lL: 'Susunan panel', lingkup: [['Panel I · 09.30–12.00', 'Investasi, teknologi, ekonomi, dan masyarakat'], ['Panel II · 13.00–15.00', 'Layanan publik, industri, platform, dan akademisi']],
     hasil: 'Pandangan panelis tentang manfaat, hambatan, dan langkah awal 2027–2034 sebagai masukan kajian kebijakan transformasi digital nasional.', catatan: 'Forum menghimpun pandangan, bukan menetapkan keputusan atau komitmen.' },
-  5: { name: 'Eksplorasi Pemanfaatan Kecerdasan Artifisial dalam Analisis Kebijakan Publik Berlandaskan Bukti Empiris', format: 'PANEL DISCUSSION', tag: 'AI', color: '#B9A8FF', deep: '#4A2FB0', a: 'rgba(185,168,255,.26)', b: 'rgba(185,168,255,.45)',
+  5: { name: 'Eksplorasi Pemanfaatan Kecerdasan Artifisial dalam Analisis Kebijakan Publik Berlandaskan Bukti Empiris', format: 'DISKUSI PANEL', tag: 'AI', color: '#B9A8FF', deep: '#4A2FB0', a: 'rgba(185,168,255,.26)', b: 'rgba(185,168,255,.45)',
     kL: 'Konteks pembahasan', konteks: 'ITB dan UNPAR mengembangkan contoh penggunaan AI untuk analisis sentimen publik dan pengolahan data perkotaan yang dapat dipelajari Komdigi.',
     tL: 'Tujuan diskusi', tujuan: 'Diskusi ini mempelajari penerapan AI dari ITB dan UNPAR serta menjajaki peluang pemanfaatannya dalam analisis kebijakan Komdigi.',
     qL: 'Tiga pertanyaan pengarah', q: [['Contoh penggunaan', 'Masalah kebijakan apa yang dapat dibantu AI melalui analisis sentimen dan integrasi data?'], ['Kualitas hasil', 'Data dan pengujian apa yang dibutuhkan agar hasil AI dapat dipercaya sebagai bahan analisis kebijakan?'], ['Peluang kerja sama', 'Bentuk kerja sama apa yang layak dijajaki Komdigi bersama perguruan tinggi?']],
@@ -384,16 +383,16 @@ const SESI = {
 };
 const HARI = [
   { code: 'HARI_01', date: '10.11.2026', long: 'Selasa, 10 November 2026', iso: '2026-11-10', slots: [
-    { room: 1, time: '09.30–12.00', num: 1, title: 'Diskusi Arah Strategis Kerangka ASEAN RSDP Guideline', part: 'Sesi I', desc: 'Penanganan penipuan daring dan koordinasi lintas sektor.', parties: [] },
-    { room: 2, time: '09.30–12.00', num: 2, title: 'Kesiapan Organisasi dalam Implementasi PP TUNAS', part: 'Focus group discussion', desc: 'Pembagian tugas, proses kerja, dan pengawasan PP TUNAS.', parties: [] },
-    { room: 1, time: '13.00–15.00', num: 1, title: 'Diskusi Arah Strategis Kerangka ASEAN RSDP Guideline — Lanjutan', part: 'Sesi II · Lanjutan', desc: 'Pelaporan penipuan, respons cepat, dan pertukaran informasi.', parties: [] },
-    { room: 2, time: '13.00–15.00', num: 3, title: 'Lanskap Kebijakan Internet Global', part: 'Forum discussion', desc: 'Perkembangan kebijakan internet dunia dan dampaknya bagi Indonesia.', parties: [] }
+    { room: 1, time: '09.30–12.00', num: 1, title: 'Persiapan Penyusunan Draf Awal ASEAN RSDP', part: 'Sesi I', desc: 'Penanganan cepat penipuan daring dan koordinasi lintas sektor.', parties: [] },
+    { room: 2, time: '09.30–12.00', num: 2, title: 'Kesiapan Organisasi dalam Implementasi PP TUNAS', part: 'Focus group discussion', desc: 'Kesiapan kelembagaan, proses kerja, dan pengawasan.', parties: [] },
+    { room: 1, time: '13.00–15.00', num: 1, title: 'Persiapan Penyusunan Draf Awal ASEAN RSDP — Lanjutan', part: 'Sesi II · Lanjutan', desc: 'Peran industri dalam pelaporan, respons cepat, dan pertukaran informasi.', parties: [] },
+    { room: 2, time: '13.00–15.00', num: 3, title: 'Lanskap Kebijakan Internet Global', part: 'Forum discussion', desc: 'Arah tata kelola internet dunia dan dampaknya bagi Indonesia.', parties: [] }
   ] },
   { code: 'HARI_02', date: '11.11.2026', long: 'Rabu, 11 November 2026', iso: '2026-11-11', slots: [
     { room: 1, time: '09.30–12.00', num: 4, title: 'Transformasi Digital Nasional Menuju 2045 — Panel I', part: 'Panel I', desc: 'Investasi, teknologi, ekonomi, dan manfaat bagi masyarakat.', parties: [] },
-    { room: 2, time: '09.30–12.00', num: 5, title: 'AI untuk Analisis Kebijakan — Sesi ITB', part: 'Sesi I · ITB · Cognitive City', desc: 'Pemanfaatan AI dan data lintas sektor untuk kebijakan perkotaan.', parties: [] },
-    { room: 1, time: '13.00–15.00', num: 4, title: 'Transformasi Digital Nasional Menuju 2045 — Panel II', part: 'Panel II', desc: 'Layanan publik, industri, platform digital, dan akademisi.', parties: [] },
-    { room: 2, time: '13.00–15.00', num: 5, title: 'AI untuk Analisis Kebijakan — Sesi UNPAR', part: 'Sesi II · UNPAR', desc: 'Pemanfaatan AI untuk membaca tanggapan publik atas kebijakan.', parties: [] }
+    { room: 2, time: '09.30–12.00', num: 5, title: 'AI untuk Analisis Kebijakan — Sesi ITB', part: 'Sesi I · ITB · Cognitive City', desc: 'Cognitive City: penggunaan AI dan data lintas sektor dalam kebijakan perkotaan.', parties: [] },
+    { room: 1, time: '13.00–15.00', num: 4, title: 'Transformasi Digital Nasional Menuju 2045 — Panel II', part: 'Panel II', desc: 'Layanan publik, industri, platform digital, dan riset sosial.', parties: [] },
+    { room: 2, time: '13.00–15.00', num: 5, title: 'AI untuk Analisis Kebijakan — Sesi UNPAR', part: 'Sesi II · UNPAR', desc: 'Pemanfaatan AI untuk analisis sentimen dan persepsi publik atas kebijakan.', parties: [] }
   ] }
 ];
 
@@ -425,7 +424,7 @@ const rgb = (hex) => [1, 3, 5].map((k) => parseInt(hex.slice(k, k + 2), 16)).joi
 const zs = (x) => (((CONFIG.zoom || {})['hari' + (x.d + 1)] || {})['room' + x.room] || {})[x.half] || {};
 /* Enam judul utama di halaman depan */
 const TOPIK = [
-  { title: 'Diskusi Arah Strategis Kerangka ASEAN RSDP Guideline', tag: 'ASEAN RSDP GUIDELINE', desc: 'Penanganan penipuan daring dan koordinasi lintas sektor.', num: 1, d: 0, i: 0, motif: 3, also: [0, 2] },
+  { title: 'Persiapan Penyusunan Draf Awal ASEAN RSDP', tag: 'ASEAN RSDP', desc: 'Penanganan penipuan daring dan koordinasi lintas sektor.', num: 1, d: 0, i: 0, motif: 3, also: [0, 2] },
   { title: 'Kesiapan Organisasi dalam Implementasi PP TUNAS', tag: 'PP TUNAS', desc: 'Pembagian tugas, proses kerja, dan pengawasan PP TUNAS.', num: 2, d: 0, i: 1, motif: 4 },
   { title: 'Lanskap Kebijakan Internet Global', tag: 'INTERNET GLOBAL', desc: 'Perkembangan kebijakan internet dunia dan dampaknya bagi Indonesia.', num: 3, d: 0, i: 3, motif: 1 },
   { title: 'Arah Kebijakan Transformasi Digital Nasional Menuju 2045', tag: 'TRANSFORMASI DIGITAL 2045', desc: 'Untuk meningkatkan produktivitas ekonomi dan kesejahteraan masyarakat.', num: 4, d: 1, i: 0, motif: 'rocket', also: [1, 2] },
@@ -440,12 +439,13 @@ const modr = (x) => ((((CONFIG.moderator || {})['hari' + (x.d + 1)] || {})['room
 const shortInst = (s) => { const m = /\(([^)]+)\)\s*$/.exec(s || ''); return m ? m[1] : (s || ''); };
 const spName = (p) => p.nama || p.instansi || '';
 const spNames = (x) => { const n = sp(x).map((p) => p.nama ? p.nama : shortInst(p.instansi)); return n.length ? n.join(' · ') : 'Narasumber menyusul'; };
-const spCard = (p, se, size = 40) => { const sub = p.nama ? [p.jabatan, p.instansi].filter((v) => v && v.trim()).join(' · ') : (p.jabatan && p.jabatan.trim() ? p.jabatan + ' · nama belum dikonfirmasi' : 'Perwakilan · nama belum dikonfirmasi');
+const spCard = (p, se, size = 40) => { const sub = p.nama ? [p.jabatan, p.instansi].filter((v) => v && v.trim()).join(' · ') : (p.jabatan && p.jabatan.trim() ? p.jabatan : 'Perwakilan narasumber; nama dan jabatan belum dikonfirmasi');
   const meta = [p.jam, p.topik].filter((v) => v && v.trim()).join(' · ');
   return `<div style="display:flex;align-items:flex-start;gap:12px;border:1px solid ${se.a};border-radius:14px;padding:10px 12px;background:rgba(255,255,255,.03);min-width:0"><span class="mono" aria-hidden="true" style="width:${size}px;height:${size}px;border-radius:${p.nama ? '50%' : '12px'};background:linear-gradient(140deg,${se.color},${se.deep});color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:${Math.round(size / 3.2)}px;font-weight:700;flex-shrink:0;box-shadow:0 0 14px ${se.b}">${ini(p.nama || shortInst(p.instansi))}</span><span style="display:flex;flex-direction:column;gap:3px;min-width:0"><span style="font-size:15px;font-weight:700;line-height:1.3">${spName(p)}</span><span style="font-size:12px;color:var(--mu2);line-height:1.4">${sub}</span>${meta ? `<span class="mono" style="font-size:11px;color:${se.color};line-height:1.4">${meta}</span>` : ''}</span></div>`; };
 const spList = (x, se, size = 40) => { const l = sp(x), m = modr(x); return (l.length ? l.map((p) => spCard(p, se, size)).join('') : `<div style="border:1px dashed ${se.a};border-radius:14px;padding:12px;font-size:13px;color:var(--mu2)">Narasumber menyusul</div>`) + (m ? `<div class="mono" style="font-size:12px;color:var(--mu2);padding:4px 2px">MODERATOR · <span style="color:var(--tx)">${m}</span></div>` : ''); };
 const tl = (n) => { const t = CONFIG.tautanTopik[n] || {}, m = CONFIG.menti[n] || {}; return { digika: t.digika || '', tanya: t.pertanyaan || '', survei: m.vote || '' }; };
-const linkChips = (n, se) => { const t = tl(n); const items = [['DIGIKA', t.digika], ['PERTANYAAN', t.tanya], ['SURVEI', t.survei]].filter((x) => x[1] && String(x[1]).trim());
+const joinOf = (x) => { const dg = tl(x.num).digika, zl = zs(x).link || ''; return has(dg) ? { url: dg, via: 'Digika', alt: zl } : { url: zl, via: 'Zoom', alt: '' }; };
+const linkChips = (n, se, zoomUrl) => { const t = tl(n); const items = [['ZOOM', zoomUrl || ''], ['PERTANYAAN', t.tanya], ['SURVEI', t.survei]].filter((x) => x[1] && String(x[1]).trim());
   return items.length ? `<div style="display:flex;flex-wrap:wrap;gap:6px;padding-left:4px">${items.map(([l, u]) => `<a class="mono" href="${u}" target="_blank" rel="noopener" style="min-height:36px;display:inline-flex;align-items:center;gap:6px;border:1px solid ${se.a};border-radius:8px;padding:6px 10px;font-size:11px;font-weight:700;letter-spacing:.06em;color:${se.color}">${l} ↗</a>`).join('')}</div>` : ''; };
 const has = (v) => typeof v === 'string' && v.trim() !== '';
 const ini = (n) => n.replace(/(Dr\.|Eng\.)\s*/g, '').split(/[\s\/–-]+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
@@ -529,7 +529,7 @@ function vBeranda() {
   <section aria-labelledby="cara" class="panel brk" style="padding:clamp(18px,3vw,28px);display:flex;flex-direction:column;gap:16px">
     <h2 id="cara" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">CARA MENGIKUTI VIRTUAL GROUP DISCUSSION</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px">
-      ${[['01', 'Pilih sesi', 'Lihat agenda dan pilih ruang virtual sesuai bidang tugas dan minat Anda. Dua sesi berlangsung bersamaan.', '#6EF3FF'], ['02', 'Pasang latar virtual', 'Unduh latar belakang virtual yang disiapkan untuk tiap sesi dan gunakan saat bergabung.', '#B9A8FF'], ['03', 'Masuk ruang virtual', 'Bergabung ke Ruang Virtual 1 atau 2 lewat Zoom sesuai jadwal Sesi I atau Sesi II.', '#3BFFA0'], ['04', 'Ikuti dan dapatkan sertifikat', 'Berdiskusi, ajukan pertanyaan, isi survei. Peserta yang memenuhi ketentuan kehadiran memperoleh sertifikat.', '#FF9AD1']].map(([n, t, d, c]) => `<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid ${c};padding-top:12px"><span class="mono" style="font-size:22px;font-weight:700;color:${c}">${n}</span><span style="font-size:17px;font-weight:700">${t}</span><span style="font-size:14px;line-height:1.5;color:var(--mu2)">${d}</span></div>`).join('')}
+      ${[['01', 'Pilih sesi', 'Lihat agenda dan pilih ruang virtual sesuai bidang tugas dan minat Anda. Dua sesi berlangsung bersamaan.', '#6EF3FF'], ['02', 'Pasang latar virtual', 'Unduh latar belakang virtual yang disiapkan untuk tiap sesi dan gunakan saat bergabung.', '#B9A8FF'], ['03', 'Masuk ruang virtual', 'Bergabung ke Ruang Virtual 1 atau 2 lewat Digika (atau Zoom sebagai alternatif) sesuai jadwal Sesi I atau Sesi II.', '#3BFFA0'], ['04', 'Ikuti dan dapatkan sertifikat', 'Berdiskusi, ajukan pertanyaan, isi survei. Peserta yang memenuhi ketentuan kehadiran memperoleh sertifikat.', '#FF9AD1']].map(([n, t, d, c]) => `<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid ${c};padding-top:12px"><span class="mono" style="font-size:22px;font-weight:700;color:${c}">${n}</span><span style="font-size:17px;font-weight:700">${t}</span><span style="font-size:14px;line-height:1.5;color:var(--mu2)">${d}</span></div>`).join('')}
     </div>
   </section>
   <section aria-labelledby="infop" class="panel" style="padding:clamp(16px,3vw,24px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px">
@@ -556,13 +556,13 @@ function vBeranda() {
       </div>`).join('')}</div></div>`).join('')}
   </section>
   <section aria-labelledby="links" class="panel brk" style="padding:clamp(16px,3vw,24px);display:flex;flex-direction:column;gap:18px">
-    <div style="display:flex;flex-direction:column;gap:6px"><h2 id="links" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">AKSES SESI · ZOOM, DIGIKA, PERTANYAAN, SURVEI</h2><span style="font-size:14px;color:var(--mu2)">Sesi I 09.30–12.00 WIB, ISHOMA 12.00–13.00 WIB, Sesi II 13.00–15.00 WIB.</span></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><h2 id="links" class="mono" style="margin:0;font-size:12px;letter-spacing:.2em;color:var(--cy);font-weight:700">AKSES SESI · GABUNG VIA DIGIKA · ZOOM SEBAGAI ALTERNATIF</h2><span style="font-size:14px;color:var(--mu2)">Sesi I 09.30–12.00 WIB, ISHOMA 12.00–13.00 WIB, Sesi II 13.00–15.00 WIB.</span></div>
     ${HARI.map((dd, di) => `<div style="display:flex;flex-direction:column;gap:10px">
       <span class="mono" style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700">${dd.code} · ${dd.long}<span style="flex:1;height:1px;background:var(--line)"></span></span>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px">${[1, 2].map((r) => `<div style="border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px;background:rgba(255,255,255,.02)">
         <span class="mono" style="font-size:12px;font-weight:700;letter-spacing:.1em">RUANG ${r}</span>
         ${[0, 1, 2, 3].map((i) => slot(di, i)).filter((x) => x.room === r).map((x) => { const z = zs(x); const inner = `${motif(smk(x), '34px', x.se.color, x.se.b)}<span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:11px;color:${x.se.color}">${x.halfL.toUpperCase()} · ${x.time}</span><span style="font-size:14px;font-weight:600;line-height:1.3">${x.title}</span></span>`;
-          return `<div style="display:flex;flex-direction:column;gap:6px">${has(z.link) ? `<a href="${z.link}" target="_blank" rel="noopener" class="cap" style="min-height:58px;display:flex;align-items:center;gap:12px;border:1px solid ${x.se.a};border-left:3px solid ${x.se.color};border-radius:10px;padding:8px 12px">${inner}<span class="mono" style="font-size:10px;font-weight:700;color:var(--cy);white-space:nowrap">ZOOM ↗</span></a>` : `<span style="min-height:58px;display:flex;align-items:center;gap:12px;border:1px dashed var(--line);border-radius:10px;padding:8px 12px;opacity:.7">${inner}<span class="mono" style="font-size:10px;color:var(--mu)">SEGERA</span></span>`}${x.i < 2 || !(topikOf(x) && topikOf(x).also) ? linkChips(x.num, x.se) : ''}</div>`; }).join('')}
+          const j = joinOf(x); return `<div style="display:flex;flex-direction:column;gap:6px">${has(j.url) ? `<a href="${j.url}" target="_blank" rel="noopener" class="cap" style="min-height:58px;display:flex;align-items:center;gap:12px;border:1px solid ${x.se.a};border-left:3px solid ${x.se.color};border-radius:10px;padding:8px 12px">${inner}<span class="mono" style="font-size:10px;font-weight:700;color:var(--cy);white-space:nowrap">${j.via.toUpperCase()} ↗</span></a>` : `<span style="min-height:58px;display:flex;align-items:center;gap:12px;border:1px dashed var(--line);border-radius:10px;padding:8px 12px;opacity:.7">${inner}<span class="mono" style="font-size:10px;color:var(--mu)">SEGERA</span></span>`}${linkChips(x.num, x.se, j.alt)}</div>`; }).join('')}
       </div>`).join('')}</div></div>`).join('')}
   </section></div>`;
 }
@@ -640,8 +640,8 @@ function vSesi() {
         <span style="font-size:15px;color:#C9D0EA;line-height:1.5">${s.desc}</span>
         <div class="mono" style="display:flex;flex-wrap:wrap;gap:8px;font-size:12px">${[d.long, s.halfL + ', ' + s.time + ' WIB', `RUANG ${s.room}`].map((t) => `<span style="border:1px solid rgba(110,243,255,.3);border-radius:8px;padding:6px 10px">${t}</span>`).join('')}</div>
         <div class="btn-row-m" style="display:flex;flex-wrap:wrap;gap:10px;padding-top:4px">
-          ${has(zs(s).link) ? `<a class="btn" href="${zs(s).link}" target="_blank" rel="noopener" style="background:linear-gradient(90deg,${se.color},#B9A8FF);color:#05060F;box-shadow:0 0 24px ${se.b}">Gabung Zoom Ruang Virtual ${s.room} · ${s.halfL} ↗</a>` : ''}
-          ${has(tl(s.num).digika) ? `<a class="btn btn-line" href="${tl(s.num).digika}" target="_blank" rel="noopener">Buka di Digika ↗</a>` : ''}
+          ${has(joinOf(s).url) ? `<a class="btn" href="${joinOf(s).url}" target="_blank" rel="noopener" style="background:linear-gradient(90deg,${se.color},#B9A8FF);color:#05060F;box-shadow:0 0 24px ${se.b}">Gabung via ${joinOf(s).via} · Ruang Virtual ${s.room} ↗</a>` : ''}
+          ${has(joinOf(s).alt) ? `<a class="btn btn-line" href="${joinOf(s).alt}" target="_blank" rel="noopener">Alternatif via Zoom ↗</a>` : ''}
           ${has(tl(s.num).tanya) ? `<a class="btn btn-line" href="${tl(s.num).tanya}" target="_blank" rel="noopener">Ajukan pertanyaan ↗</a>` : ''}
           ${has(tl(s.num).survei) ? `<a class="btn btn-line" href="${tl(s.num).survei}" target="_blank" rel="noopener">Isi survei ↗</a>` : ''}
           <button type="button" class="btn btn-line" data-live="${s.room}" data-half="${s.half}">Buka ruang diskusi Ruang Virtual ${s.room}</button>
@@ -698,8 +698,8 @@ function vLive() {
           <span style="position:relative;display:flex;align-items:flex-end;gap:14px">${motif(smk(cur), 'clamp(44px,7vw,72px)', se.color, se.b)}<span style="display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:12px;color:${se.color}">SESI_0${cur.num}</span><span style="font-size:clamp(18px,3vw,30px);font-weight:700;line-height:1.15">${cur.title}</span></span></span>`}
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:10px">
-          ${has(z.link) ? `<a class="btn btn-glow" style="flex:1 1 220px" href="${z.link}" target="_blank" rel="noopener">Gabung Zoom Ruang Virtual ${S.room} · ${cur.halfL} ↗</a>` : `<span class="btn btn-glow" style="flex:1 1 220px" aria-disabled="true">Tautan Zoom belum tersedia</span>`}
-          ${has(tl(cur.num).digika) ? `<a class="btn btn-line" style="flex:1 1 200px" href="${tl(cur.num).digika}" target="_blank" rel="noopener">Buka di Digika ↗</a>` : ''}
+          ${has(joinOf(cur).url) ? `<a class="btn btn-glow" style="flex:1 1 220px" href="${joinOf(cur).url}" target="_blank" rel="noopener">Gabung via ${joinOf(cur).via} · Ruang Virtual ${S.room} · ${cur.halfL} ↗</a>` : `<span class="btn btn-glow" style="flex:1 1 220px" aria-disabled="true">Tautan belum tersedia</span>`}
+          ${has(joinOf(cur).alt) ? `<a class="btn btn-line" style="flex:1 1 200px" href="${joinOf(cur).alt}" target="_blank" rel="noopener">Alternatif via Zoom ↗</a>` : ''}
           <button type="button" class="btn btn-line" style="flex:1 1 200px" data-sesi="${cur.d}-${cur.i}">Detail sesi</button>
         </div>
         ${has(z.id) ? `<span class="mono" style="font-size:12px;color:var(--mu)">MEETING ID ${z.id}${has(z.kode) ? ' · KODE ' + z.kode : ''}</span>` : ''}
@@ -847,6 +847,7 @@ fromHash(); render(false);
 </script>
 </body>
 </html>
+
 
 
 
