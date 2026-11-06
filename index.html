@@ -91,18 +91,18 @@ const CONFIG = {
   },
 
   // NARASUMBER per HARI, per RUANG VIRTUAL: pagi = SESI I (09.30–12.00), siang = SESI II (13.00–15.00).
-  // nama boleh dikosongkan bila belum dikonfirmasi; jam & topik opsional.
+  // nama boleh dikosongkan; bila kosong, yang tampil hanya nama lembaga/perusahaan. jam & topik opsional.
   narasumber: {
     hari1: {
       room1: {
         pagi: [   // 01 · Persiapan Penyusunan Draf Awal ASEAN RSDP · Sesi I
-          { nama: '', jabatan: 'Indonesia Anti-Scam Centre (IASC); nama narasumber belum dikonfirmasi', instansi: 'Otoritas Jasa Keuangan (OJK)', jam: '', topik: '' },
-          { nama: '', jabatan: 'Perwakilan narasumber; nama dan jabatan belum dikonfirmasi', instansi: 'Center for Strategic and International Studies (CSIS)', jam: '', topik: '' },
-          { nama: '', jabatan: 'Perwakilan narasumber; nama dan jabatan belum dikonfirmasi', instansi: 'Asosiasi E-Commerce Indonesia (idEA)', jam: '', topik: '' }
+          { nama: '', jabatan: 'Indonesia Anti-Scam Centre (IASC)', instansi: 'Otoritas Jasa Keuangan (OJK)', jam: '', topik: '' },
+          { nama: '', jabatan: '', instansi: 'Center for Strategic and International Studies (CSIS)', jam: '', topik: '' },
+          { nama: '', jabatan: '', instansi: 'Asosiasi E-Commerce Indonesia (idEA)', jam: '', topik: '' }
         ],
         siang: [  // 01 · Persiapan Penyusunan Draf Awal ASEAN RSDP · Sesi II (lanjutan)
-          { nama: '', jabatan: 'Perwakilan narasumber; nama dan jabatan belum dikonfirmasi', instansi: 'Asosiasi Penyelenggara Telekomunikasi Seluruh Indonesia (ATSI)', jam: '', topik: '' },
-          { nama: '', jabatan: 'Perwakilan narasumber; nama dan jabatan belum dikonfirmasi', instansi: 'Asosiasi Fintech Indonesia (AFTECH)', jam: '', topik: '' }
+          { nama: '', jabatan: '', instansi: 'Asosiasi Penyelenggara Telekomunikasi Seluruh Indonesia (ATSI)', jam: '', topik: '' },
+          { nama: '', jabatan: '', instansi: 'Asosiasi Fintech Indonesia (AFTECH)', jam: '', topik: '' }
         ]
       },
       room2: {
@@ -113,7 +113,7 @@ const CONFIG = {
         ],
         siang: [  // 03 · Lanskap Kebijakan Internet Global
           { nama: 'Dr. Helni Mutiarsih Jumhur', jabatan: 'Lektor Kepala; Head of Center of Excellence Policy and Ethics Technology', instansi: 'Telkom University', jam: '', topik: '' },
-          { nama: 'Dr. Eng. Danu Dwi Sanjoyo', jabatan: 'Jabatan dan afiliasi belum dikonfirmasi', instansi: '', jam: '', topik: '' }
+          { nama: 'Dr. Eng. Danu Dwi Sanjoyo', jabatan: '', instansi: '', jam: '', topik: '' }
         ]
       }
     },
@@ -127,17 +127,17 @@ const CONFIG = {
         ],
         siang: [  // 04 · Transformasi Digital Nasional Menuju 2045 · Panel II
           { nama: 'Edwin Purwandesi', jabatan: 'Direktur Digital Business', instansi: 'PERURI', jam: '13.05–13.30', topik: 'Integrasi pelayanan publik' },
-          { nama: '', jabatan: 'Perwakilan narasumber; nama dan jabatan belum dikonfirmasi', instansi: 'PT Telkom Indonesia (Persero) Tbk', jam: '13.30–13.55', topik: 'Regulasi dan implementasi industri' },
+          { nama: '', jabatan: '', instansi: 'PT Telkom Indonesia (Persero) Tbk', jam: '13.30–13.55', topik: 'Regulasi dan implementasi industri' },
           { nama: 'Arryo Harman', jabatan: 'Head, Government and Community Partnership', instansi: 'Grab Indonesia', jam: '13.55–14.20', topik: 'Ekonomi platform dan UMKM' },
           { nama: 'Iradat Wirid', jabatan: 'Deputy Director', instansi: 'CfDS UGM', jam: '14.20–14.45', topik: 'Bukti penelitian sosial-ekonomi' }
         ]
       },
       room2: {
         pagi: [   // 05 · Pemanfaatan AI · Sesi ITB
-          { nama: '', jabatan: 'Narasumber Cognitive City; nama dan jabatan belum dikonfirmasi', instansi: 'Institut Teknologi Bandung (ITB)', jam: '09.30–12.00', topik: 'AI dan data lintas sektor dalam kebijakan perkotaan' }
+          { nama: '', jabatan: 'Narasumber Cognitive City', instansi: 'Institut Teknologi Bandung (ITB)', jam: '09.30–12.00', topik: 'AI dan data lintas sektor dalam kebijakan perkotaan' }
         ],
         siang: [  // 05 · Pemanfaatan AI · Sesi UNPAR
-          { nama: '', jabatan: 'Narasumber analisis sentimen publik; nama dan jabatan belum dikonfirmasi', instansi: 'Universitas Katolik Parahyangan (UNPAR)', jam: '13.00–15.00', topik: 'AI untuk analisis sentimen dan persepsi publik atas kebijakan' }
+          { nama: '', jabatan: 'Narasumber analisis sentimen publik', instansi: 'Universitas Katolik Parahyangan (UNPAR)', jam: '13.00–15.00', topik: 'AI untuk analisis sentimen dan persepsi publik atas kebijakan' }
         ]
       }
     }
@@ -439,9 +439,9 @@ const modr = (x) => ((((CONFIG.moderator || {})['hari' + (x.d + 1)] || {})['room
 const shortInst = (s) => { const m = /\(([^)]+)\)\s*$/.exec(s || ''); return m ? m[1] : (s || ''); };
 const spName = (p) => p.nama || p.instansi || '';
 const spNames = (x) => { const n = sp(x).map((p) => p.nama ? p.nama : shortInst(p.instansi)); return n.length ? n.join(' · ') : 'Narasumber menyusul'; };
-const spCard = (p, se, size = 40) => { const sub = p.nama ? [p.jabatan, p.instansi].filter((v) => v && v.trim()).join(' · ') : (p.jabatan && p.jabatan.trim() ? p.jabatan : 'Perwakilan narasumber; nama dan jabatan belum dikonfirmasi');
+const spCard = (p, se, size = 40) => { const sub = p.nama ? [p.jabatan, p.instansi].filter((v) => v && v.trim()).join(' · ') : '';
   const meta = [p.jam, p.topik].filter((v) => v && v.trim()).join(' · ');
-  return `<div style="display:flex;align-items:flex-start;gap:12px;border:1px solid ${se.a};border-radius:14px;padding:10px 12px;background:rgba(255,255,255,.03);min-width:0"><span class="mono" aria-hidden="true" style="width:${size}px;height:${size}px;border-radius:${p.nama ? '50%' : '12px'};background:linear-gradient(140deg,${se.color},${se.deep});color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:${Math.round(size / 3.2)}px;font-weight:700;flex-shrink:0;box-shadow:0 0 14px ${se.b}">${ini(p.nama || shortInst(p.instansi))}</span><span style="display:flex;flex-direction:column;gap:3px;min-width:0"><span style="font-size:15px;font-weight:700;line-height:1.3">${spName(p)}</span><span style="font-size:12px;color:var(--mu2);line-height:1.4">${sub}</span>${meta ? `<span class="mono" style="font-size:11px;color:${se.color};line-height:1.4">${meta}</span>` : ''}</span></div>`; };
+  return `<div style="display:flex;align-items:flex-start;gap:12px;border:1px solid ${se.a};border-radius:14px;padding:10px 12px;background:rgba(255,255,255,.03);min-width:0"><span class="mono" aria-hidden="true" style="width:${size}px;height:${size}px;border-radius:${p.nama ? '50%' : '12px'};background:linear-gradient(140deg,${se.color},${se.deep});color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:${Math.round(size / 3.2)}px;font-weight:700;flex-shrink:0;box-shadow:0 0 14px ${se.b}">${ini(p.nama || shortInst(p.instansi))}</span><span style="display:flex;flex-direction:column;gap:3px;min-width:0"><span style="font-size:15px;font-weight:700;line-height:1.3">${spName(p)}</span>${sub ? `<span style="font-size:12px;color:var(--mu2);line-height:1.4">${sub}</span>` : ''}${meta ? `<span class="mono" style="font-size:11px;color:${se.color};line-height:1.4">${meta}</span>` : ''}</span></div>`; };
 const spList = (x, se, size = 40) => { const l = sp(x), m = modr(x); return (l.length ? l.map((p) => spCard(p, se, size)).join('') : `<div style="border:1px dashed ${se.a};border-radius:14px;padding:12px;font-size:13px;color:var(--mu2)">Narasumber menyusul</div>`) + (m ? `<div class="mono" style="font-size:12px;color:var(--mu2);padding:4px 2px">MODERATOR · <span style="color:var(--tx)">${m}</span></div>` : ''); };
 const tl = (n) => { const t = CONFIG.tautanTopik[n] || {}, m = CONFIG.menti[n] || {}; return { digika: t.digika || '', tanya: t.pertanyaan || '', survei: m.vote || '' }; };
 const joinOf = (x) => { const dg = tl(x.num).digika, zl = zs(x).link || ''; return has(dg) ? { url: dg, via: 'Digika', alt: zl } : { url: zl, via: 'Zoom', alt: '' }; };
@@ -843,7 +843,6 @@ fromHash(); render(false);
 </script>
 </body>
 </html>
-
 
 
 
