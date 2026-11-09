@@ -73,12 +73,13 @@ const CONFIG = {
   // Tautan tambahan per topik (nomor sama dengan Mentimeter di atas). Kosongkan bila belum ada.
   //  digika     : tautan Digika (dipakai sebagai TAUTAN UTAMA untuk bergabung; Zoom menjadi alternatif)
   //  pertanyaan : formulir pertanyaan peserta (dibuka di tab baru)
+  //  survei     : Google Form survei peserta (tombol "Isi survei")
   tautanTopik: {
-    1: { digika: 'https://digika.komdigi.go.id/s/wl9hS3S', pertanyaan: '' },   // Persiapan Penyusunan Draf Awal ASEAN RSDP
-    2: { digika: 'https://digika.komdigi.go.id/s/gGSlMiN', pertanyaan: '' },   // Kesiapan Organisasi dalam Implementasi PP TUNAS
-    3: { digika: 'https://digika.komdigi.go.id/s/TAsG2XL', pertanyaan: '' },   // Lanskap Kebijakan Internet Global
-    4: { digika: 'https://digika.komdigi.go.id/s/XKLVjRm', pertanyaan: 'https://s.komdigi.go.id/FormPertanyaanArahKebijakanTransformasiDigitalNasional2045' },   // Transformasi Digital 2045
-    5: { digika: 'https://digika.komdigi.go.id/s/38ARC27', pertanyaan: '' }    // Eksplorasi Pemanfaatan AI
+    1: { digika: 'https://digika.komdigi.go.id/s/wl9hS3S', pertanyaan: '', survei: 'https://docs.google.com/forms/d/1GPd8obDxb1aPt-q_eHaGeT6rLX9Ctf8oG42OPVA_69Y/viewform' },   // Persiapan Penyusunan Draf Awal ASEAN RSDP
+    2: { digika: 'https://digika.komdigi.go.id/s/gGSlMiN', pertanyaan: '', survei: 'https://docs.google.com/forms/d/e/1FAIpQLSd_hdhMkgL7jp5qpJFcpT0Rc0XpE4wj9X83tbiSM5gnQmDxXQ/viewform' },   // Kesiapan Organisasi dalam Implementasi PP TUNAS
+    3: { digika: 'https://digika.komdigi.go.id/s/TAsG2XL', pertanyaan: '', survei: 'https://docs.google.com/forms/d/e/1FAIpQLSd1xga-Tx_Dkl4h-lf53WruAYjbm7VPEM9VUlBS4SE2rFyFhA/viewform' },   // Lanskap Kebijakan Internet Global
+    4: { digika: 'https://digika.komdigi.go.id/s/XKLVjRm', pertanyaan: 'https://s.komdigi.go.id/FormPertanyaanArahKebijakanTransformasiDigitalNasional2045', survei: 'https://docs.google.com/forms/d/1g_2cx_0cNssd6yyFVNxoO2PHm5aUC46fobo3mXnsUIE/viewform' },   // Transformasi Digital 2045
+    5: { digika: 'https://digika.komdigi.go.id/s/38ARC27', pertanyaan: '', survei: 'https://docs.google.com/forms/d/e/1FAIpQLSfRuthGwArUfWG2K6fiUw-NxUD2CsrSa-Av25ObPyq6g9x4QA/viewform' }    // Eksplorasi Pemanfaatan AI
   },
 
   // Informasi umum dari surat undangan
@@ -443,9 +444,9 @@ const spCard = (p, se, size = 40) => { const sub = p.nama ? [p.jabatan, p.instan
   const meta = [p.jam, p.topik].filter((v) => v && v.trim()).join(' · ');
   return `<div style="display:flex;align-items:flex-start;gap:12px;border:1px solid ${se.a};border-radius:14px;padding:10px 12px;background:rgba(255,255,255,.03);min-width:0"><span class="mono" aria-hidden="true" style="width:${size}px;height:${size}px;border-radius:${p.nama ? '50%' : '12px'};background:linear-gradient(140deg,${se.color},${se.deep});color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:${Math.round(size / 3.2)}px;font-weight:700;flex-shrink:0;box-shadow:0 0 14px ${se.b}">${ini(p.nama || shortInst(p.instansi))}</span><span style="display:flex;flex-direction:column;gap:3px;min-width:0"><span style="font-size:15px;font-weight:700;line-height:1.3">${spName(p)}</span>${sub ? `<span style="font-size:12px;color:var(--mu2);line-height:1.4">${sub}</span>` : ''}${meta ? `<span class="mono" style="font-size:11px;color:${se.color};line-height:1.4">${meta}</span>` : ''}</span></div>`; };
 const spList = (x, se, size = 40) => { const l = sp(x), m = modr(x); return (l.length ? l.map((p) => spCard(p, se, size)).join('') : `<div style="border:1px dashed ${se.a};border-radius:14px;padding:12px;font-size:13px;color:var(--mu2)">Narasumber menyusul</div>`) + (m ? `<div class="mono" style="font-size:12px;color:var(--mu2);padding:4px 2px">MODERATOR · <span style="color:var(--tx)">${m}</span></div>` : ''); };
-const tl = (n) => { const t = CONFIG.tautanTopik[n] || {}, m = CONFIG.menti[n] || {}; return { digika: t.digika || '', tanya: t.pertanyaan || '', survei: m.vote || '' }; };
+const tl = (n) => { const t = CONFIG.tautanTopik[n] || {}, m = CONFIG.menti[n] || {}; return { digika: t.digika || '', tanya: t.pertanyaan || '', survei: t.survei || '', menti: m.vote || '' }; };
 const joinOf = (x) => { const dg = tl(x.num).digika, zl = zs(x).link || ''; return has(dg) ? { url: dg, via: 'Digika', alt: zl } : { url: zl, via: 'Zoom', alt: '' }; };
-const linkChips = (n, se, zoomUrl) => { const t = tl(n); const items = [['ZOOM', zoomUrl || ''], ['PERTANYAAN', t.tanya], ['SURVEI', t.survei]].filter((x) => x[1] && String(x[1]).trim());
+const linkChips = (n, se, zoomUrl) => { const t = tl(n); const items = [['ZOOM', zoomUrl || ''], ['PERTANYAAN', t.tanya], ['SURVEI', t.survei], ['MENTIMETER', t.menti]].filter((x) => x[1] && String(x[1]).trim());
   return items.length ? `<div style="display:flex;flex-wrap:wrap;gap:6px;padding-left:4px">${items.map(([l, u]) => `<a class="mono" href="${u}" target="_blank" rel="noopener" style="min-height:36px;display:inline-flex;align-items:center;gap:6px;border:1px solid ${se.a};border-radius:8px;padding:6px 10px;font-size:11px;font-weight:700;letter-spacing:.06em;color:${se.color}">${l} ↗</a>`).join('')}</div>` : ''; };
 const has = (v) => typeof v === 'string' && v.trim() !== '';
 const ini = (n) => n.replace(/(Dr\.|Eng\.)\s*/g, '').split(/[\s\/–-]+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
@@ -643,6 +644,7 @@ function vSesi() {
           ${has(joinOf(s).url) ? `<a class="btn" href="${joinOf(s).url}" target="_blank" rel="noopener" style="background:linear-gradient(90deg,${se.color},#B9A8FF);color:#05060F;box-shadow:0 0 24px ${se.b}">Masuk Diskusi Virtual ↗</a>` : ''}
           ${has(tl(s.num).tanya) ? `<a class="btn btn-line" href="${tl(s.num).tanya}" target="_blank" rel="noopener">Ajukan pertanyaan ↗</a>` : ''}
           ${has(tl(s.num).survei) ? `<a class="btn btn-line" href="${tl(s.num).survei}" target="_blank" rel="noopener">Isi survei ↗</a>` : ''}
+          ${has(tl(s.num).menti) ? `<a class="btn btn-line" href="${tl(s.num).menti}" target="_blank" rel="noopener">Mentimeter ↗</a>` : ''}
           <button type="button" class="btn btn-line" data-save="${s.key}" aria-pressed="${on}">${on ? '◆ Tersimpan' : '◇ Simpan'}</button>
           ${has(mat) ? `<a class="btn btn-line" href="${mat}" target="_blank" rel="noopener">Bahan sesi ↗</a>` : ''}
         </div>
@@ -711,7 +713,9 @@ function vLive() {
         </div>
         <div id="pn-survei" role="tabpanel" aria-labelledby="tab-survei" class="${S.tab === 'survei' ? '' : 'hidden'}" style="display:flex;flex-direction:column;gap:12px">
           <span style="display:flex;align-items:center;gap:12px">${motif(smk(cur), '44px', se.color, se.b)}<span style="display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:11px;letter-spacing:.12em;color:${se.color}">SURVEI · SESI_0${cur.num}</span><span style="font-size:17px;font-weight:700;line-height:1.3">${cur.title}</span></span></span>
-          ${has(m.vote) ? `<a class="btn btn-glow" href="${m.vote}" target="_blank" rel="noopener">Isi survei ↗</a>` : `<div class="empty">Survei untuk sesi ini belum tersedia.</div>`}
+          ${has(tl(cur.num).survei) ? `<a class="btn btn-glow" href="${tl(cur.num).survei}" target="_blank" rel="noopener">Isi survei ↗</a>` : ''}
+          ${has(m.vote) ? `<a class="btn ${has(tl(cur.num).survei) ? 'btn-line' : 'btn-glow'}" href="${m.vote}" target="_blank" rel="noopener">Mentimeter ↗</a>` : ''}
+          ${!has(tl(cur.num).survei) && !has(m.vote) ? `<div class="empty">Survei untuk sesi ini belum tersedia.</div>` : ''}
           ${has(m.code) ? `<div style="border:1px solid rgba(110,243,255,.3);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;color:var(--mu2)">Atau buka <b>menti.com</b> dan masukkan kode</span><span class="mono" style="font-size:28px;font-weight:700;letter-spacing:.08em;color:var(--cy)">${m.code}</span></div>` : ''}
           ${has(m.embed) ? `<span class="mono label">HASIL LIVE</span><div style="position:relative;aspect-ratio:16/10;border-radius:12px;overflow:hidden;border:1px solid rgba(110,243,255,.3)"><iframe src="${m.embed}" title="Hasil survei Sesi ${cur.num}" style="position:absolute;inset:0;width:100%;height:100%;border:0" allowfullscreen loading="lazy"></iframe></div>` : ''}
         </div>
