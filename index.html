@@ -121,16 +121,16 @@ const CONFIG = {
     hari2: {
       room1: {
         pagi: [   // 04 · Transformasi Digital Nasional Menuju 2045 · Panel I
-          { nama: 'Ricardo Irwan Rei', jabatan: 'Managing Director, Strategic Technology Initiatives', instansi: 'Danantara Indonesia', jam: '09.55–10.20', topik: 'Investasi dan kemampuan industri' },
-          { nama: 'Stanislaus Bawono', jabatan: 'Head of Network Solution Southeast Asia Cluster', instansi: 'Ericsson Indonesia', jam: '10.20–10.45', topik: 'Konektivitas dan teknologi' },
-          { nama: 'Nailul Huda', jabatan: 'Direktur Ekonomi', instansi: 'CELIOS', jam: '10.45–11.10', topik: 'Dampak ekonomi dan distribusi manfaat' },
-          { nama: 'Nenden S. Arum', jabatan: 'Executive Director', instansi: 'SAFEnet', jam: '11.10–11.35', topik: 'Hak dan keamanan digital' }
+          { nama: 'Ricardo Irwan Rei', jabatan: 'Managing Director, Strategic Technology Initiatives', instansi: 'Danantara Indonesia', jam: '09.55–10.35', topik: 'Investasi dan kemampuan industri' },
+          { nama: 'Nailul Huda', jabatan: 'Direktur Ekonomi', instansi: 'CELIOS', jam: '10.35–11.15', topik: 'Dampak ekonomi dan distribusi manfaat' },
+          { nama: 'Nenden S. Arum', jabatan: 'Executive Director', instansi: 'SAFEnet', jam: '11.15–11.50', topik: 'Hak dan keamanan digital' }
         ],
         siang: [  // 04 · Transformasi Digital Nasional Menuju 2045 · Panel II
-          { nama: 'Edwin Purwandesi', jabatan: 'Direktur Digital Business', instansi: 'PERURI', jam: '13.05–13.30', topik: 'Integrasi pelayanan publik' },
+          { nama: 'Edwin Purwandesi', jabatan: 'Direktur Digital Business', instansi: 'PERURI', jam: '13.00–13.30', topik: 'Integrasi pelayanan publik' },
           { nama: '', jabatan: '', instansi: 'PT Telkom Indonesia (Persero) Tbk', jam: '13.30–13.55', topik: 'Regulasi dan implementasi industri' },
           { nama: 'Arryo Harman', jabatan: 'Head, Government and Community Partnership', instansi: 'Grab Indonesia', jam: '13.55–14.20', topik: 'Ekonomi platform dan UMKM' },
-          { nama: 'Iradat Wirid', jabatan: 'Deputy Director', instansi: 'CfDS UGM', jam: '14.20–14.45', topik: 'Bukti penelitian sosial-ekonomi' }
+          { nama: 'Iradat Wirid', jabatan: 'Deputy Director', instansi: 'CfDS UGM', jam: '14.20–14.45', topik: 'Bukti penelitian sosial-ekonomi' },
+          { nama: 'Stanislaus Bawono', jabatan: 'Head of Network Solution Southeast Asia Cluster', instansi: 'Ericsson Indonesia', jam: '14.45–15.10', topik: 'Konektivitas dan teknologi' }
         ]
       },
       room2: {
@@ -373,7 +373,7 @@ const SESI = {
     kL: 'Tentang forum', konteks: 'Forum ini mempertemukan pelaku investasi, industri, akademisi, dan masyarakat sipil untuk memberi masukan tentang arah transformasi digital Indonesia menuju 2045.',
     tL: 'Mengapa dibahas?', tujuan: 'Forum ini membahas bagaimana teknologi dan investasi dapat meningkatkan produktivitas, memperbaiki layanan publik, dan memperluas kesempatan ekonomi.',
     qL: 'Tiga pertanyaan utama', q: [['Manfaat 2045', 'Pada 2045, manfaat apa yang seharusnya dirasakan masyarakat, dunia usaha, dan pengguna layanan publik?'], ['Faktor keberhasilan', 'Apa yang perlu dilakukan agar teknologi, investasi, dan inovasi digital benar-benar meningkatkan produktivitas dan kesejahteraan masyarakat?'], ['Langkah awal 2027–2034', 'Apa yang perlu diperkuat pada 2027–2029, lalu dikembangkan pada 2030–2034?']],
-    lL: 'Susunan panel', lingkup: [['Panel I · 09.30–12.00', 'Investasi, teknologi, ekonomi, dan masyarakat'], ['Panel II · 13.00–15.00', 'Layanan publik, industri, platform, dan akademisi']],
+    lL: 'Susunan panel', lingkup: [['Panel I · 09.30–12.00', 'Investasi, teknologi, ekonomi, dan masyarakat'], ['Panel II · 13.00–15.10', 'Layanan publik, industri, platform, dan akademisi']],
     hasil: 'Pandangan panelis tentang manfaat, hambatan, dan langkah awal 2027–2034 sebagai masukan kajian kebijakan transformasi digital nasional.', catatan: 'Forum menghimpun pandangan, bukan menetapkan keputusan atau komitmen.' },
   5: { name: 'Eksplorasi Pemanfaatan Kecerdasan Artifisial dalam Analisis Kebijakan Publik Berlandaskan Bukti Empiris', format: 'DISKUSI PANEL', tag: 'AI', color: '#B9A8FF', deep: '#4A2FB0', a: 'rgba(185,168,255,.26)', b: 'rgba(185,168,255,.45)',
     kL: 'Konteks pembahasan', konteks: 'ITB dan UNPAR mengembangkan contoh penggunaan AI untuk analisis sentimen publik dan pengolahan data perkotaan yang dapat dipelajari Komdigi.',
@@ -392,7 +392,7 @@ const HARI = [
   { code: 'HARI_02', date: '11.11.2026', long: 'Rabu, 11 November 2026', iso: '2026-11-11', slots: [
     { room: 1, time: '09.30–12.00', num: 4, title: 'Transformasi Digital Nasional Menuju 2045 — Panel I', part: 'Panel I', desc: 'Investasi, teknologi, ekonomi, dan manfaat bagi masyarakat.', parties: [] },
     { room: 2, time: '09.30–12.00', num: 5, title: 'AI untuk Analisis Kebijakan — Sesi ITB', part: 'Sesi I · ITB · Cognitive City', desc: 'Cognitive City: penggunaan AI dan data lintas sektor dalam kebijakan perkotaan.', parties: [] },
-    { room: 1, time: '13.00–15.00', num: 4, title: 'Transformasi Digital Nasional Menuju 2045 — Panel II', part: 'Panel II', desc: 'Layanan publik, industri, platform digital, dan riset sosial.', parties: [] },
+    { room: 1, time: '13.00–15.10', num: 4, title: 'Transformasi Digital Nasional Menuju 2045 — Panel II', part: 'Panel II', desc: 'Layanan publik, industri, platform digital, dan riset sosial.', parties: [] },
     { room: 2, time: '13.00–15.00', num: 5, title: 'AI untuk Analisis Kebijakan — Sesi UNPAR', part: 'Sesi II · UNPAR', desc: 'Pemanfaatan AI untuk analisis sentimen dan persepsi publik atas kebijakan.', parties: [] }
   ] }
 ];
@@ -420,7 +420,7 @@ const $app = document.getElementById('app');
 const at = (iso, hm) => Date.parse(iso + 'T' + hm.replace('.', ':') + ':00+07:00');
 const mins = (hm) => { const [h, m] = hm.split('.').map(Number); return h * 60 + m; };
 const SPAN = mins('15.00') - mins('09.30');
-const T0 = at('2026-11-10', '09.30'), TEND = at('2026-11-11', '15.00');
+const T0 = at('2026-11-10', '09.30'), TEND = at('2026-11-11', '15.10');
 const rgb = (hex) => [1, 3, 5].map((k) => parseInt(hex.slice(k, k + 2), 16)).join(',');
 const zs = (x) => (((CONFIG.zoom || {})['hari' + (x.d + 1)] || {})['room' + x.room] || {})[x.half] || {};
 /* Enam judul utama di halaman depan */
@@ -462,7 +462,7 @@ function slot(d, i) {
   const x = HARI[d].slots[i], se = SESI[x.num], [a, b] = x.time.split('–');
   const half = a === '09.30' ? 'pagi' : 'siang';
   return Object.assign({}, x, { se, d, i, half, halfL: half === 'pagi' ? 'Sesi I' : 'Sesi II', key: d + '-' + i, st: status(HARI[d].iso, x.time),
-    left: ((mins(a) - mins('09.30')) / SPAN * 100).toFixed(2) + '%', width: ((mins(b) - mins(a)) / SPAN * 100).toFixed(2) + '%' });
+    left: ((mins(a) - mins('09.30')) / SPAN * 100).toFixed(2) + '%', width: ((Math.min(mins(b), mins('09.30') + SPAN) - mins(a)) / SPAN * 100).toFixed(2) + '%' });
 }
 const stBadge = (st) => `<span class="mono" style="white-space:nowrap;flex-shrink:0;display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:${st.c}"><span class="${st.dot}" style="width:6px;height:6px;border-radius:50%;background:${st.c}"></span>${st.label}</span>`;
 const motif = (n, size, color, glow) => `<span aria-hidden="true" style="display:block;width:${size};height:${size};color:${color};filter:drop-shadow(0 0 7px ${glow});flex-shrink:0">${MOTIF[n]}</span>`;
