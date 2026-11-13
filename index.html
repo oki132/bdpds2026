@@ -68,7 +68,25 @@ const CONFIG = {
   },
 
   // Bahan / panduan sesi per topik (nomor sama seperti di atas)
-  materi: { 1: '', 2: '', 3: '', 4: '', 5: '' },
+  materi: {
+    1: 'https://drive.google.com/drive/folders/1fDcwBW_B6tpBDj5fM1EAcpOLU0Rfu4f8',   // Persiapan Penyusunan Draf Awal ASEAN RSDP
+    2: 'https://drive.google.com/drive/folders/1eN7nF0ggHt_OlGRmYtSIwBNaaQbkqg22',   // Kesiapan Organisasi dalam Implementasi PP TUNAS
+    3: 'https://drive.google.com/drive/folders/1sVSAr3yJri__LE8nKLXgYWh45Obgq2KR',   // Lanskap Kebijakan Internet Global
+    4: 'https://drive.google.com/drive/folders/1CLFRVePuw4-CgwItp1x5dJNvmDEArrkc',   // Transformasi Digital 2045
+    5: 'https://drive.google.com/drive/folders/1YVwa3HLL04S4iI-s-zUzrOIVF_-wUXLu'    // Eksplorasi Pemanfaatan AI
+  },
+
+  // Rekaman Zoom per topik (satu video per acara; acara dua sesi memakai video yang sama).
+  // Tempel link FILE video Google Drive (Bagikan > Salin link, akses "Siapa saja yang memiliki link"),
+  // mis. https://drive.google.com/file/d/ABC123/view?usp=sharing  - otomatis jadi pemutar di halaman.
+  // Link YouTube juga bisa. Kosongkan bila belum ada (bagian rekaman tidak tampil).
+  rekaman: {
+    1: 'https://drive.google.com/file/d/1DNgR4DGeMRhcPcqr1agXvju7G0qQUXZN/view',   // Persiapan Penyusunan Draf Awal ASEAN RSDP
+    2: 'https://drive.google.com/file/d/1eSD-A5VU5gpGh_cDkDRy97WOQYZgOk3k/view',   // Kesiapan Organisasi dalam Implementasi PP TUNAS
+    3: 'https://drive.google.com/file/d/1hlq1V39RS7tzygHWpjj4NjwZrDdqQmCK/view',   // Lanskap Kebijakan Internet Global
+    4: 'https://drive.google.com/file/d/1fR4oY5l5GifWQjzCo80PXzFkl8LOGHJQ/view',   // Transformasi Digital 2045
+    5: 'https://drive.google.com/file/d/1jXPtkUxrJgEmwVB06xX3pTn5oujLBi29/view'    // Eksplorasi Pemanfaatan AI
+  },
 
   // Tautan tambahan per topik (nomor sama dengan Mentimeter di atas). Kosongkan bila belum ada.
   //  digika     : tautan Digika (dipakai sebagai TAUTAN UTAMA untuk bergabung; Zoom menjadi alternatif)
@@ -347,7 +365,7 @@ h1,h2,h3,p{overflow-wrap:break-word}
 window.__mainStarted = true;
 /* Pengaman: bila blok PENGATURAN rusak/kurang lengkap, situs tetap berjalan */
 if (typeof CONFIG === 'undefined') { window.CONFIG = {}; if (!window.__cfgErr) window.__cfgErr = 'Blok PENGATURAN tidak terbaca'; }
-(function () { var d = { zoom: {}, embedVideo: {}, tanyaForm: '', menti: {}, materi: {}, info: {}, narasumber: {}, moderator: {}, tautanTopik: {} };
+(function () { var d = { zoom: {}, embedVideo: {}, tanyaForm: '', menti: {}, materi: {}, rekaman: {}, info: {}, narasumber: {}, moderator: {}, tautanTopik: {} };
   for (var k in d) { if (CONFIG[k] === undefined || CONFIG[k] === null || typeof CONFIG[k] !== typeof d[k]) CONFIG[k] = d[k]; } })();
 /* ===================== DATA ACARA (dari surat undangan B-1060/SJ.9/PR.01.01/11/2026) ===================== */
 const SESI = {
@@ -449,6 +467,16 @@ const joinOf = (x) => { const dg = tl(x.num).digika, zl = zs(x).link || ''; retu
 const linkChips = (n, se, zoomUrl) => { const t = tl(n); const items = [['ZOOM', zoomUrl || ''], ['PERTANYAAN', t.tanya], ['SURVEI', t.survei], ['MENTIMETER', t.menti]].filter((x) => x[1] && String(x[1]).trim());
   return items.length ? `<div style="display:flex;flex-wrap:wrap;gap:6px;padding-left:4px">${items.map(([l, u]) => `<a class="mono" href="${u}" target="_blank" rel="noopener" style="min-height:36px;display:inline-flex;align-items:center;gap:6px;border:1px solid ${se.a};border-radius:8px;padding:6px 10px;font-size:11px;font-weight:700;letter-spacing:.06em;color:${se.color}">${l} ↗</a>`).join('')}</div>` : ''; };
 const has = (v) => typeof v === 'string' && v.trim() !== '';
+const recUrl = (n) => { const u = (CONFIG.rekaman || {})[n]; return has(u) ? u.trim() : ''; };
+const recSrc = (n) => { const u = recUrl(n); if (!u) return '';
+  let m = u.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?id=)([\w-]+)/); if (m) return 'https://drive.google.com/file/d/' + m[1] + '/preview';
+  m = u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|live\/|shorts\/))([\w-]{6,})/); if (m) return 'https://www.youtube.com/embed/' + m[1];
+  return u; };
+const recBlock = (n, se, title) => { const src = recSrc(n); if (!src) return '';
+  return `<div class="panel brk" style="padding:18px;display:flex;flex-direction:column;gap:12px">
+    <span style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px"><span class="mono" style="font-size:11px;letter-spacing:.14em;color:${se.color}">▶ REKAMAN DISKUSI · SESI_0${n}</span><a class="mono" href="${recUrl(n)}" target="_blank" rel="noopener" style="font-size:12px;color:var(--cy)">Buka di tab baru ↗</a></span>
+    <div style="position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid ${se.a};background:#05060F"><iframe src="${src}" title="Rekaman ${title}" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe></div>
+  </div>`; };
 const ini = (n) => n.replace(/(Dr\.|Eng\.)\s*/g, '').split(/[\s\/–-]+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
 const first = (n) => { for (let d = 0; d < 2; d++) for (let i = 0; i < 4; i++) if (HARI[d].slots[i].num === n) return { d, i, x: HARI[d].slots[i] }; };
 
@@ -650,6 +678,7 @@ function vSesi() {
         </div>
       </div>
     </div>
+    ${recBlock(s.num, se, s.title)}
     <div class="mat2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px">
       ${[[se.kL, se.konteks], [se.tL, se.tujuan]].map(([l, t]) => `<div class="panel brk" style="padding:18px;display:flex;flex-direction:column;gap:8px"><span class="mono" style="font-size:11px;letter-spacing:.14em;color:${se.color}">${l.toUpperCase()}</span><span style="font-size:16px;line-height:1.6;color:#D6DCF2">${t}</span></div>`).join('')}
     </div>
@@ -701,6 +730,7 @@ function vLive() {
           ${has(joinOf(cur).url) ? `<a class="btn btn-glow" style="flex:1 1 220px" href="${joinOf(cur).url}" target="_blank" rel="noopener">Masuk Diskusi Virtual ↗</a>` : `<span class="btn btn-glow" style="flex:1 1 220px" aria-disabled="true">Tautan belum tersedia</span>`}
           <button type="button" class="btn btn-line" style="flex:1 1 200px" data-sesi="${cur.d}-${cur.i}">Detail sesi</button>
         </div>
+        ${recBlock(cur.num, se, cur.title)}
         <div style="display:flex;flex-direction:column;gap:10px"><span class="mono label">NARASUMBER · ${cur.halfL.toUpperCase()} · RUANG VIRTUAL ${S.room}</span>
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:10px">${spList(cur, se, 40)}</div></div>
       </div>
